@@ -1,0 +1,45 @@
+{
+  "name": "reactjs-global-mentoring-program-2020q3",
+  "version": "1.0.0",
+  "description": "ReactJS course",
+  "private": true,
+  "scripts": {
+    "build-dev": "npx webpack --mode development",
+    "build-prod": "npx webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.epam.com/yahor_hlushak/reactjs-global-mentoring-program-2020q3.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "reactjs"
+  ],
+  "author": "Yahor Hlushak<Yahor_Hlushak@epam.com>",
+  "license": "ISC",
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.0.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "jest": "^26.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "redux": "^4.0.5"
+  }
+}
