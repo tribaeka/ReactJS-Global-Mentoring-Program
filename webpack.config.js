@@ -16,6 +16,8 @@ const babelOptions = preset => {
     return options;
 }
 
+const host = process.env.HOST || 'localhost';
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
@@ -23,7 +25,7 @@ module.exports = {
         main: ['@babel/polyfill', './index.jsx']
     },
     output: {
-        filename: '[name].[contenthash].js',
+        filename: process.env.production ? '[name].[chunkHash].js' : '[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -31,7 +33,8 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: './index.html'
+            template: './index.html',
+            favicon: './assets/favicon.ico'
         }),
         new CleanWebpackPlugin()
     ],
@@ -62,5 +65,13 @@ module.exports = {
                 }
             }
         ]
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, './index.html'),
+        compress: true,
+        hot: true,
+        host,
+        port: 3000,
+        publicPath: '/'
     }
 }
