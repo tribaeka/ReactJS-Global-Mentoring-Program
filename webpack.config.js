@@ -8,20 +8,6 @@ const TerserWebpackPlugin = require('terser-webpack-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
 
-const babelOptions = preset => {
-    const options = {
-        presets: [
-            '@babel/preset-env'
-        ]
-    };
-
-    if (preset) {
-        options.presets.push(preset);
-    }
-
-    return options;
-}
-
 const outputFileName = (extension = 'js') => isProd ? `[name].[chunkHash].${extension}` : `[name].${extension}`;
 
 const optimization = () => {
@@ -46,14 +32,14 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        main: ['@babel/polyfill', './index.jsx']
+        main: ['@babel/polyfill', './index.tsx']
     },
     output: {
         filename: outputFileName('js'),
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.tsx']
     },
     optimization: optimization(),
     plugins: [
@@ -90,19 +76,17 @@ module.exports = {
                 use: ['file-loader']
             },
             {
-                test: /\.js$/,
+                test: /\.tsx$/,
                 exclude: /node_modules/,
                 loader: {
                     loader: 'babel-loader',
-                    options: babelOptions()
-                }
-            },
-            {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                loader: {
-                    loader: 'babel-loader',
-                    options: babelOptions('@babel/preset-react')
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                            '@babel/preset-typescript'
+                        ]
+                    }
                 }
             }
         ]
