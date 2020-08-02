@@ -28,25 +28,6 @@ const optimization = () => {
 
 }
 
-const jsxLoaders = () => {
-    const loaders = [{
-        loader: 'babel-loader',
-        options: {
-            presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-                '@babel/preset-typescript'
-            ]
-        }
-    }];
-
-    if (isDev) {
-        loaders.push('eslint-loader');
-    }
-
-    return loaders;
-}
-
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
