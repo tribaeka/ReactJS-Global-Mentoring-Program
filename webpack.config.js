@@ -28,6 +28,25 @@ const optimization = () => {
 
 }
 
+const jsxLoaders = () => {
+    const loaders = [{
+        loader: 'babel-loader',
+        options: {
+            presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript'
+            ]
+        }
+    }];
+
+    if (isDev) {
+        loaders.push('eslint-loader');
+    }
+
+    return loaders;
+}
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
@@ -58,6 +77,34 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
+                enforce: 'pre',
+                use: [
+                    {
+                        options: {
+                            eslintPath: require.resolve('eslint'),
+
+                        },
+                        loader: require.resolve('eslint-loader'),
+                    },
+                ],
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                loader: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                            '@babel/preset-typescript'
+                        ]
+                    }
+                }
+            },
+            {
                 test: /\.s[ac]ss$/,
                 use: [
                     {
@@ -74,20 +121,6 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader']
-            },
-            {
-                test: /\.tsx$/,
-                exclude: /node_modules/,
-                loader: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-react',
-                            '@babel/preset-typescript'
-                        ]
-                    }
-                }
             }
         ]
     },
@@ -96,5 +129,6 @@ module.exports = {
         hot: isDev,
         port: 3000,
         publicPath: '/'
-    }
+    },
+    devtool: isDev ? 'source-map' : ''
 }

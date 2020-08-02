@@ -2,6 +2,6 @@ import * as React from "react";
 
 export default function App() {
     return (
-        <h2>Hello ts-react</h2>
+        <h1>Hello ts-react</h1>
     );
 }
