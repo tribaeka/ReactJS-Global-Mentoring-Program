@@ -1,7 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 
-export default function App() {
-    return (
-        <h1>Hello ts-react</h1>
-    );
-}
+const App = () => <h1>Hello ts-react</h1>;
+
+export default App;
