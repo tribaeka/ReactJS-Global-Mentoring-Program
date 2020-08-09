@@ -1,0 +1,15 @@
+@mixin btn-skeleton ($padding, $color, $background, $font-size: 18px) {
+  padding: $padding;
+  color: $color;
+  background: $background;
+  font-size: $font-size;
+  border-radius: 4px;
+  border: 0;
+}
+
+//@function apply-darkness($dark-rate) {
+//  $return linear-gradient(
+//rgba(0, 0, 0, $dark-rate),
+//rgba(0, 0, 0, $dark-rate)
+//)
+//}

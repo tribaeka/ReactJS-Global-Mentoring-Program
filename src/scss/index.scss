@@ -1,4 +1,9 @@
 @import "roboto.scss";
 
 @import "styles";
+
 @import "../app/App";
+@import "../home/homePage";
+@import "../home/header/header";
+@import "../home/header/header-search-input/headerSearchInput";
+@import "../home/header/header-action-bar/headerActionBar";

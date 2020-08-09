@@ -1,0 +1,37 @@
+@import "../../../scss/colors";
+@import "../../../scss/mixinsAndFunctions";
+
+$search-input-form-height: 80px;
+$search-input-form-top-margin: 30px;
+$search-input-form-elements-height: $search-input-form-height - $search-input-form-top-margin;
+.search-input-wrapper {
+  height: 60%;
+  margin: 0 25%;
+
+  .search-heading {
+    color: #fff;
+    font-size: 36px;
+  }
+
+  .search-form {
+    height: $search-input-form-height;
+    margin-top: $search-input-form-top-margin;
+
+    .search-input {
+      display: inline-block;
+      padding: 15px;
+      width: 70%;
+      font-size: 18px;
+      background: #000;
+      opacity: 0.85;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      border-radius: 4px;
+      border: 0;
+      margin-right: 10px;
+    }
+    .search-submit-btn {
+      @include btn-skeleton(15px 75px, #fff, $light-coral-color);
+    }
+  }
+}
