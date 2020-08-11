@@ -1,3 +1,5 @@
+@import "../../scss/globalVars";
+
 $header-height: 40%;
 
 .home-header-background {
@@ -15,9 +17,13 @@ $header-height: 40%;
   width: 100%;
   position: absolute;
   filter: blur(2px);
-  z-index: -1;
+  z-index: 0;
 }
 
 .home-header {
   height: $header-height;
+  display: grid;
+  grid-template-rows: 3fr 7fr;
+  align-items: center;
+  margin: 0 $inner-horizontal-padding-margin;
 }

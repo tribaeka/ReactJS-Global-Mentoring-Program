@@ -1,0 +1,21 @@
+.movies-navigation-container {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  font-size: 1.2em;
+
+  &:after {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 1em;
+    padding-top: 0.1em;
+    content: '';
+
+    background: #f65261;
+    background: -moz-linear-gradient(left,  #f65261 0%, #f65261 2%, #424242 2%, #424242 2%, #424242 100%);
+    background: -webkit-linear-gradient(left,  #f65261 0%,#f65261 2%,#424242 2%,#424242 2%,#424242 100%);
+    background: linear-gradient(to right,  #f65261 0%,#f65261 2%,#424242 2%,#424242 2%,#424242 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f65261', endColorstr='#424242',GradientType=1 );
+
+  }
+}
+

@@ -3,8 +3,11 @@ html, body, #root {
     margin: 0;
     height: 100%;
     width: 100%;
+    color: #fff;
+    background: #555555;
 }
 
+// Reset default button style
 button {
     padding: 0;
     border: none;
@@ -12,4 +15,10 @@ button {
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

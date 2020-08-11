@@ -1,8 +1,8 @@
 import React from 'react';
 
-const HeaderSearchInput = () => {
+const SearchInput = () => {
     return (
-        <div className="search-input-wrapper">
+        <div className="search-input-container">
             <span className="search-heading">FIND YOUR MOVIE</span>
             <form className="search-form">
                 <input className="search-input" type="text" placeholder={'What do you want to watch?'}/>
@@ -12,4 +12,4 @@ const HeaderSearchInput = () => {
     )
 }
 
-export default HeaderSearchInput;
+export default SearchInput;

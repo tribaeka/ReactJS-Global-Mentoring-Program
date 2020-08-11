@@ -1,4 +1,4 @@
-@mixin btn-skeleton ($padding, $color, $background, $font-size: 18px) {
+@mixin btn-skeleton ($padding, $color, $background, $font-size: 1.2em) {
   padding: $padding;
   color: $color;
   background: $background;
@@ -7,9 +7,17 @@
   border: 0;
 }
 
-//@function apply-darkness($dark-rate) {
-//  $return linear-gradient(
-//rgba(0, 0, 0, $dark-rate),
-//rgba(0, 0, 0, $dark-rate)
-//)
-//}
+@mixin arrow-toggler($color, $size, $isDownDirected: false) {
+  border: solid $color;
+  border-width: 0 $size $size 0;
+  display: inline-block;
+  padding: $size;
+
+  @if $isDownDirected {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  } @else {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+}

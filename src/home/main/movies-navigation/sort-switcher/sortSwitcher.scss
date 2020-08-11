@@ -1,0 +1,15 @@
+@import "../../../../scss/mixinsAndFunctions";
+@import "../../../../scss/colors";
+
+.sort-switcher {
+  justify-self: flex-end;
+  padding: 0.2em 0;
+
+  .sort-switcher-option {
+    margin: 0 1em 0 2em;
+  }
+
+  .arrow-down {
+    @include arrow-toggler($light-coral-color, 0.2em, true)
+  }
+}

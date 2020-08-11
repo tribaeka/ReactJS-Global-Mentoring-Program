@@ -1,14 +1,14 @@
 import React from 'react';
-import HeaderSearchInput from './header-search-input/HeaderSearchInput';
-import HeaderActionBar from './header-action-bar/HeaderActionBar';
+import ActionBar from './action-bar/ActionBar';
+import SearchInput from './search-input/SearchInput';
 
 const Header = () => {
     return (
         <>
             <div className="home-header-background"/>
             <div className="home-header">
-                <HeaderActionBar/>
-                <HeaderSearchInput/>
+                <ActionBar/>
+                <SearchInput/>
             </div>
         </>
 
