@@ -65,7 +65,7 @@ const testData: IMoviesItem[] = [
 const SearchResults = () => {
     return (
       <div className="search-results-container">
-          <ResultsCounter/>
+          <ResultsCounter moviesFound={testData.length}/>
           <IMoviesList movies={testData}/>
       </div>
     );

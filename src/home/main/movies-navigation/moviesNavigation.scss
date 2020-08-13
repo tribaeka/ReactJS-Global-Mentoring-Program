@@ -1,6 +1,7 @@
 .movies-navigation-container {
   display: grid;
   grid-template-columns: 7fr 3fr;
+  align-items: center;
   font-size: 1.2em;
 
   &:after {
