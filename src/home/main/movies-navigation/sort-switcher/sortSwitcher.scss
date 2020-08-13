@@ -29,7 +29,7 @@ $dropdown-border: 1px solid #424242;
       @include arrow-toggler($light-coral-color, 0.2em, false);
     }
 
-    .sort-switcher-option, .sort-switcher-active-option {
+    .sort-switcher-active-option {
       padding: 0.5em 2em;
       cursor: pointer;
     }
@@ -45,11 +45,12 @@ $dropdown-border: 1px solid #424242;
       position: absolute;
       background-color: #232323;
       min-width: 8em;
-      border-bottom: $dropdown-border;
-      border-left: $dropdown-border;
-      // border-right: $dropdown-border;
 
       .sort-switcher-option {
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-left: 2em;
+        padding: 0.5em 2em;
 
         &:hover {
           background: #555555;
