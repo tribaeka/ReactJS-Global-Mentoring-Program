@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultsCounter from './results-counter/ResultsCounter';
-import MoviesList from './movies-list/MoviesList';
+import IMoviesList from './movies-list/IMoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
 
 const testData: IMoviesItem[] = [
@@ -66,7 +66,7 @@ const SearchResults = () => {
     return (
       <div className="search-results-container">
           <ResultsCounter/>
-          <MoviesList movies={testData}/>
+          <IMoviesList movies={testData}/>
       </div>
     );
 }

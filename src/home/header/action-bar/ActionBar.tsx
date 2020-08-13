@@ -3,7 +3,7 @@ import React from 'react';
 const ActionBar = () => {
     return (
         <div className="action-bar-container">
-            <span className="brand">[WIP]test logo</span>
+            <h3 className="brand">My own netflix roulette</h3>
             <button className="add-movie-btn">+ ADD MOVIE</button>
         </div>
     );

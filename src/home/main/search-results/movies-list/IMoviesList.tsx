@@ -2,7 +2,7 @@ import React from 'react';
 import MoviesListItem from './movies-list-item/MoviesListItem';
 import { IMoviesItem } from './IMoviesItem';
 
-const MoviesList = (props: { movies: IMoviesItem[] }) => {
+const IMoviesList = (props: { movies: IMoviesItem[] }) => {
     return (
       <ul className="movies-list">
           {
@@ -15,4 +15,4 @@ const MoviesList = (props: { movies: IMoviesItem[] }) => {
     );
 }
 
-export default MoviesList;
+export default IMoviesList;
