@@ -1,12 +1,40 @@
-import React from 'react';
+import './../../../../../typings.d.ts'
+import React, { useState, MouseEvent } from 'react';
 import { IMoviesItem } from '../IMoviesItem';
+import defaultMovieImage from './../../../../../assets/default-movie.png'
 
 const MoviesListItem = (props: {movie: IMoviesItem}) => {
-    const defaultImagePath = 'https://media.comicbook.com/files/img/default-movie.png';
+    const [isDropdownToggled, setIsDropdownToggled] = useState(false);
+
+    function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
+        event.preventDefault();
+        setIsDropdownToggled(true);
+    }
+
+    function toggleOffDropdown(event: MouseEvent<HTMLDivElement>): void {
+        event.preventDefault();
+        setIsDropdownToggled(false);
+    }
 
     return (
       <>
-          <img src={defaultImagePath} width={320} height={450} alt=""/>
+          <div className="image-container">
+              <div onClick={toggleOnDropdown}
+                   className={!isDropdownToggled ? 'dot-btn' : 'hidden-mask'}/>
+              <div className={isDropdownToggled ? 'dot-btn-dropdown' : 'hidden-mask'}>
+                  <ul className="dot-btn-dropdown-list">
+                      <li className="dot-btn-dropdown-list-close-item">
+                          <div onClick={toggleOffDropdown}
+                               className="dot-btn-dropdown-list-close-btn">
+                              &times;
+                          </div>
+                      </li>
+                      <li className="dot-btn-dropdown-list-item">Edit</li>
+                      <li className="dot-btn-dropdown-list-item">Delete</li>
+                  </ul>
+              </div>
+              <img className="movies-image" src={defaultMovieImage} alt=""/>
+          </div>
           <div className="movie-description">
               <span className="movie-description-title">
                   {props.movie.title}
