@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GenreFilter = () => {
+const GenreFilter: React.FC = () => {
     return (
         <ul className="genre-list">
             <li className="genre-list-item">ALL</li>

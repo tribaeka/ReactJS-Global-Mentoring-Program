@@ -2,8 +2,13 @@ import './../../../../../typings.d.ts'
 import React, { useState, MouseEvent } from 'react';
 import { IMoviesItem } from '../IMoviesItem';
 import defaultMovieImage from './../../../../../assets/default-movie.png'
+import CloseBtn, { CloseBtnSizes } from '../../../../../shared/closeBtn/CloseBtn';
 
-const MoviesListItem = (props: {movie: IMoviesItem}) => {
+interface MoviesListItemProps {
+    movie: IMoviesItem;
+}
+
+const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
@@ -24,10 +29,7 @@ const MoviesListItem = (props: {movie: IMoviesItem}) => {
               <div className={isDropdownToggled ? 'dot-btn-dropdown' : 'hidden-mask'}>
                   <ul className="dot-btn-dropdown-list">
                       <li className="dot-btn-dropdown-list-close-item">
-                          <div onClick={toggleOffDropdown}
-                               className="dot-btn-dropdown-list-close-btn">
-                              &times;
-                          </div>
+                          <CloseBtn clickHandler={toggleOffDropdown} size={CloseBtnSizes.SMALL}/>
                       </li>
                       <li className="dot-btn-dropdown-list-item">Edit</li>
                       <li className="dot-btn-dropdown-list-item">Delete</li>
@@ -37,14 +39,14 @@ const MoviesListItem = (props: {movie: IMoviesItem}) => {
           </div>
           <div className="movie-description">
               <span className="movie-description-title">
-                  {props.movie.title}
+                  {movie.title}
               </span>
               <span className="movie-description-year">
-                  {props.movie.year}
+                  {movie.year}
               </span>
           </div>
           <span className="movies-sub-description">
-              {props.movie.subTitle}
+              {movie.subTitle}
           </span>
       </>
     );

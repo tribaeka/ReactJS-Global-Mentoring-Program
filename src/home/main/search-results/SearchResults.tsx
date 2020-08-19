@@ -62,7 +62,7 @@ const testData: IMoviesItem[] = [
     }
 ];
 
-const SearchResults = () => {
+const SearchResults: React.FC = () => {
     return (
       <div className="search-results-container">
           <ResultsCounter moviesFound={testData.length}/>

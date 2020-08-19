@@ -39,7 +39,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.js', '.tsx']
+        extensions: ['.js', '.ts', '.tsx']
     },
     optimization: optimization(),
     plugins: [

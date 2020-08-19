@@ -59,6 +59,7 @@
 
         &:hover {
           background: $light-coral-color;
+          cursor: pointer;
         }
 
       }
@@ -67,19 +68,6 @@
         display: flex;
         justify-content: flex-end;
         padding: 0 0.5em;
-
-        .dot-btn-dropdown-list-close-btn {
-          font-size: 1.25em;
-          width: 24px;
-          height: 24px;
-          text-align: center;
-          cursor: pointer;
-          color: #555555;
-
-          &:hover {
-            color: #fff;
-          }
-        }
       }
     }
   }

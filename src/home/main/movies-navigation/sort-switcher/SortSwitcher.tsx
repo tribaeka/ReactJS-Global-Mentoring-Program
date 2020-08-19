@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SortSwitcher = () => {
+const SortSwitcher: React.FC = () => {
     const options = ['RELEASE DATE', 'RELEVANT']
     const [activeOption, setActiveOption] = useState(options[0])
 

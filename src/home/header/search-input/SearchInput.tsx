@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchInput = () => {
+const SearchInput: React.FC = () => {
 
     function executeSearch() {
         console.log('search executing')

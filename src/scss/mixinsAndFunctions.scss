@@ -1,10 +1,10 @@
-@mixin btn-skeleton ($padding, $color, $background, $font-size: 1.2em) {
+@mixin btn-skeleton ($padding, $color, $background, $border: 0, $font-size: 1.2em) {
   padding: $padding;
   color: $color;
   background: $background;
   font-size: $font-size;
   border-radius: 4px;
-  border: 0;
+  border: $border;
 }
 
 @mixin arrow-toggler($color, $size, $isDownDirected: false) {

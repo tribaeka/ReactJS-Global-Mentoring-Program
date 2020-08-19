@@ -2,7 +2,7 @@ import React from 'react';
 import ActionBar from './action-bar/ActionBar';
 import SearchInput from './search-input/SearchInput';
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <>
             <div className="home-header-background"/>
