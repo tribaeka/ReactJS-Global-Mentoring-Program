@@ -4,7 +4,10 @@ import Main from './main/Main';
 import Footer from './footer/Footer';
 import { useSelector } from 'react-redux';
 import { PopupState } from '../stores/reducers/PopupsReducer';
-import AddMoviePopup from '../popups/addMoviePopup/AddMoviePopup';
+import AddMoviePopup from '../popups/moviePopup/addMoviePopup/AddMoviePopup';
+import EditMoviePopup from '../popups/moviePopup/editMoviePopup/EditMoviePopup';
+import DeleteMoviePopup from '../popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
+
 
 
 const HomePage: React.FC = () => {
@@ -19,6 +22,10 @@ const HomePage: React.FC = () => {
         switch (popupName) {
             case 'addMoviePopup':
                 return <AddMoviePopup/>;
+            case 'editMoviePopup':
+                return <EditMoviePopup/>;
+            case 'deleteMoviePopup':
+                return <DeleteMoviePopup/>;
             default:
                 return ''
         }

@@ -1,0 +1,29 @@
+.movie-popup {
+  width: 600px;
+  padding: 0 3em 2em 3em;
+  background: #232323;
+  color: white;
+
+  .movie-popup-close-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .delete-confirm-btn {
+    @include btn-skeleton(
+                    $big-btn-padding,
+                    $light-coral-color,
+                    #232323,
+                    1px solid $light-coral-color
+    );
+
+    &:hover {
+      @include btn-skeleton(
+                      $big-btn-padding,
+                      #fff,
+                      $light-coral-color,
+                      1px solid $light-coral-color
+      );
+    }
+  }
+}

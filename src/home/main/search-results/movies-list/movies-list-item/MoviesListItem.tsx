@@ -3,6 +3,7 @@ import React, { useState, MouseEvent } from 'react';
 import { IMoviesItem } from '../IMoviesItem';
 import defaultMovieImage from './../../../../../assets/default-movie.png'
 import CloseBtn, { CloseBtnSizes } from '../../../../../shared/closeBtn/CloseBtn';
+import { useDispatch } from 'react-redux';
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -10,6 +11,15 @@ interface MoviesListItemProps {
 
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
+    const dispatch = useDispatch();
+
+    function openEditMoviePopup() {
+        dispatch({type: 'OPEN_MOVIE_POPUP', payload: 'editMoviePopup'})
+    }
+
+    function openDeleteMoviePopup() {
+        dispatch({type: 'OPEN_MOVIE_POPUP', payload: 'deleteMoviePopup'})
+    }
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
         event.preventDefault();
@@ -31,8 +41,8 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
                       <li className="dot-btn-dropdown-list-close-item">
                           <CloseBtn clickHandler={toggleOffDropdown} size={CloseBtnSizes.SMALL}/>
                       </li>
-                      <li className="dot-btn-dropdown-list-item">Edit</li>
-                      <li className="dot-btn-dropdown-list-item">Delete</li>
+                      <li className="dot-btn-dropdown-list-item" onClick={openEditMoviePopup}>Edit</li>
+                      <li className="dot-btn-dropdown-list-item" onClick={openDeleteMoviePopup}>Delete</li>
                   </ul>
               </div>
               <img className="movies-image" src={defaultMovieImage} alt=""/>
