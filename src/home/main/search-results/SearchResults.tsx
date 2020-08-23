@@ -9,56 +9,64 @@ const testData: IMoviesItem[] = [
         title: 'Pulp Fiction',
         year: 2004,
         subTitle: 'Action & Adventure',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 1,
         title: 'Bohemian Rhapsody',
         year: 2003,
         subTitle: 'Drama, Biography, Music',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 2,
         title: 'Kill Bill: Vol 2',
         year: 1994,
         subTitle: 'Oscar winning Movie',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 3,
         title: 'Avengers: War of Infinity',
         year: 2004,
         subTitle: 'Action & Adventure',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 4,
         title: 'Inception',
         year: 2003,
         subTitle: 'Action & Adventure',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 5,
         title: 'Reservoir dogs',
         year: 1994,
         subTitle: 'Oscar winning Movie',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 6,
         title: 'Reservoir dogs',
         year: 1994,
         subTitle: 'Oscar winning Movie',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     },
     {
         id: 7,
         title: 'Reservoir dogs',
         year: 1994,
         subTitle: 'Oscar winning Movie',
-        imagePath: ''
+        imagePath: '',
+        movieURL: 'google.com'
     }
 ];
 

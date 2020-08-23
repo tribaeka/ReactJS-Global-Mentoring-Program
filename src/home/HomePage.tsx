@@ -3,7 +3,7 @@ import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
 import { useSelector } from 'react-redux';
-import { PopupState } from '../stores/reducers/PopupsReducer';
+import { IMoviePopupsState } from '../stores/reducers/MoviePopupsReducer';
 import AddMoviePopup from '../popups/moviePopup/addMoviePopup/AddMoviePopup';
 import EditMoviePopup from '../popups/moviePopup/editMoviePopup/EditMoviePopup';
 import DeleteMoviePopup from '../popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
@@ -11,21 +11,27 @@ import DeleteMoviePopup from '../popups/moviePopup/deleteMoviePopup/DeleteMovieP
 
 
 const HomePage: React.FC = () => {
-    const isPopupOpened = useSelector<PopupState, PopupState["isPopupOpened"]>(
+    const isPopupOpened = useSelector<IMoviePopupsState, IMoviePopupsState["isPopupOpened"]>(
         state => state.isPopupOpened
     )
-    const popupName = useSelector<PopupState, PopupState["popupName"]>(
+    const popupName = useSelector<IMoviePopupsState, IMoviePopupsState["popupName"]>(
         state => state.popupName
+    )
+    const popupTitle = useSelector<IMoviePopupsState, IMoviePopupsState["popupTitle"]>(
+        state => state.popupTitle
+    )
+    const popupData = useSelector<IMoviePopupsState, IMoviePopupsState["movie"]>(
+        state => state.movie
     )
 
     function getActivePopup() {
         switch (popupName) {
             case 'addMoviePopup':
-                return <AddMoviePopup/>;
+                return <AddMoviePopup title={popupTitle}/>;
             case 'editMoviePopup':
-                return <EditMoviePopup/>;
+                return <EditMoviePopup title={popupTitle} movie={popupData}/>;
             case 'deleteMoviePopup':
-                return <DeleteMoviePopup/>;
+                return <DeleteMoviePopup title={popupTitle} movie={popupData}/>;
             default:
                 return ''
         }

@@ -2,8 +2,9 @@ import React from 'react';
 import CloseBtn, { CloseBtnSizes } from '../../../shared/closeBtn/CloseBtn';
 import { useDispatch } from 'react-redux';
 import MovieForm from '../../../shared/movieForm/MovieForm';
+import { IMoviePopupProps } from '../IMoviePopupProps';
 
-const AddMoviePopup: React.FC = () => {
+const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title }) => {
 
     const dispatch = useDispatch();
 
@@ -16,7 +17,7 @@ const AddMoviePopup: React.FC = () => {
             <div className="movie-popup-close-btn">
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
-            <h1>ADD MOVIE</h1>
+            <h1>{title}</h1>
             <MovieForm/>
         </div>
     );

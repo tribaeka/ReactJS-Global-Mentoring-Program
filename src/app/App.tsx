@@ -1,12 +1,12 @@
 import React from 'react';
 import HomePage from '../home/HomePage';
 import { Provider } from 'react-redux';
-import { popupsStore } from '../stores/PopupsStore';
+import { moviePopupsStore } from '../stores/MoviePopupsStore';
 
 
 const App: React.FC = () => {
     return (
-        <Provider store={popupsStore}>
+        <Provider store={moviePopupsStore}>
             <HomePage/>
         </Provider>
     );

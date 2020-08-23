@@ -14,11 +14,11 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const dispatch = useDispatch();
 
     function openEditMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: 'editMoviePopup'})
+        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'editMoviePopup', title: 'EDIT MOVIE', movie: movie }})
     }
 
     function openDeleteMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: 'deleteMoviePopup'})
+        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'deleteMoviePopup', title: 'DELETE MOVIE', movie: movie }})
     }
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {

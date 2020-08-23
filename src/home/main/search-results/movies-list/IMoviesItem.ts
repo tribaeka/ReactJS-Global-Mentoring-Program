@@ -3,5 +3,6 @@ export interface IMoviesItem {
     title: string,
     year: number,
     subTitle: string,
-    imagePath: string
+    imagePath: string,
+    movieURL: string;
 }

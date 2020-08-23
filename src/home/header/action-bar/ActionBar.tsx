@@ -5,7 +5,7 @@ const ActionBar: React.FC = () => {
     const dispatch = useDispatch();
 
     function openAddMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: 'addMoviePopup'})
+        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'addMoviePopup', title: 'ADD MOVIE' }})
     }
 
     return (
