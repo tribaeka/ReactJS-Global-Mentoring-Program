@@ -1,0 +1,24 @@
+.delete-movie-popup {
+  .confirm-message {
+    font-size: 1.25em;
+  }
+
+  .delete-confirm-btn {
+    @include btn-skeleton(
+                    $big-btn-padding,
+                    $light-coral-color,
+                    #232323,
+                    1px solid $light-coral-color
+    );
+    float: right;
+
+    &:hover {
+      @include btn-skeleton(
+                      $big-btn-padding,
+                      #fff,
+                      $light-coral-color,
+                      1px solid $light-coral-color
+      );
+    }
+  }
+}

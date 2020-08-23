@@ -8,22 +8,4 @@
     display: flex;
     justify-content: flex-end;
   }
-
-  .delete-confirm-btn {
-    @include btn-skeleton(
-                    $big-btn-padding,
-                    $light-coral-color,
-                    #232323,
-                    1px solid $light-coral-color
-    );
-
-    &:hover {
-      @include btn-skeleton(
-                      $big-btn-padding,
-                      #fff,
-                      $light-coral-color,
-                      1px solid $light-coral-color
-      );
-    }
-  }
 }

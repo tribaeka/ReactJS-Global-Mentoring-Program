@@ -12,12 +12,12 @@ const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie }) => {
     }
 
     return (
-        <div className="popup movie-popup">
+        <div className="popup movie-popup delete-movie-popup">
             <div className="movie-popup-close-btn">
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
             <h1>{title}</h1>
-            <p>Are you sure you want to delete {movie.title}?</p>
+            <p className="confirm-message">Are you sure you want to delete {movie.title}?</p>
             <button className="delete-confirm-btn">CONFIRM</button>
         </div>
     );
