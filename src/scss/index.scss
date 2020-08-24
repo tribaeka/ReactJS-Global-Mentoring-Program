@@ -6,6 +6,7 @@
 @import "globalVars";
 
 @import "../app/App";
+@import "../errors/errorPage/errorPage";
 @import "../home/homePage";
 @import "../home/header/header";
 @import "../home/header/search-input/searchInput";
@@ -24,5 +25,6 @@
 @import "../popups/moviePopup/moviePopup";
 @import "../popups/moviePopup/deleteMoviePopup/deleteMoviePopup";
 
+@import "../shared/brand/brand";
 @import "../shared/closeBtn/closeBtn";
 @import "../shared/movieForm/movieForm";

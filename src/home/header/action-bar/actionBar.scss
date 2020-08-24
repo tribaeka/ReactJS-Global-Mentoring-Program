@@ -16,10 +16,6 @@ $add-movie-btn-background-hover: linear-gradient(
   justify-content: space-between;
   z-index: 1;
 
-  .brand {
-    color: $light-coral-color;
-  }
-
   .add-movie-btn {
     @include btn-skeleton(
                     $big-btn-padding,

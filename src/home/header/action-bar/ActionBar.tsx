@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Brand from '../../../shared/brand/Brand';
 
 const ActionBar: React.FC = () => {
     const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const ActionBar: React.FC = () => {
 
     return (
         <div className="action-bar-container">
-            <h3 className="brand">My own netflix roulette</h3>
+            <Brand/>
             <button onClick={openAddMoviePopup}
                     className="add-movie-btn">
                 + ADD MOVIE

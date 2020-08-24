@@ -1,8 +1,11 @@
 import React from 'react';
+import Brand from '../../shared/brand/Brand';
 
 const Footer: React.FC = () => {
     return (
-        <h3 className="footer-content">My own netflix roulette</h3>
+        <div className="footer-content">
+            <Brand/>
+        </div>
     );
 }
 

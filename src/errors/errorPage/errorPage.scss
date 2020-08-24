@@ -1,0 +1,22 @@
+@import "../../scss/colors";
+
+.error-page {
+  background: #232323;
+  height: inherit;
+  display: grid;
+  grid-template-rows: 1fr 18fr 1fr;
+
+  .brand-wrapper {
+    padding: 0 2em;
+  }
+
+  .error-message {
+    align-self: center;
+    justify-self: center;
+    font-size: 4em;
+    color: $light-coral-color;
+    border: 0.25em solid $light-coral-color;
+    border-radius: 0.5em;
+    padding: 1em 2em;
+  }
+}
