@@ -8,18 +8,18 @@
     margin: 1em 0;
 
     .form-label {
-      font-size: 1.25em;
+      font-size: $big-text;
       color: $light-coral-color;
     }
 
     .form-input {
       width: -webkit-fill-available;
       padding: 0.5em 1em;
-      font-size: 1.25em;
+      font-size: $big-text;
       margin: 0.5em 0;
       background: #2e2e2e;
       color: #fff;
-      border: 1px solid #232323;
+      border: 1px solid $dark;
       border-radius: 4px;
 
       &::-webkit-input-placeholder {
@@ -46,7 +46,7 @@
       @include btn-skeleton(
                       $big-btn-padding,
                       $light-coral-color,
-                      #232323,
+                      $dark,
                       1px solid $light-coral-color
       );
       margin: 0 0.5em;

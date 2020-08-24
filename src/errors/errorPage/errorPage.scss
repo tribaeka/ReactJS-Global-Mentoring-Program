@@ -1,7 +1,7 @@
 @import "../../scss/colors";
 
 .error-page {
-  background: #232323;
+  background: $dark;
   height: inherit;
   display: grid;
   grid-template-rows: 1fr 18fr 1fr;

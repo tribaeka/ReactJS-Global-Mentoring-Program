@@ -1,13 +1,16 @@
+@import "../../../scss/colors";
+@import "../../../scss/globalVars";
+
 .delete-movie-popup {
   .confirm-message {
-    font-size: 1.25em;
+    font-size: $big-text;
   }
 
   .delete-confirm-btn {
     @include btn-skeleton(
                     $big-btn-padding,
                     $light-coral-color,
-                    #232323,
+                    $dark,
                     1px solid $light-coral-color
     );
     float: right;

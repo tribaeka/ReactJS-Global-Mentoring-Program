@@ -1,6 +1,7 @@
 @import "../../scss/colors";
+@import "../../scss/globalVars";
 
 .brand {
   color: $light-coral-color;
-  font-size: 1.25em;
+  font-size: $big-text;
 }

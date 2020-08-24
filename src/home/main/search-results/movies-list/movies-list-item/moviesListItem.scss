@@ -1,4 +1,5 @@
 @import "../../../../../scss/colors";
+
 .image-container {
   position: relative;
 
@@ -13,7 +14,7 @@
 
   .dot-btn {
     position: absolute;
-    background: #555555;
+    background: $gray;
     width: 45px;
     height: 45px;
     color: white;
@@ -22,7 +23,7 @@
     top: 0.5em;
 
     &:hover {
-      background: #424242;
+      background: $dark-gray;
     }
 
     &:after {
@@ -45,7 +46,7 @@
   .dot-btn-dropdown {
     display: block;
     position: absolute;
-    background-color: #232323;
+    background-color: $dark;
     min-width: 10em;
     right: -0.25em;
     z-index: 999;
@@ -85,7 +86,7 @@ font-size: 1.3em;
 }
 
 .movie-description-year {
-border: 1px solid #555555;
+border: 1px solid $gray;
 padding: 0.5em;
 border-radius: 4px;
 }

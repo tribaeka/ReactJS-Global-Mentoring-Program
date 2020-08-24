@@ -1,3 +1,5 @@
+@import "../../../scss/colors";
+
 .movies-navigation-container {
   display: grid;
   grid-template-columns: 7fr 3fr;
@@ -12,10 +14,10 @@
     content: '';
 
     background: #f65261;
-    background: -moz-linear-gradient(left,  #f65261 0%, #f65261 2%, #424242 2%, #424242 2%, #424242 100%);
-    background: -webkit-linear-gradient(left,  #f65261 0%,#f65261 2%,#424242 2%,#424242 2%,#424242 100%);
-    background: linear-gradient(to right,  #f65261 0%,#f65261 2%,#424242 2%,#424242 2%,#424242 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f65261', endColorstr='#424242',GradientType=1 );
+    background: -moz-linear-gradient(left,  #f65261 0%, #f65261 2%, $dark-gray 2%, $dark-gray 2%, $dark-gray 100%);
+    background: -webkit-linear-gradient(left,  #f65261 0%,#f65261 2%,$dark-gray 2%,$dark-gray 2%,$dark-gray 100%);
+    background: linear-gradient(to right,  #f65261 0%,#f65261 2%,$dark-gray 2%,$dark-gray 2%,$dark-gray 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f65261', endColorstr='$dark-gray',GradientType=1 );
 
   }
 }

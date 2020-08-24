@@ -1,8 +1,10 @@
+@import "../../scss/colors";
+
 .movie-popup {
   width: 600px;
   padding: 0 3em 2em 3em;
-  background: #232323;
-  color: white;
+  background: $dark;
+  color: #fff;
 
   .movie-popup-close-btn {
     display: flex;

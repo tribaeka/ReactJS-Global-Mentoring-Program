@@ -1,10 +1,12 @@
+@import "colors";
+
 html, body, #root {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     height: 100%;
     width: 100%;
     color: #fff;
-    background: #555555;
+    background: $gray;
 }
 
 // Reset default button style

@@ -1,9 +1,12 @@
+@import "../../scss/colors";
+@import "../../scss/globalVars";
+
 .close-btn-small, .close-btn-big {
   width: 24px;
   height: 24px;
   text-align: center;
   cursor: pointer;
-  color: #555555;
+  color: $gray;
 
   &:hover {
     color: #fff;
@@ -11,7 +14,7 @@
 }
 
 .close-btn-small {
-  font-size: 1.25em;
+  font-size: $big-text;
 }
 
 .close-btn-big {

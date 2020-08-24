@@ -1,7 +1,7 @@
 @import "../../../../scss/mixinsAndFunctions";
 @import "../../../../scss/colors";
 
-$dropdown-border: 1px solid #424242;
+$dropdown-border: 1px solid $dark-gray;
 
 .sort-switcher {
   justify-self: flex-end;
@@ -42,7 +42,7 @@ $dropdown-border: 1px solid #424242;
     .sort-switcher-dropdown-content {
       display: none;
       position: absolute;
-      background-color: #232323;
+      background-color: $dark;
       min-width: 8em;
 
       .sort-switcher-option {
@@ -52,7 +52,7 @@ $dropdown-border: 1px solid #424242;
         padding: 0.5em 2em;
 
         &:hover {
-          background: #555555;
+          background: $gray;
         }
       }
     }
