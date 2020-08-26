@@ -6,7 +6,6 @@ interface IMovieFormProps {
 }
 
 const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
-    console.log(movie);
     return (
         <form className="add-movie-form">
             <div className="form-control">
@@ -50,8 +49,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     OVERVIEW
                 </label>
                 <input className="form-input"
-                       defaultValue={movie ? 'wip' : ''}
-                       type="text"
+                       defaultValue={movie && movie.overview ? movie.overview : ''}                       type="text"
                        placeholder="Overview here"/>
             </div>
             <div className="form-control">
@@ -59,8 +57,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     RUNTIME
                 </label>
                 <input className="form-input"
-                       defaultValue={movie ? 'wip' : ''}
-                       type="text"
+                       defaultValue={movie && movie.runtime ? movie.runtime : ''}                       type="text"
                        placeholder="Runtime here"/>
             </div>
             <div className="form-btn-control">

@@ -10,7 +10,9 @@ const testData: IMoviesItem[] = [
         year: 2004,
         subTitle: 'Action & Adventure',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 1,
@@ -18,7 +20,9 @@ const testData: IMoviesItem[] = [
         year: 2003,
         subTitle: 'Drama, Biography, Music',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 2,
@@ -26,7 +30,9 @@ const testData: IMoviesItem[] = [
         year: 1994,
         subTitle: 'Oscar winning Movie',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 3,
@@ -34,7 +40,9 @@ const testData: IMoviesItem[] = [
         year: 2004,
         subTitle: 'Action & Adventure',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 4,
@@ -42,7 +50,9 @@ const testData: IMoviesItem[] = [
         year: 2003,
         subTitle: 'Action & Adventure',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 5,
@@ -50,7 +60,9 @@ const testData: IMoviesItem[] = [
         year: 1994,
         subTitle: 'Oscar winning Movie',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 6,
@@ -58,7 +70,9 @@ const testData: IMoviesItem[] = [
         year: 1994,
         subTitle: 'Oscar winning Movie',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     },
     {
         id: 7,
@@ -66,7 +80,9 @@ const testData: IMoviesItem[] = [
         year: 1994,
         subTitle: 'Oscar winning Movie',
         imagePath: '',
-        movieURL: 'google.com'
+        movieURL: 'google.com',
+        overview: 'overview mock',
+        runtime: 'runtime mock'
     }
 ];
 
