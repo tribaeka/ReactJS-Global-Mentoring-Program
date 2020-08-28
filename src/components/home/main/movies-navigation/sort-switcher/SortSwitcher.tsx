@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, {useMemo, useState} from 'react';
+import {SORT_SWITCHER_OPTIONS} from "./constants";
 
 const SortSwitcher: React.FC = () => {
-    const options = ['RELEASE DATE', 'RELEVANT']
-    const [activeOption, setActiveOption] = useState(options[0])
+    const [activeOption, setActiveOption] = useState(SORT_SWITCHER_OPTIONS[0]) //todo useMemo?
+    const optionsList = useMemo(() => {
+        return SORT_SWITCHER_OPTIONS.map(option =>
+            <li onClick={() =>sortOptionClickHandler(option)}
+                key={option}
+                className="sort-switcher-option">
+                {option}
+            </li>)
+    }, []);
 
     function sortOptionClickHandler(option: string): void {
         setActiveOption(option);
@@ -15,18 +23,10 @@ const SortSwitcher: React.FC = () => {
               <span className="sort-switcher-active-option">{activeOption}</span>
               <div className="sort-switcher-dropdown-content">
                   <ul>
-                      {
-                          options.map(option =>
-                          <li onClick={() =>sortOptionClickHandler(option)}
-                              key={option}
-                              className="sort-switcher-option">
-                              {option}
-                          </li>)
-                      }
+                      {optionsList}
                   </ul>
               </div>
           </div>
-
       </div>
     );
 }
