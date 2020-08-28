@@ -1,0 +1,98 @@
+@import "../../../../../../scss/colors";
+
+.image-container {
+  position: relative;
+
+  .movies-image {
+    width: 20em;
+    height: 28.125em;
+  }
+
+  .hidden-mask {
+    display: none;
+  }
+
+  .dot-btn {
+    position: absolute;
+    background: $gray;
+    width: 45px;
+    height: 45px;
+    color: white;
+    border-radius: 50%;
+    left: 16.5em;
+    top: 0.5em;
+
+    &:hover {
+      background: $dark-gray;
+    }
+
+    &:after {
+      content: '•••';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      font-size: 1.4em;
+      letter-spacing: 4px;
+      margin-top: 3px;
+      cursor: pointer;
+    }
+  }
+
+  .dot-btn-dropdown {
+    display: none;
+  }
+
+  .dot-btn-dropdown {
+    display: block;
+    position: absolute;
+    background-color: $dark;
+    min-width: 10em;
+    right: -0.25em;
+    z-index: 999;
+    margin: 0.5em 1em 0 0;
+
+    .dot-btn-dropdown-list {
+      padding-bottom: 0.5em;
+
+      .dot-btn-dropdown-list-item {
+        padding: 0.5em 2em;
+
+        &:hover {
+          background: $light-coral-color;
+          cursor: pointer;
+        }
+
+      }
+
+      .dot-btn-dropdown-list-close-item {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 0.5em;
+      }
+    }
+  }
+}
+
+
+.movie-description {
+margin-top: 1em;
+display: flex;
+justify-content: space-between;
+color: #9f9f9f;
+
+.movie-description-title {
+font-size: 1.3em;
+}
+
+.movie-description-year {
+border: 1px solid $gray;
+padding: 0.5em;
+border-radius: 4px;
+}
+}
+
+.movies-sub-description {
+color: #9f9f9f;
+font-size: 0.9em;
+}

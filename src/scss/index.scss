@@ -5,26 +5,26 @@
 @import "mixinsAndFunctions";
 @import "globalVars";
 
-@import "../app/App";
-@import "../errors/errorPage/errorPage";
-@import "../home/homePage";
-@import "../home/header/header";
-@import "../home/header/search-input/searchInput";
-@import "../home/header/action-bar/actionBar";
-@import "../home/main/main";
-@import "../home/main/movies-navigation/moviesNavigation";
-@import "../home/main/movies-navigation/genreFilter/genreFilter";
-@import "../home/main/movies-navigation/sort-switcher/sortSwitcher";
-@import "../home/main/search-results/searchResults";
-@import "../home/main/search-results/results-counter/resultsCounter";
-@import "../home/main/search-results/movies-list/moviesList";
-@import "../home/main/search-results/movies-list/movies-list-item/moviesListItem";
-@import "../home/footer/footer";
+@import "../components/app/App";
+@import "../components/errors/errorPage/errorPage";
+@import "../components/home/homePage";
+@import "../components/home/header/header";
+@import "../components/home/header/search-input/searchInput";
+@import "../components/home/header/action-bar/actionBar";
+@import "../components/home/main/main";
+@import "../components/home/main/movies-navigation/moviesNavigation";
+@import "../components/home/main/movies-navigation/genreFilter/genreFilter";
+@import "../components/home/main/movies-navigation/sort-switcher/sortSwitcher";
+@import "../components/home/main/search-results/searchResults";
+@import "../components/home/main/search-results/results-counter/resultsCounter";
+@import "../components/home/main/search-results/movies-list/moviesList";
+@import "../components/home/main/search-results/movies-list/movies-list-item/moviesListItem";
+@import "../components/home/footer/footer";
 
-@import "../popups/popups";
-@import "../popups/moviePopup/moviePopup";
-@import "../popups/moviePopup/deleteMoviePopup/deleteMoviePopup";
+@import "../components/popups/popups";
+@import "../components/popups/moviePopup/moviePopup";
+@import "../components/popups/moviePopup/deleteMoviePopup/deleteMoviePopup";
 
-@import "../shared/brand/brand";
-@import "../shared/closeBtn/closeBtn";
-@import "../shared/movieForm/movieForm";
+@import "../components/shared/brand/brand";
+@import "../components/shared/closeBtn/closeBtn";
+@import "../components/shared/movieForm/movieForm";

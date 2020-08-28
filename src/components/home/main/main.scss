@@ -1,0 +1,8 @@
+@import "../../../scss/colors";
+@import "../../../scss/globalVars";
+
+.main-container {
+  background: $dark;
+  margin-top: 1em;
+  padding: 1em $inner-horizontal-padding-margin 2em $inner-horizontal-padding-margin;
+}
