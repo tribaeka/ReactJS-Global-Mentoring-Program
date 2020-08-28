@@ -2,7 +2,6 @@ import React from 'react';
 import {IMoviesItem} from "../../home/main/search-results/movies-list/IMoviesItem";
 
 const MovieForm: React.FC<IMoviesItem> = ({ title, year, movieURL, subTitle, overview, runtime}) => {
-    console.log(title);
     return (
         <form className="add-movie-form">
             <div className="form-control">
