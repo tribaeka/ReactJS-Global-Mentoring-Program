@@ -6,7 +6,7 @@ interface IMoviesListProps {
     movies: IMoviesItem[];
 }
 
-const IMoviesList: React.FC<IMoviesListProps> = ({ movies }) => {
+const MoviesList: React.FC<IMoviesListProps> = ({ movies }) => {
     return (
       <ul className="movies-list">
           {
@@ -19,4 +19,4 @@ const IMoviesList: React.FC<IMoviesListProps> = ({ movies }) => {
     );
 }
 
-export default IMoviesList;
+export default MoviesList;

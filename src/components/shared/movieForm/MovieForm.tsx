@@ -1,11 +1,8 @@
 import React from 'react';
-import { IMoviesItem } from '../../home/main/search-results/movies-list/IMoviesItem';
+import {IMoviesItem} from "../../home/main/search-results/movies-list/IMoviesItem";
 
-interface IMovieFormProps {
-    movie?: IMoviesItem;
-}
-
-const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
+const MovieForm: React.FC<IMoviesItem> = ({ title, year, movieURL, subTitle, overview, runtime}) => {
+    console.log(title);
     return (
         <form className="add-movie-form">
             <div className="form-control">
@@ -13,7 +10,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     TITLE
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.title ? movie.title : ''}
+                       defaultValue={title}
                        type="text"
                        placeholder="Enter title"/>
             </div>
@@ -22,7 +19,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     RELEASE DATE
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.year ? movie.year : ''}
+                       defaultValue={year}
                        type="text"
                        placeholder="Select date"/>
             </div>
@@ -31,7 +28,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     MOVIE URL
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.movieURL ? movie.movieURL : ''}
+                       defaultValue={movieURL}
                        type="text"
                        placeholder="Movie URL here"/>
             </div>
@@ -40,7 +37,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     GENRE
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.subTitle ? movie.subTitle : ''}
+                       defaultValue={subTitle}
                        type="text"
                        placeholder="Select Genre"/>
             </div>
@@ -49,7 +46,8 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     OVERVIEW
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.overview ? movie.overview : ''}                       type="text"
+                       defaultValue={overview}
+                       type="text"
                        placeholder="Overview here"/>
             </div>
             <div className="form-control">
@@ -57,7 +55,8 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie }) => {
                     RUNTIME
                 </label>
                 <input className="form-input"
-                       defaultValue={movie && movie.runtime ? movie.runtime : ''}                       type="text"
+                       defaultValue={runtime}
+                       type="text"
                        placeholder="Runtime here"/>
             </div>
             <div className="form-btn-control">
