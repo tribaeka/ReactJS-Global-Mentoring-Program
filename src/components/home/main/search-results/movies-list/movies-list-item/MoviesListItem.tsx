@@ -4,6 +4,8 @@ import { IMoviesItem } from '../IMoviesItem';
 import defaultMovieImage from './../../../../../../assets/default-movie.png'
 import CloseBtn, { CloseBtnSizes } from '../../../../../shared/closeBtn/CloseBtn';
 import { useDispatch } from 'react-redux';
+import { openPopup} from "../../../../../../store/moviePopups/actions";
+import { MOVIE_POPUPS_MAP } from "../../../../../../store/moviePopups/types";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -14,11 +16,11 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const dispatch = useDispatch();
 
     function openEditMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'editMoviePopup', title: 'EDIT MOVIE', movie: movie }})
+        dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
     }
 
     function openDeleteMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'deleteMoviePopup', title: 'DELETE MOVIE', movie: movie }})
+        dispatch(openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie))
     }
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import Brand from '../../../shared/brand/Brand';
+import { openPopup } from "../../../../store/moviePopups/actions";
+import { MOVIE_POPUPS_MAP } from "../../../../store/moviePopups/types";
 
 const ActionBar: React.FC = () => {
     const dispatch = useDispatch();
 
     function openAddMoviePopup() {
-        dispatch({type: 'OPEN_MOVIE_POPUP', payload: { name: 'addMoviePopup', title: 'ADD MOVIE' }})
+        dispatch(openPopup(MOVIE_POPUPS_MAP.ADD, 'ADD MOVIE'))
     }
 
     return (

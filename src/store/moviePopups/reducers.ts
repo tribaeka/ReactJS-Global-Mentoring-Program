@@ -1,4 +1,5 @@
-import { IMoviesItem } from '../../home/main/search-results/movies-list/IMoviesItem';
+import { IMoviesItem } from '../../components/home/main/search-results/movies-list/IMoviesItem';
+import { MoviePopupsActionTypes } from "./types";
 
 export interface IMoviePopupsState {
     isPopupOpened: boolean;
@@ -7,20 +8,12 @@ export interface IMoviePopupsState {
     movie?: IMoviesItem;
 }
 
-export interface IMoviePopupsPayload {
-    name: string;
-    title: string;
-    movie?: IMoviesItem;
-}
-
 const initialState = {
     isPopupOpened: false
 }
 
-type Action = {type: string, payload: IMoviePopupsPayload}
-
 export const moviePopupsReducer =
-    (state: IMoviePopupsState = initialState, action: Action) => {
+    (state: IMoviePopupsState = initialState, action: MoviePopupsActionTypes): IMoviePopupsState => {
         switch (action.type) {
             case 'OPEN_MOVIE_POPUP': {
                 return {

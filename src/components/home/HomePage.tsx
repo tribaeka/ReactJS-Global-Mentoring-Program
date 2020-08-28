@@ -3,10 +3,11 @@ import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
 import { useSelector } from 'react-redux';
-import { IMoviePopupsState } from '../../stores/reducers/MoviePopupsReducer';
 import AddMoviePopup from '../popups/moviePopup/addMoviePopup/AddMoviePopup';
 import EditMoviePopup from '../popups/moviePopup/editMoviePopup/EditMoviePopup';
 import DeleteMoviePopup from '../popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
+import { IMoviePopupsState } from "../../store/moviePopups/reducers";
+import { MOVIE_POPUPS_MAP } from "../../store/moviePopups/types";
 
 
 
@@ -26,11 +27,11 @@ const HomePage: React.FC = () => {
 
     const activePopup = useMemo(() => {
         switch (popupName) {
-            case 'addMoviePopup':
+            case MOVIE_POPUPS_MAP.ADD:
                 return <AddMoviePopup title={popupTitle}/>;
-            case 'editMoviePopup':
+            case MOVIE_POPUPS_MAP.EDIT:
                 return <EditMoviePopup title={popupTitle} movie={popupData}/>;
-            case 'deleteMoviePopup':
+            case MOVIE_POPUPS_MAP.DELETE:
                 return <DeleteMoviePopup title={popupTitle} movie={popupData}/>;
             default:
                 return;
