@@ -1,10 +1,7 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 const SearchInput: React.FC = () => {
-
-    function executeSearch() {
-        console.log('search executing')
-    }
+    const executeSearch = useCallback(() => console.log('search executing'), []);
 
     return (
         <div className="search-input-container">
