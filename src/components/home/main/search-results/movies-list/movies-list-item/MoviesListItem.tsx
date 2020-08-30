@@ -1,11 +1,10 @@
-import './../../../../../../typings.d.ts'
 import React, { useState, MouseEvent } from 'react';
-import { IMoviesItem } from '../IMoviesItem';
-import defaultMovieImage from './../../../../../../assets/default-movie.png'
-import CloseBtn, { CloseBtnSizes } from '../../../../../shared/closeBtn/CloseBtn';
+import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
+import defaultMovieImage from '@assets/default-movie.png'
+import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import { useDispatch } from 'react-redux';
-import { openPopup} from "../../../../../../store/moviePopups/actions";
-import { MOVIE_POPUPS_MAP } from "../../../../../../store/moviePopups/types";
+import { openPopup} from "@store/moviePopups/actions";
+import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;

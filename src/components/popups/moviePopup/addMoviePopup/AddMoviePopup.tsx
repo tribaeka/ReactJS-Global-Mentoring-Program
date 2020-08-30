@@ -1,9 +1,9 @@
 import React from 'react';
-import CloseBtn, { CloseBtnSizes } from '../../../shared/closeBtn/CloseBtn';
+import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import { useDispatch } from 'react-redux';
-import MovieForm from '../../../shared/movieForm/MovieForm';
-import { IMoviePopupProps } from '../IMoviePopupProps';
-import { closePopup } from "../../../../store/moviePopups/actions";
+import MovieForm from '@components/shared/movieForm/MovieForm';
+import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
+import { closePopup } from "@store/moviePopups/actions";
 
 const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title }) => {
 

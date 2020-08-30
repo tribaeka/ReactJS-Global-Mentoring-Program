@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import Brand from '../../../shared/brand/Brand';
-import { openPopup } from "../../../../store/moviePopups/actions";
-import { MOVIE_POPUPS_MAP } from "../../../../store/moviePopups/types";
+import Brand from '@components/shared/brand/Brand';
+import { openPopup } from "@store/moviePopups/actions";
+import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 
 const ActionBar: React.FC = () => {
     const dispatch = useDispatch();

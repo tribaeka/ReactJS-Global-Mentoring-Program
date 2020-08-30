@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import CloseBtn, { CloseBtnSizes } from '../../../shared/closeBtn/CloseBtn';
-import { IMoviePopupProps } from '../IMoviePopupProps';
-import { closePopup } from "../../../../store/moviePopups/actions";
+import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
+import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
+import { closePopup } from "@store/moviePopups/actions";
 
 const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie }) => {
 

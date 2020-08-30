@@ -3,11 +3,11 @@ import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
 import { useSelector } from 'react-redux';
-import AddMoviePopup from '../popups/moviePopup/addMoviePopup/AddMoviePopup';
-import EditMoviePopup from '../popups/moviePopup/editMoviePopup/EditMoviePopup';
-import DeleteMoviePopup from '../popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
-import { IMoviePopupsState } from "../../store/moviePopups/reducers";
-import { MOVIE_POPUPS_MAP } from "../../store/moviePopups/types";
+import AddMoviePopup from '@components/popups/moviePopup/addMoviePopup/AddMoviePopup';
+import EditMoviePopup from '@components/popups/moviePopup/editMoviePopup/EditMoviePopup';
+import DeleteMoviePopup from '@components/popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
+import { IMoviePopupsState } from "@store/moviePopups/reducers";
+import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 
 
 

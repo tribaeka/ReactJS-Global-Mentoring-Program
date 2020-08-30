@@ -1,14 +1,14 @@
 import React from "react";
-import Footer from '../../home/footer/Footer';
-import Brand from '../../shared/brand/Brand';
+import Footer from '@components/home/footer/Footer';
+import Brand from '@components/shared/brand/Brand';
 
 interface IErrorBoundaryProps {
     hasError: boolean;
     error: string;
 }
 
-export default class ErrorPage extends React.Component<{}, IErrorBoundaryProps> {
-    constructor(props: {}) {
+export default class ErrorPage extends React.Component<Record<string, unknown>, IErrorBoundaryProps> {
+    constructor(props: Record<string, unknown>) {
         super(props);
         this.state = { hasError: false, error: "" };
     }

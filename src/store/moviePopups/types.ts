@@ -1,4 +1,3 @@
-import { IMoviePopupsPayload } from "./reducers";
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
 
 export const OPEN_MOVIE_POPUP = 'OPEN_MOVIE_POPUP';

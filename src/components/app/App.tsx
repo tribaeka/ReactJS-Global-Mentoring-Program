@@ -1,8 +1,8 @@
 import React from 'react';
-import HomePage from '../home/HomePage';
 import { Provider } from 'react-redux';
-import ErrorPage from '../errors/ErrorPage/ErrorPage';
-import { moviePopupsStore } from "../../store";
+import { moviePopupsStore } from "@store/index";
+import ErrorPage from "@components/errors/errorPage/ErrorPage";
+import HomePage from "@components/home/HomePage";
 
 
 const App: React.FC = () => {
