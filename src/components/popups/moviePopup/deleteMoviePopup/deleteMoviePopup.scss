@@ -1,0 +1,28 @@
+@import "../../../../scss/colors";
+@import "../../../../scss/globalVars";
+@import "../../../../scss/mixinsAndFunctions";
+
+.delete-movie-popup {
+  .confirm-message {
+    font-size: $big-text;
+  }
+
+  .delete-confirm-btn {
+    @include btn-skeleton(
+                    $big-btn-padding,
+                    $light-coral-color,
+                    $dark,
+                    1px solid $light-coral-color
+    );
+    float: right;
+
+    &:hover {
+      @include btn-skeleton(
+                      $big-btn-padding,
+                      #fff,
+                      $light-coral-color,
+                      1px solid $light-coral-color
+      );
+    }
+  }
+}

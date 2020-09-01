@@ -1,4 +1,10 @@
-@import "roboto.scss";
+@import "fonts/roboto.scss";
 
 @import "styles";
-@import "../app/App";
+@import "colors";
+@import "mixinsAndFunctions";
+@import "globalVars";
+
+// shared styles
+@import "../components/popups/popups";
+@import "../components/popups/moviePopup/moviePopup";

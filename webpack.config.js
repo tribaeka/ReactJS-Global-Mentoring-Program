@@ -39,7 +39,12 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.js', '.tsx']
+        extensions: ['.js', '.ts', '.tsx'],
+        alias: {
+            '@store': path.resolve(__dirname, 'src/store/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@components': path.resolve(__dirname, 'src/components')
+        }
     },
     optimization: optimization(),
     plugins: [
@@ -73,11 +78,16 @@ module.exports = {
                         }
                     },
                     'css-loader',
+                    'resolve-url-loader',
                     'sass-loader'
                 ]
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.(png|jpg|svg|gif)$/,
                 use: ['file-loader']
             }
         ]

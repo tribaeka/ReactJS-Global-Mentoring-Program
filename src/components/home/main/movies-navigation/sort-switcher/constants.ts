@@ -1,0 +1,1 @@
+export const SORT_SWITCHER_OPTIONS = ['RELEASE DATE', 'RELEVANT'];

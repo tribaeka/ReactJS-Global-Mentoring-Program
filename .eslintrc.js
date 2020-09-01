@@ -11,7 +11,10 @@ module.exports = {
       jsx:  true
     },
   },
-  rules:  {},
+  rules:  {
+    'react/prop-types': 0,
+    'no-var-requires': 0
+  },
   settings:  {
     react:  {
       version: 'detect'
