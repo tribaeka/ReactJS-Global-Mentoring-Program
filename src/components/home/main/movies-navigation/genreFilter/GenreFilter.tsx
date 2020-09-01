@@ -1,4 +1,5 @@
 import React from 'react';
+import './genreFilter.scss';
 
 const GenreFilter: React.FC = () => {
     return (

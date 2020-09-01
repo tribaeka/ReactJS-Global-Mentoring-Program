@@ -1,4 +1,5 @@
 import React, {useCallback} from 'react';
+import './searchInput.scss';
 
 const SearchInput: React.FC = () => {
     const executeSearch = useCallback(() => console.log('search executing'), []);

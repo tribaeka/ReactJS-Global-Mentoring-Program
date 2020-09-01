@@ -1,6 +1,7 @@
 import React from 'react';
 import MoviesListItem from './movies-list-item/MoviesListItem';
 import { IMoviesItem } from './IMoviesItem';
+import './moviesList.scss';
 
 interface IMoviesListProps {
     movies: IMoviesItem[];

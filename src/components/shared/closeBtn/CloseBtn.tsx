@@ -1,4 +1,5 @@
 import React, { MouseEvent } from 'react';
+import './closeBtn.scss';
 
 interface CloseBtnProps {
    clickHandler(event: MouseEvent<HTMLDivElement>): void;

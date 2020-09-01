@@ -2,6 +2,7 @@ import React from 'react';
 import ResultsCounter from './results-counter/ResultsCounter';
 import MoviesList from './movies-list/MoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
+import './searchResults.scss';
 
 const testData: IMoviesItem[] = [
     {

@@ -1,4 +1,5 @@
 import React from 'react';
+import './movieForm.scss';
 import { IMoviesItem } from "@components/home/main/search-results/movies-list/IMoviesItem";
 
 const MovieForm: React.FC<IMoviesItem | any> = ({ title, year, movieURL, subTitle, overview, runtime}) => {

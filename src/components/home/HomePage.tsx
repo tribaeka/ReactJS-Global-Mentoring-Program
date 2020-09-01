@@ -8,6 +8,7 @@ import EditMoviePopup from '@components/popups/moviePopup/editMoviePopup/EditMov
 import DeleteMoviePopup from '@components/popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
 import { IMoviePopupsState } from "@store/moviePopups/reducers";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
+import './homePage.scss';
 
 
 

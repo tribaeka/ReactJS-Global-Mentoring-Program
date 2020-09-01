@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import Brand from '@components/shared/brand/Brand';
 import { openPopup } from "@store/moviePopups/actions";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
+import './actionBar.scss';
 
 const ActionBar: React.FC = () => {
     const dispatch = useDispatch();

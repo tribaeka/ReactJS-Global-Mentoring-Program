@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {SORT_SWITCHER_OPTIONS} from "./constants";
+import './sortSwitcher.scss';
 
 const SortSwitcher: React.FC = () => {
     const [activeOption, setActiveOption] = useState(SORT_SWITCHER_OPTIONS[0]) //todo useMemo?
