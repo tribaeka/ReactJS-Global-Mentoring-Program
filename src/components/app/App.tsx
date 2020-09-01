@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { moviePopupsStore } from "@store/index";
 import ErrorPage from "@components/errors/errorPage/ErrorPage";
 import HomePage from "@components/home/HomePage";
-
+import './App.scss';
 
 const App: React.FC = () => {
     return (

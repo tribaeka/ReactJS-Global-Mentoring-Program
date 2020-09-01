@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from '@components/home/footer/Footer';
 import Brand from '@components/shared/brand/Brand';
+import './errorPage.scss';
 
 interface IErrorBoundaryProps {
     hasError: boolean;
