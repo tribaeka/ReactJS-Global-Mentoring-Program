@@ -3,3 +3,12 @@ $big-btn-padding: 1em 2em;
 $regular-btn-padding: 0.5em 1em;
 $big-text: 1.25em;
 $regular-text: 1em;
+
+$action-bar-action-invoker-background: linear-gradient(
+                rgba(0, 0, 0, 0.4),
+                rgba(0, 0, 0, 0.4)
+);
+$action-bar-action-invoker-background-hover: linear-gradient(
+                rgba(0, 0, 0, 0.8),
+                rgba(0, 0, 0, 0.8)
+), #fff;

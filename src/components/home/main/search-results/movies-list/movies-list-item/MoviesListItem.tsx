@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { openPopup} from "@store/moviePopups/actions";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './moviesListItem.scss';
+import {useMovieDetails} from "../../../../../contexts";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -14,6 +15,7 @@ interface MoviesListItemProps {
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const dispatch = useDispatch();
+    const updateMovieDetails = useMovieDetails().setMovie;
 
     function openEditMoviePopup() {
         dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
@@ -33,6 +35,10 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
         setIsDropdownToggled(false);
     }
 
+    function openMovieDetails() {
+        updateMovieDetails(movie);
+    }
+
     return (
       <>
           <div className="image-container">
@@ -50,7 +56,7 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
               <img className="movies-image" src={defaultMovieImage} alt=""/>
           </div>
           <div className="movie-description">
-              <span className="movie-description-title">
+              <span className="movie-description-title" onClick={openMovieDetails}>
                   {movie.title}
               </span>
               <span className="movie-description-year">

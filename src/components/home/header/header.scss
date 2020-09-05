@@ -1,13 +1,8 @@
 @import "../../../scss/globalVars";
 
-$header-height: 40%;
+$header-height: 50%;
 
-.home-header-background {
-  background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-  ),
-  url("../../../assets/home-header-background.jpg");
+.home-header-background, .home-header-background-shadowed {
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -20,10 +15,26 @@ $header-height: 40%;
   z-index: 0;
 }
 
+.home-header-background {
+  background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.5),
+                  rgba(0, 0, 0, 0.5)
+  ),
+  url("../../../assets/home-header-background.jpg");
+}
+
+.home-header-background-shadowed {
+  background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.9),
+                  rgba(0, 0, 0, 0.9)
+  ),
+  url("../../../assets/home-header-background.jpg");
+}
+
 .home-header {
   height: $header-height;
   display: grid;
-  grid-template-rows: 3fr 7fr;
+  grid-template-rows: 2fr 8fr;
   align-items: center;
   margin: 0 $inner-horizontal-padding-margin;
 }

@@ -6,5 +6,5 @@ export interface IMoviesItem {
     imagePath?: string;
     movieURL: string;
     overview: string;
-    runtime: string;
+    runtime: number;
 }
