@@ -1,16 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { moviePopupsStore } from "@store/index";
-import ErrorPage from "@components/errors/errorPage/ErrorPage";
 import HomePage from "@components/home/HomePage";
 import './App.scss';
+import OppsErrorPage from "../errors/oppsErrorPage/oppsErrorPage";
 
 const App: React.FC = () => {
     return (
         <Provider store={moviePopupsStore}>
-            <ErrorPage>
+            <OppsErrorPage>
                 <HomePage/>
-            </ErrorPage>
+            </OppsErrorPage>
         </Provider>
     );
 }
