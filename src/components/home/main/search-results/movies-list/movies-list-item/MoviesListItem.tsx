@@ -19,10 +19,12 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
 
     function openEditMoviePopup() {
         dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
+        setIsDropdownToggled(false);
     }
 
     function openDeleteMoviePopup() {
         dispatch(openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie))
+        setIsDropdownToggled(false);
     }
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
