@@ -41,6 +41,23 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
         updateMovieDetails(movie);
     }
 
+    function getYear(): number {
+        return new Date(movie.releaseDate).getFullYear();
+    }
+
+    function imageExists(){
+
+        const http = new XMLHttpRequest();
+
+        http.open('HEAD', movie.posterPath, false);
+        http.send();
+        console.log(http);
+
+        return http.status != 404;
+
+    }
+    imageExists();
+
     return (
       <>
           <div className="image-container">
@@ -55,18 +72,18 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
                       <li className="dot-btn-dropdown-list-item" onClick={openDeleteMoviePopup}>Delete</li>
                   </ul>
               </div>
-              <img className="movies-image" src={defaultMovieImage} alt=""/>
+              <img className="movies-image" src={movie.posterPath} onError={defaultMovieImage} alt=""/>
           </div>
           <div className="movie-description">
               <span className="movie-description-title" onClick={openMovieDetails}>
                   {movie.title}
               </span>
               <span className="movie-description-year">
-                  {movie.year}
+                  {getYear()}
               </span>
           </div>
           <span className="movies-sub-description">
-              {movie.subTitle}
+              {movie.genres.join(', ')}
           </span>
       </>
     );

@@ -6,7 +6,7 @@ import Footer from './footer/Footer';
 import AddMoviePopup from '@components/popups/moviePopup/addMoviePopup/AddMoviePopup';
 import EditMoviePopup from '@components/popups/moviePopup/editMoviePopup/EditMoviePopup';
 import DeleteMoviePopup from '@components/popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
-import { IMoviePopupsState } from "@store/moviePopups/reducers";
+import { IMoviePopupsState } from "../../store/moviePopups/reducer";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './homePage.scss';
 import {MovieDetailsProvider} from "../contexts";
