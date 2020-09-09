@@ -2,27 +2,27 @@ import React, { useState, MouseEvent } from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
 import defaultMovieImage from '@assets/default-movie.png'
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
-import { useDispatch } from 'react-redux';
+import {connect} from 'react-redux';
 import { openPopup} from "@store/moviePopups/actions";
-import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
+import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
 import {useMovieDetails} from "../../../../../contexts";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
+    openPopup(name: string, title: string, movie?: IMoviesItem): void;
 }
 
-const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
+const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
-    const dispatch = useDispatch();
     const updateMovieDetails = useMovieDetails().setMovie;
 
     function openEditMoviePopup() {
-        dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
+        openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie);
     }
 
     function openDeleteMoviePopup() {
-        dispatch(openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie))
+        openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie);
     }
 
     function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
@@ -70,4 +70,4 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     );
 }
 
-export default MoviesListItem;
+export default connect(null, {openPopup})(MoviesListItem);

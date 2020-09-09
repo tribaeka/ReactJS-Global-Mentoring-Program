@@ -1,13 +1,17 @@
 import React, {useCallback} from "react";
 import './addMovieButton.scss';
-import {useDispatch} from "react-redux";
+import {connect} from "react-redux";
 import {openPopup} from "../../../../../store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "../../../../../store/moviePopups/types";
+import {IMoviesItem} from "../../../main/search-results/movies-list/IMoviesItem";
 
-const AddMovieButton: React.FC = () => {
-    const dispatch = useDispatch();
+interface AddMovieButtonProps {
+    openPopup(name: string, title: string, movie?: IMoviesItem): void;
+}
+
+const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openPopup }) => {
     const openAddMoviePopup = useCallback(() =>
-        dispatch(openPopup(MOVIE_POPUPS_MAP.ADD, 'ADD MOVIE')), []);
+        openPopup(MOVIE_POPUPS_MAP.ADD, 'ADD MOVIE'), []);
 
     return (
         <button onClick={openAddMoviePopup}
@@ -17,4 +21,4 @@ const AddMovieButton: React.FC = () => {
     );
 }
 
-export default AddMovieButton;
+export default connect(null, {openPopup})(AddMovieButton);

@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
+import {connect} from "react-redux";
 import Header from './header/Header';
 import Main from './main/Main';
 import Footer from './footer/Footer';
-import { useSelector } from 'react-redux';
 import AddMoviePopup from '@components/popups/moviePopup/addMoviePopup/AddMoviePopup';
 import EditMoviePopup from '@components/popups/moviePopup/editMoviePopup/EditMoviePopup';
 import DeleteMoviePopup from '@components/popups/moviePopup/deleteMoviePopup/DeleteMoviePopup';
@@ -10,22 +10,22 @@ import { IMoviePopupsState } from "@store/moviePopups/reducers";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './homePage.scss';
 import {MovieDetailsProvider} from "../contexts";
+import {RootState} from "../../store";
 
+interface HomePageProps {
+    isPopupOpened: IMoviePopupsState["isPopupOpened"],
+    popupName: IMoviePopupsState["popupName"],
+    popupTitle: IMoviePopupsState["popupTitle"],
+    popupData: IMoviePopupsState["movie"]
+}
 
-
-const HomePage: React.FC = () => {
-    const isPopupOpened = useSelector<IMoviePopupsState, IMoviePopupsState["isPopupOpened"]>(
-        state => state.isPopupOpened
-    );
-    const popupName = useSelector<IMoviePopupsState, IMoviePopupsState["popupName"]>(
-        state => state.popupName
-    );
-    const popupTitle = useSelector<IMoviePopupsState, IMoviePopupsState["popupTitle"]>(
-        state => state.popupTitle
-    );
-    const popupData = useSelector<IMoviePopupsState, IMoviePopupsState["movie"]>(
-        state => state.movie
-    );
+const HomePage: React.FC<HomePageProps> = (
+    {
+        isPopupOpened,
+        popupName,
+        popupTitle,
+        popupData
+    }) => {
 
     const activePopup = useMemo(() => {
         switch (popupName) {
@@ -51,6 +51,15 @@ const HomePage: React.FC = () => {
         </MovieDetailsProvider>
 
     );
-}
+};
 
-export default HomePage;
+const mapStateToProps = (state: RootState): HomePageProps => {
+    return {
+        isPopupOpened: state.popups.isPopupOpened,
+        popupName: state.popups.popupName,
+        popupTitle: state.popups.popupTitle,
+        popupData: state.popups.movie
+    };
+};
+
+export default connect(mapStateToProps, null)(HomePage);
