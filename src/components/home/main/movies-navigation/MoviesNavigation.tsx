@@ -10,6 +10,6 @@ const MoviesNavigation: React.FC = () => {
             <SortSwitcher/>
         </div>
     )
-};
+}
 
 export default MoviesNavigation;

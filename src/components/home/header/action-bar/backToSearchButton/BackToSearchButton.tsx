@@ -5,10 +5,8 @@ import searchIcon from '@assets/search.png';
 
 const BackToSearchButton: React.FC = () => {
     const updateMovieDetails = useMovieDetails().setMovie;
+    const closeMovieDetails = () => updateMovieDetails(undefined);
 
-    function closeMovieDetails() {
-        updateMovieDetails(undefined);
-    }
     return (
         <img src={searchIcon}
              className="search-icon"

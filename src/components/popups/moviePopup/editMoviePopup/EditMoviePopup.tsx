@@ -13,15 +13,7 @@ const EditMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
             <h2>{title}</h2>
-            <MovieForm
-                id={movie.id}
-                title={movie.title}
-                year={movie.year}
-                movieURL={movie.movieURL}
-                subTitle={movie.subTitle}
-                overview={movie.overview}
-                runtime={movie.runtime}
-            />
+            <MovieForm movie={movie} method={'PUT'}/>
         </div>
     );
 }

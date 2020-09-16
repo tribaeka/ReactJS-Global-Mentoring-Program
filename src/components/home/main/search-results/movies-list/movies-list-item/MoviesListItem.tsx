@@ -1,12 +1,12 @@
 import React, { useState, MouseEvent } from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
-import defaultMovieImage from '@assets/default-movie.png'
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import {connect} from 'react-redux';
 import { openPopup} from "@store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
 import {useMovieDetails} from "../../../../../contexts";
+import Utils from "@components/utils";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -16,47 +16,17 @@ interface MoviesListItemProps {
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const updateMovieDetails = useMovieDetails().setMovie;
-
-    function openEditMoviePopup() {
+    const openEditMoviePopup = () => {
         openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie);
         setIsDropdownToggled(false);
-    }
-
-    function openDeleteMoviePopup() {
+    };
+    const openDeleteMoviePopup = () => {
         openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie);
         setIsDropdownToggled(false);
-    }
-
-    function toggleOnDropdown(event: MouseEvent<HTMLDivElement>): void {
-        event.preventDefault();
-        setIsDropdownToggled(true);
-    }
-
-    function toggleOffDropdown(event: MouseEvent<HTMLDivElement>): void {
-        event.preventDefault();
-        setIsDropdownToggled(false);
-    }
-
-    function openMovieDetails() {
-        updateMovieDetails(movie);
-    }
-
-    function getYear(): number {
-        return new Date(movie.releaseDate).getFullYear();
-    }
-
-    function imageExists(){
-
-        const http = new XMLHttpRequest();
-
-        http.open('HEAD', movie.posterPath, false);
-        http.send();
-        console.log(http);
-
-        return http.status != 404;
-
-    }
-    imageExists();
+    };
+    const toggleOnDropdown = () => setIsDropdownToggled(true);
+    const toggleOffDropdown = () => setIsDropdownToggled(false);
+    const openMovieDetails = () => updateMovieDetails(movie);
 
     return (
       <>
@@ -72,18 +42,18 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
                       <li className="dot-btn-dropdown-list-item" onClick={openDeleteMoviePopup}>Delete</li>
                   </ul>
               </div>
-              <img className="movies-image" src={movie.posterPath} onError={defaultMovieImage} alt=""/>
+              <img className="movies-image" src={movie.posterPath} alt=""/>
           </div>
           <div className="movie-description">
               <span className="movie-description-title" onClick={openMovieDetails}>
                   {movie.title}
               </span>
               <span className="movie-description-year">
-                  {getYear()}
+                  {Utils.getReleaseYear(movie.releaseDate)}
               </span>
           </div>
           <span className="movies-sub-description">
-              {movie.genres.join(', ')}
+              {Utils.genresToString(movie.genres)}
           </span>
       </>
     );

@@ -12,10 +12,7 @@ const SortSwitcher: React.FC = () => {
                 {option}
             </li>)
     }, []);
-
-    function sortOptionClickHandler(option: string): void {
-        setActiveOption(option);
-    }
+    const sortOptionClickHandler = (option: string): void => setActiveOption(option);
 
     return (
       <div className="sort-switcher">

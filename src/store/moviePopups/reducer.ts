@@ -10,7 +10,7 @@ export interface IMoviePopupsState {
 
 const initialState = {
     isPopupOpened: false
-}
+};
 
 export const moviePopupsReducer =
     (state: IMoviePopupsState = initialState, action: MoviePopupsActionTypes): IMoviePopupsState => {
@@ -36,4 +36,4 @@ export const moviePopupsReducer =
             default:
                 return state;
         }
-    }
+    };
