@@ -1,4 +1,4 @@
-import {MoviesListActionTypes, REQUEST_GET_MOVIES_LIST, UPDATE_SORT_BY} from "./types";
+import {MoviesListActionTypes, REQUEST_GET_MOVIES_LIST, UPDATE_FILTER, UPDATE_SORT_BY} from "./types";
 
 export function getMoviesList(): MoviesListActionTypes {
     return {
@@ -11,6 +11,15 @@ export function updateSortBy(sortBy: string): MoviesListActionTypes {
         type: UPDATE_SORT_BY,
         payload: {
             sortBy: sortBy
+        }
+    }
+}
+
+export function updateFilter(filter: string): MoviesListActionTypes {
+    return {
+        type: UPDATE_FILTER,
+        payload: {
+            filter: filter
         }
     }
 }

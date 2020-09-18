@@ -1,7 +1,8 @@
-import {mapKeys, camelCase} from 'lodash';
+import {camelCase, mapKeys} from 'lodash';
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
-import {GET_MOVIES_LIST, MoviesListActionTypes} from "./types";
+import {GET_MOVIES_LIST, MoviesListActionTypes, UPDATE_FILTER, UPDATE_SORT_BY} from "./types";
 import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
+import {FilterOptions} from "../../components/home/main/movies-navigation/genreFilter/FilterOptions";
 
 export interface MoviesListState {
     movies: IMoviesItem[],
@@ -9,7 +10,7 @@ export interface MoviesListState {
     offset: number,
     totalAmount: number;
     sortBy: string,
-    filter?: string[]
+    filter: string
 }
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     limit: 12,
     offset: 0,
     totalAmount: 0,
+    filter: FilterOptions.ALL,
     sortBy: SortOptions.RELEASE_DATE
 }
 
@@ -32,10 +34,16 @@ export const moviesListReducer =
                 totalAmount: action.payload.totalAmount
             }
         }
-        case "UPDATE_SORT_BY": {
+        case UPDATE_SORT_BY: {
             return {
                 ...state,
                 sortBy: action.payload.sortBy
+            }
+        }
+        case UPDATE_FILTER: {
+            return {
+                ...state,
+                filter: action.payload.filter
             }
         }
         default:

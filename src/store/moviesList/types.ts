@@ -1,9 +1,9 @@
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
-import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
 
 export const GET_MOVIES_LIST = 'GET_MOVIES_LIST';
 export const REQUEST_GET_MOVIES_LIST = 'REQUEST_GET_MOVIES_LIST';
 export const UPDATE_SORT_BY = 'UPDATE_SORT_BY';
+export const UPDATE_FILTER = 'UPDATE_FILTER';
 
 
 export interface IGetMoviesListPayload {
@@ -15,6 +15,10 @@ export interface IGetMoviesListPayload {
 
 export interface IUpdateSortByPayload {
     sortBy: string;
+}
+
+export interface IUpdateFilterPayload {
+    filter: string;
 }
 
 interface IGetMoviesListAction {
@@ -31,6 +35,12 @@ interface IUpdateSortByAction {
     payload: IUpdateSortByPayload
 }
 
+interface IUpdateFilterAction {
+    type: typeof UPDATE_FILTER,
+    payload: IUpdateFilterPayload
+}
+
 export type MoviesListActionTypes = IGetMoviesListAction
     | IRequestGetMoviesListAction
-    | IUpdateSortByAction;
+    | IUpdateSortByAction
+    | IUpdateFilterAction;

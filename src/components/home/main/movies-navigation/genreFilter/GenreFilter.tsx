@@ -1,16 +1,37 @@
 import React from 'react';
 import './genreFilter.scss';
+import {FilterOptions} from "./FilterOptions";
+import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
+import {connect} from "react-redux";
+import {RootState} from "../../../../../store";
+import {updateFilter} from "../../../../../store/moviesList/actions";
 
-const GenreFilter: React.FC = () => {
+interface IGenreFilterProps {
+    activeFilterOption: string;
+    updateFilter?(filter: string): MoviesListActionTypes;
+}
+
+const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFilter }) => {
+    const restoredActiveOption = activeFilterOption === '' ? 'ALL' : activeFilterOption.toUpperCase();
     return (
         <ul className="genre-list">
-            <li className="genre-list-item">ALL</li>
-            <li className="genre-list-item">DOCUMENTARY</li>
-            <li className="genre-list-item">COMEDY</li>
-            <li className="genre-list-item">HORROR</li>
-            <li className="genre-list-item">CRIME</li>
+            {Object.keys(FilterOptions).map(option =>
+                <li key={option}
+                    onClick={() => updateFilter(option.toLowerCase())}
+                    className={restoredActiveOption === option
+                        ? 'active-genre-list-item'
+                        : 'genre-list-item'}>
+                    {option}
+                </li>
+            )}
         </ul>
     )
 };
 
-export default GenreFilter;
+const mapStateToProps = (state: RootState): IGenreFilterProps => {
+    return {
+        activeFilterOption: state.movies.filter
+    }
+}
+
+export default connect(mapStateToProps, {updateFilter})(GenreFilter);

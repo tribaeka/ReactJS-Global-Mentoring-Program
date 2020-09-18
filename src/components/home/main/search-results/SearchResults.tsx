@@ -10,14 +10,21 @@ import {RootState} from "../../../../store";
 interface ISearchResultsProps {
     movies: IMoviesItem[];
     sortBy: string;
+    filter: string;
     totalAmount: number;
     getMoviesList?(): void;
 }
 
-const SearchResults: React.FC<ISearchResultsProps> = ({ movies, sortBy, totalAmount, getMoviesList }) => {
+const SearchResults: React.FC<ISearchResultsProps> = ({
+                                                          movies,
+                                                          sortBy,
+                                                          filter,
+                                                          totalAmount,
+                                                          getMoviesList
+}) => {
     useEffect(() => {
         getMoviesList()
-    }, [sortBy]);
+    }, [sortBy, filter]);
     console.log(movies);
     return (
       <div className="search-results-container">
@@ -31,6 +38,7 @@ const mapStateToProps = (state: RootState): ISearchResultsProps => {
     return {
         movies: state.movies.movies,
         sortBy: state.movies.sortBy,
+        filter: state.movies.filter,
         totalAmount: state.movies.totalAmount
     }
 }
