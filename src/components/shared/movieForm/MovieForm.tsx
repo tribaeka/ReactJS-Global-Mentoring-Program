@@ -34,8 +34,18 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
             ...movieForm,
             [name]: value
         })
-        console.log(movieForm);
-    }
+    };
+    const genresChangeHandler = (event: React.SyntheticEvent<HTMLInputElement>) => {
+        const transformedGenres = event.currentTarget.value
+            .split(',')
+            .map(genre => genre.trim())
+            .filter(genre => genre !== '');
+        setMovieForm({
+            ...movieForm,
+            genres: transformedGenres
+        })
+    };
+    const resetHandler = () => setMovieForm(movie ? movie : emptyMovie);
 
     return (
         <form className="add-movie-form" onSubmit={submitHandler}>
@@ -55,9 +65,10 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
                     RELEASE DATE
                 </label>
                 <input className="form-input"
-                       value={Utils.getReleaseYear(movieForm.releaseDate)}
+                       value={movieForm.releaseDate}
+                       onChange={inputChangeHandler}
                        name="releaseDate"
-                       type="text"
+                       type="date"
                        placeholder="Select date"/>
             </div>
             <div className="form-control">
@@ -77,7 +88,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
                 </label>
                 <input className="form-input"
                        value={Utils.genresToString(movieForm.genres)}
-                       name="genres"
+                       onChange={genresChangeHandler}
                        type="text"
                        placeholder="Select Genre"/>
             </div>
@@ -104,7 +115,7 @@ const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
                        placeholder="Runtime here"/>
             </div>
             <div className="form-btn-control">
-                <button className="form-btn" type="reset">
+                <button className="form-btn" onClick={resetHandler} type="reset">
                     RESET
                 </button>
                 <button className="form-btn" type="submit">

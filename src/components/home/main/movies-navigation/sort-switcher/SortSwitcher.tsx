@@ -1,24 +1,31 @@
-import React, {useMemo, useState} from 'react';
-import {SORT_SWITCHER_OPTIONS} from "./constants";
+import React, {useMemo} from 'react';
 import './sortSwitcher.scss';
+import {getDisplayValue, SortOptions} from "./SortOptions";
+import {connect} from "react-redux";
+import {RootState} from "../../../../../store";
+import {updateSortBy} from "../../../../../store/moviesList/actions";
+import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
 
-const SortSwitcher: React.FC = () => {
-    const [activeOption, setActiveOption] = useState(SORT_SWITCHER_OPTIONS[0]) //todo useMemo?
+interface ISortSwitcherProps {
+    activeSortByOption: string;
+    updateSortBy?(sortBy: string): MoviesListActionTypes;
+}
+
+const SortSwitcher: React.FC<ISortSwitcherProps> = ({ activeSortByOption, updateSortBy }) => {
     const optionsList = useMemo(() => {
-        return SORT_SWITCHER_OPTIONS.map(option =>
-            <li onClick={() =>sortOptionClickHandler(option)}
+        return Object.keys(SortOptions).map(option =>
+            <li onClick={() =>updateSortBy(option.toLowerCase())}
                 key={option}
                 className="sort-switcher-option">
-                {option}
+                {getDisplayValue(option)}
             </li>)
     }, []);
-    const sortOptionClickHandler = (option: string): void => setActiveOption(option);
 
     return (
       <div className="sort-switcher">
           <span className="sort-switcher-description">SORT BY</span>
           <div className="sort-switcher-dropdown">
-              <span className="sort-switcher-active-option">{activeOption}</span>
+              <span className="sort-switcher-active-option">{getDisplayValue(activeSortByOption)}</span>
               <div className="sort-switcher-dropdown-content">
                   <ul>
                       {optionsList}
@@ -29,4 +36,10 @@ const SortSwitcher: React.FC = () => {
     );
 }
 
-export default SortSwitcher;
+const mapStateToProps = (state: RootState): ISortSwitcherProps => {
+    return {
+        activeSortByOption: state.movies.sortBy
+    }
+}
+
+export default connect(mapStateToProps, { updateSortBy })(SortSwitcher);

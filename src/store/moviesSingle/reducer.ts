@@ -1,23 +1,18 @@
 import {mapKeys, camelCase} from 'lodash';
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
-import {GET_MOVIES_LIST, MoviesListActionTypes} from "./types";
-import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
 
 export interface MoviesListState {
     movies: IMoviesItem[],
     limit: number,
     offset: number,
     totalAmount: number;
-    sortBy: string,
-    filter?: string[]
 }
 
 const initialState = {
     movies: [],
-    limit: 12,
+    limit: 8,
     offset: 0,
-    totalAmount: 0,
-    sortBy: SortOptions.RELEASE_DATE
+    totalAmount: 0
 }
 
 export const moviesListReducer =
@@ -30,12 +25,6 @@ export const moviesListReducer =
                 limit: action.payload.limit,
                 offset: action.payload.offset,
                 totalAmount: action.payload.totalAmount
-            }
-        }
-        case "UPDATE_SORT_BY": {
-            return {
-                ...state,
-                sortBy: action.payload.sortBy
             }
         }
         default:
