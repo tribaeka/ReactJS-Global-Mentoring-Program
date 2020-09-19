@@ -1,25 +1,33 @@
 import {camelCase, mapKeys} from 'lodash';
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
-import {GET_MOVIES_LIST, MoviesListActionTypes, UPDATE_FILTER, UPDATE_SORT_BY} from "./types";
+import {
+    GET_MOVIES_LIST,
+    MoviesListActionTypes,
+    UPDATE_FILTER_QUERY,
+    UPDATE_SEARCH_QUERY,
+    UPDATE_SORT_BY_QUERY
+} from "./types";
 import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
 import {FilterOptions} from "../../components/home/main/movies-navigation/genreFilter/FilterOptions";
 
 export interface MoviesListState {
-    movies: IMoviesItem[],
-    limit: number,
-    offset: number,
+    movies: IMoviesItem[];
+    limit: number;
+    offset: number;
     totalAmount: number;
-    sortBy: string,
-    filter: string
+    sortBy: string;
+    filter: string;
+    search: string;
 }
 
-const initialState = {
+const initialState: MoviesListState = {
     movies: [],
     limit: 12,
     offset: 0,
     totalAmount: 0,
     filter: FilterOptions.ALL,
-    sortBy: SortOptions.RELEASE_DATE
+    sortBy: SortOptions.RELEASE_DATE,
+    search: ''
 }
 
 export const moviesListReducer =
@@ -34,16 +42,22 @@ export const moviesListReducer =
                 totalAmount: action.payload.totalAmount
             }
         }
-        case UPDATE_SORT_BY: {
+        case UPDATE_SORT_BY_QUERY: {
             return {
                 ...state,
                 sortBy: action.payload.sortBy
             }
         }
-        case UPDATE_FILTER: {
+        case UPDATE_FILTER_QUERY: {
             return {
                 ...state,
                 filter: action.payload.filter
+            }
+        }
+        case UPDATE_SEARCH_QUERY: {
+            return {
+                ...state,
+                search: action.payload.search
             }
         }
         default:

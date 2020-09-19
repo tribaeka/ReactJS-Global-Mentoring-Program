@@ -2,8 +2,9 @@ import {IMoviesItem} from "../../components/home/main/search-results/movies-list
 
 export const GET_MOVIES_LIST = 'GET_MOVIES_LIST';
 export const REQUEST_GET_MOVIES_LIST = 'REQUEST_GET_MOVIES_LIST';
-export const UPDATE_SORT_BY = 'UPDATE_SORT_BY';
-export const UPDATE_FILTER = 'UPDATE_FILTER';
+export const UPDATE_SORT_BY_QUERY = 'UPDATE_SORT_BY_QUERY';
+export const UPDATE_FILTER_QUERY = 'UPDATE_FILTER_QUERY';
+export const UPDATE_SEARCH_QUERY = 'UPDATE_SEARCH_QUERY';
 
 
 export interface IGetMoviesListPayload {
@@ -13,12 +14,16 @@ export interface IGetMoviesListPayload {
     totalAmount: number;
 }
 
-export interface IUpdateSortByPayload {
+export interface IUpdateSortByQueryPayload {
     sortBy: string;
 }
 
-export interface IUpdateFilterPayload {
+export interface IUpdateFilterQueryPayload {
     filter: string;
+}
+
+export interface IUpdateSearchQueryPayload {
+    search: string;
 }
 
 interface IGetMoviesListAction {
@@ -30,17 +35,23 @@ interface IRequestGetMoviesListAction {
     type: typeof REQUEST_GET_MOVIES_LIST;
 }
 
-interface IUpdateSortByAction {
-    type: typeof UPDATE_SORT_BY,
-    payload: IUpdateSortByPayload
+interface IUpdateSortByQueryAction {
+    type: typeof UPDATE_SORT_BY_QUERY;
+    payload: IUpdateSortByQueryPayload;
 }
 
-interface IUpdateFilterAction {
-    type: typeof UPDATE_FILTER,
-    payload: IUpdateFilterPayload
+interface IUpdateFilterQueryAction {
+    type: typeof UPDATE_FILTER_QUERY;
+    payload: IUpdateFilterQueryPayload;
+}
+
+interface IUpdateSearchQueryAction {
+    type: typeof UPDATE_SEARCH_QUERY;
+    payload: IUpdateSearchQueryPayload;
 }
 
 export type MoviesListActionTypes = IGetMoviesListAction
     | IRequestGetMoviesListAction
-    | IUpdateSortByAction
-    | IUpdateFilterAction;
+    | IUpdateSortByQueryAction
+    | IUpdateFilterQueryAction
+    | IUpdateSearchQueryAction;

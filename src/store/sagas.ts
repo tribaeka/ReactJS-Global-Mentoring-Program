@@ -17,7 +17,8 @@ function* getMoviesListWorker(): SagaIterator {
 
 async function fetchMovies(moviesListState: MoviesListState) {
     const response = await fetch(`http://localhost:4000/movies`
-        +`?limit=${moviesListState.limit}`
+        +`?search=${moviesListState.search}`
+        +`&limit=${moviesListState.limit}`
         +`&sortBy=${moviesListState.sortBy}`
         +`${moviesListState.filter ? `&filter=${moviesListState.filter}`: ''}`);
 

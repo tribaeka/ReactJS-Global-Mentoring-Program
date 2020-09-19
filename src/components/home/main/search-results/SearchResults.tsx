@@ -11,6 +11,7 @@ interface ISearchResultsProps {
     movies: IMoviesItem[];
     sortBy: string;
     filter: string;
+    search: string;
     totalAmount: number;
     getMoviesList?(): void;
 }
@@ -19,12 +20,13 @@ const SearchResults: React.FC<ISearchResultsProps> = ({
                                                           movies,
                                                           sortBy,
                                                           filter,
+                                                          search,
                                                           totalAmount,
                                                           getMoviesList
 }) => {
     useEffect(() => {
         getMoviesList()
-    }, [sortBy, filter]);
+    }, [sortBy, filter, search]);
     console.log(movies);
     return (
       <div className="search-results-container">
@@ -39,6 +41,7 @@ const mapStateToProps = (state: RootState): ISearchResultsProps => {
         movies: state.movies.movies,
         sortBy: state.movies.sortBy,
         filter: state.movies.filter,
+        search: state.movies.search,
         totalAmount: state.movies.totalAmount
     }
 }

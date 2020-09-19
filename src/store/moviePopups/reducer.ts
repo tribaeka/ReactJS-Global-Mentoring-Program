@@ -8,7 +8,7 @@ export interface IMoviePopupsState {
     movie?: IMoviesItem;
 }
 
-const initialState = {
+const initialState: IMoviePopupsState = {
     isPopupOpened: false
 };
 

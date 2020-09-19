@@ -1,8 +1,9 @@
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import { moviePopupsReducer } from "./moviePopups/reducer";
 import createSagaMiddleWare from 'redux-saga';
 import rootSaga from "./sagas";
 import {moviesListReducer} from "./moviesList/reducer";
+import {composeWithDevTools} from "redux-devtools-extension/index";
 
 const saga = createSagaMiddleWare();
 const rootReducer = combineReducers({
@@ -11,7 +12,7 @@ const rootReducer = combineReducers({
 });
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const store = createStore(rootReducer, compose(
+export const store = createStore(rootReducer, composeWithDevTools (
     applyMiddleware(
         saga
     )
