@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {openPopup} from "../../../../../store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "../../../../../store/moviePopups/types";
 import {IMoviesItem} from "../../../main/search-results/movies-list/IMoviesItem";
+import {compose} from "redux";
 
 interface AddMovieButtonProps {
     openPopup(name: string, title: string, movie?: IMoviesItem): void;
@@ -21,4 +22,7 @@ const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openPopup }) => {
     );
 }
 
-export default connect(null, {openPopup})(AddMovieButton);
+export default compose(
+    connect(null, {openPopup}),
+    React.memo
+)(AddMovieButton);

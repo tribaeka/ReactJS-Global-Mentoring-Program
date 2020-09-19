@@ -5,6 +5,7 @@ import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
 import {connect} from "react-redux";
 import {RootState} from "../../../../../store";
 import {updateFilter} from "../../../../../store/moviesList/actions";
+import {compose} from "redux";
 
 interface IGenreFilterProps {
     activeFilterOption: string;
@@ -34,4 +35,7 @@ const mapStateToProps = (state: RootState): IGenreFilterProps => {
     }
 }
 
-export default connect(mapStateToProps, {updateFilter})(GenreFilter);
+export default compose(
+    connect(mapStateToProps, {updateFilter}),
+    React.memo
+)(GenreFilter);

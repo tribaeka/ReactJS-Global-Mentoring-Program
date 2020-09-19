@@ -8,6 +8,7 @@ import './moviesListItem.scss';
 import {useMovieDetails} from "../../../../../contexts";
 import Utils from "@components/utils";
 import defaultMovieImage from '@assets/default-movie.png'
+import {compose} from "redux";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -63,4 +64,7 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
     );
 }
 
-export default connect(null, {openPopup})(MoviesListItem);
+export default compose(
+    connect(null, {openPopup}),
+    React.memo
+)(MoviesListItem);

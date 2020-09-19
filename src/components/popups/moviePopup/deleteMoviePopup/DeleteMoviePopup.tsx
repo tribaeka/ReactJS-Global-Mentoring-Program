@@ -4,6 +4,7 @@ import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
 import { closePopup } from "@store/moviePopups/actions";
 import './deleteMoviePopup.scss';
+import {compose} from "redux";
 
 const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }) => {
 
@@ -19,4 +20,7 @@ const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup
     );
 }
 
-export default connect(null, {closePopup})(DeleteMoviePopup);
+export default compose(
+    connect(null, {closePopup}),
+    React.memo
+)(DeleteMoviePopup);

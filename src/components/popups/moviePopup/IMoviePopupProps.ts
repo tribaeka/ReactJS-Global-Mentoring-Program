@@ -3,5 +3,5 @@ import { IMoviesItem } from '@components/home/main/search-results/movies-list/IM
 export interface IMoviePopupProps {
     title: string;
     movie?: IMoviesItem;
-    closePopup(): void
+    closePopup?(): void
 }

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import MovieForm from '@components/shared/movieForm/MovieForm';
 import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
 import { closePopup } from "@store/moviePopups/actions";
+import {compose} from "redux";
 
 const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title, closePopup }) => {
 
@@ -18,4 +19,7 @@ const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title, closePopup }) => {
     );
 }
 
-export default connect(null, {closePopup})(AddMoviePopup);
+export default compose(
+    connect(null, {closePopup}),
+    React.memo
+)(AddMoviePopup);

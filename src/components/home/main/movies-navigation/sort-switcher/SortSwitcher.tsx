@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {RootState} from "../../../../../store";
 import {updateSortBy} from "../../../../../store/moviesList/actions";
 import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
+import {compose} from "redux";
 
 interface ISortSwitcherProps {
     activeSortByOption: string;
@@ -42,4 +43,7 @@ const mapStateToProps = (state: RootState): ISortSwitcherProps => {
     }
 }
 
-export default connect(mapStateToProps, { updateSortBy })(SortSwitcher);
+export default compose(
+    connect(mapStateToProps, { updateSortBy }),
+    React.memo
+)(SortSwitcher);

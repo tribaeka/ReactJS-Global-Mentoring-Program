@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {RootState} from "../../../../store";
 import {MoviesListActionTypes} from "../../../../store/moviesList/types";
 import {updateSearch} from "../../../../store/moviesList/actions";
+import {compose} from "redux";
 
 interface ISearchInputProps {
     search: string;
@@ -41,4 +42,7 @@ const mapStateToProps = (state: RootState): ISearchInputProps => {
     }
 }
 
-export default connect(mapStateToProps, {updateSearch})(SearchInput);
+export default compose(
+    connect(mapStateToProps, {updateSearch}),
+    React.memo
+)(SearchInput);

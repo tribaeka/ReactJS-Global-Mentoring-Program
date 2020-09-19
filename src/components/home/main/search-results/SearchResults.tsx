@@ -6,6 +6,7 @@ import './searchResults.scss';
 import {connect} from "react-redux";
 import {getMoviesList} from "../../../../store/moviesList/actions";
 import {RootState} from "../../../../store";
+import {compose} from "redux";
 
 interface ISearchResultsProps {
     movies: IMoviesItem[];
@@ -46,4 +47,7 @@ const mapStateToProps = (state: RootState): ISearchResultsProps => {
     }
 }
 
-export default connect(mapStateToProps, {getMoviesList})(SearchResults);
+export default compose(
+    connect(mapStateToProps, {getMoviesList}),
+    React.memo
+)(SearchResults);

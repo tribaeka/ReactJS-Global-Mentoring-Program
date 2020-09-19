@@ -11,6 +11,7 @@ import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './homePage.scss';
 import {MovieDetailsProvider} from "../contexts";
 import {RootState} from "../../store";
+import {compose} from "redux";
 
 interface HomePageProps {
     isPopupOpened: IMoviePopupsState["isPopupOpened"],
@@ -62,4 +63,7 @@ const mapStateToProps = (state: RootState): HomePageProps => {
     };
 };
 
-export default connect(mapStateToProps, null)(HomePage);
+export default compose(
+    connect(mapStateToProps, null),
+    React.memo
+)(HomePage);
