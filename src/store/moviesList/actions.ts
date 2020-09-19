@@ -19,7 +19,7 @@ export function updateFilter(filter: string): MoviesListActionTypes {
     return {
         type: UPDATE_FILTER,
         payload: {
-            filter: filter
+            filter: filter === 'all' ? '' : filter
         }
     }
 }

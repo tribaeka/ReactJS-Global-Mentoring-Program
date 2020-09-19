@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, {useMemo, useState} from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import {connect} from 'react-redux';
@@ -7,6 +7,7 @@ import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
 import {useMovieDetails} from "../../../../../contexts";
 import Utils from "@components/utils";
+import defaultMovieImage from '@assets/default-movie.png'
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
@@ -14,6 +15,7 @@ interface MoviesListItemProps {
 }
 
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
+    const [imageSource, setImageSource] = useState(movie.posterPath ? movie.posterPath : defaultMovieImage);
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const updateMovieDetails = useMovieDetails().setMovie;
     const openEditMoviePopup = () => {
@@ -27,6 +29,7 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
     const toggleOnDropdown = () => setIsDropdownToggled(true);
     const toggleOffDropdown = () => setIsDropdownToggled(false);
     const openMovieDetails = () => updateMovieDetails(movie);
+    const imageLoadErrorHandler = () => setImageSource(defaultMovieImage);
 
     return (
       <>
@@ -42,15 +45,16 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
                       <li className="dot-btn-dropdown-list-item" onClick={openDeleteMoviePopup}>Delete</li>
                   </ul>
               </div>
-              <img className="movies-image" src={movie.posterPath} alt=""/>
+              <img className="movies-image"
+                   src={imageSource} onError={imageLoadErrorHandler} alt=""/>
           </div>
           <div className="movie-description">
               <span className="movie-description-title" onClick={openMovieDetails}>
                   {movie.title}
               </span>
-              <span className="movie-description-year">
+              <div className="movie-description-year">
                   {Utils.getReleaseYear(movie.releaseDate)}
-              </span>
+              </div>
           </div>
           <span className="movies-sub-description">
               {Utils.genresToString(movie.genres)}
