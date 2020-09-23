@@ -15,7 +15,7 @@ interface MoviesListItemProps {
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const dispatch = useDispatch();
-    const updateMovieDetails = useCallback(() => useMovieDetails().setMovie, []);
+    const updateMovieDetails =  useMovieDetails().setMovie;
 
     function openEditMoviePopup() {
         dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
