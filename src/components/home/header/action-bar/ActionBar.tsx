@@ -1,23 +1,32 @@
-import React, {useCallback} from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useMemo } from 'react';
 import Brand from '@components/shared/brand/Brand';
-import { openPopup } from "@store/moviePopups/actions";
-import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './actionBar.scss';
+import { BarActions } from "./BarActions";
+import AddMovieButton from "./addMovieButton/AddMovieButton";
+import BackToSearchButton from "./backToSearchButton/BackToSearchButton";
 
-const ActionBar: React.FC = () => {
-    const dispatch = useDispatch();
+interface IActionBarProps {
+    action: BarActions
+}
 
-    const openAddMoviePopup = useCallback(() =>
-        dispatch(openPopup(MOVIE_POPUPS_MAP.ADD, 'ADD MOVIE')), []);
+const ActionBar: React.FC<IActionBarProps> = ({ action }) => {
+
+    const actionButton = useMemo(() => {
+        switch (action) {
+            case BarActions.ADD_MOVIE:
+                return <AddMovieButton/>;
+            case BarActions.BACK_TO_SEARCH:
+                return <BackToSearchButton/>;
+            default:
+                return;
+
+        }
+    }, [action]);
 
     return (
         <div className="action-bar-container">
             <Brand/>
-            <button onClick={openAddMoviePopup}
-                    className="add-movie-btn">
-                + ADD MOVIE
-            </button>
+            {actionButton}
         </div>
     );
 }

@@ -6,8 +6,8 @@ $search-input-form-top-margin: 2em;
 $search-input-form-elements-height: $search-input-form-height - $search-input-form-top-margin;
 .search-input-container {
   display: grid;
+  grid-template-rows: 2fr 10fr;
   justify-content: center;
-  align-self: flex-start;
   z-index: 1;
 
   .search-heading {

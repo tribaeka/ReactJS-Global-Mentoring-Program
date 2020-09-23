@@ -1,0 +1,52 @@
+@import "../../../../scss/globalVars";
+@import "../../../../scss/colors";
+
+.movie-detail-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr 8fr 2fr;
+  justify-content: center;
+  z-index: 1;
+
+  .movies-image {
+    grid-column-start: 2;
+    align-self: center;
+    width: 15em;
+    height: 20em;
+  }
+
+  .movie-detail-description {
+    display: grid;
+    grid-template-rows: 7.5fr 2.5fr 5fr 16fr;
+    padding: 0 2em;
+
+    .movie-title {
+      font-size: 2.5em;
+    }
+
+    .movie-rating {
+      font-size: $big-text;
+      color: #738b64;
+      border: 1px #fff solid;
+      border-radius: 50%;
+      padding: 0.5em;
+      margin-left: 0.5em;
+    }
+
+    .movie-sub-title, .movie-overview {
+      color: $white-gray;
+    }
+
+    .movie-year, .movie-runtime {
+      color: $light-coral-color;
+      font-size: 1.5em;
+    }
+
+    .movie-runtime {
+      margin-left: 1em;
+    }
+
+    .movie-overview {
+      font-size: 1.25em;
+    }
+  }
+}

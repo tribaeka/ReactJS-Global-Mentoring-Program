@@ -9,6 +9,7 @@ import DeleteMoviePopup from '@components/popups/moviePopup/deleteMoviePopup/Del
 import { IMoviePopupsState } from "@store/moviePopups/reducers";
 import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import './homePage.scss';
+import {MovieDetailsProvider} from "../contexts";
 
 
 
@@ -40,14 +41,14 @@ const HomePage: React.FC = () => {
     }, [isPopupOpened]);
 
     return (
-        <>
+        <MovieDetailsProvider>
             <div className={isPopupOpened ? 'home-page-container popup-background-blurred': 'home-page-container'}>
                 <Header/>
                 <Main/>
                 <Footer/>
             </div>
             {activePopup}
-        </>
+        </MovieDetailsProvider>
 
     );
 }
