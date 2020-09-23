@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, {useState, MouseEvent, useCallback} from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
 import defaultMovieImage from '@assets/default-movie.png'
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
@@ -15,7 +15,7 @@ interface MoviesListItemProps {
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie }) => {
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const dispatch = useDispatch();
-    const updateMovieDetails = useMovieDetails().setMovie;
+    const updateMovieDetails = useCallback(() => useMovieDetails().setMovie, []);
 
     function openEditMoviePopup() {
         dispatch(openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie))
