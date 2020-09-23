@@ -1,28 +1,14 @@
-import React, {useCallback} from "react";
+import React from "react";
 import './addMovieButton.scss';
-import {connect} from "react-redux";
-import {openPopup} from "../../../../../store/moviePopups/actions";
-import {MOVIE_POPUPS_MAP} from "../../../../../store/moviePopups/types";
-import {IMoviesItem} from "../../../main/search-results/movies-list/IMoviesItem";
-import {compose} from "redux";
 
 interface AddMovieButtonProps {
-    openPopup(name: string, title: string, movie?: IMoviesItem): void;
+    openPopupHandler(): void;
 }
 
-const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openPopup }) => {
-    const openAddMoviePopup = useCallback(() =>
-        openPopup(MOVIE_POPUPS_MAP.ADD, 'ADD MOVIE'), []);
+const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openPopupHandler }) =>
+    <button onClick={openPopupHandler}
+            className="add-movie-btn">
+        + ADD MOVIE
+    </button>
 
-    return (
-        <button onClick={openAddMoviePopup}
-                className="add-movie-btn">
-            + ADD MOVIE
-        </button>
-    );
-}
-
-export default compose(
-    connect(null, {openPopup}),
-    React.memo
-)(AddMovieButton);
+export default React.memo(AddMovieButton);

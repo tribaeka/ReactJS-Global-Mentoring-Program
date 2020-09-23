@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import './searchInput.scss';
 import {connect} from "react-redux";
 import {RootState} from "../../../../store";
@@ -13,9 +13,8 @@ interface ISearchInputProps {
 
 const SearchInput: React.FC<ISearchInputProps> = ({ search, updateSearch  }) => {
     const [activeSearchQuery, setActiveSearchQuery] = useState(search);
-    const searchChangeHandler = (event: React.SyntheticEvent<HTMLInputElement>) => {
-        setActiveSearchQuery(event.currentTarget.value);
-    }
+    const searchChangeHandler = useCallback((event: React.SyntheticEvent<HTMLInputElement>) =>
+        setActiveSearchQuery(event.currentTarget.value), []);
     const executeSearch = (event: React.SyntheticEvent) => {
         event.preventDefault();
         updateSearch(activeSearchQuery);
