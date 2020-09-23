@@ -8,21 +8,22 @@ interface IMovieFormProps {
     method: string
 }
 
+const emptyMovie = {
+    budget: undefined,
+    genres: undefined,
+    id: new Date().getTime(),
+    overview: undefined,
+    posterPath: undefined,
+    releaseDate: undefined,
+    revenue: undefined,
+    runtime: undefined,
+    tagline: undefined,
+    title: undefined,
+    voteAverage: undefined,
+    voteCount: undefined
+};
+
 const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
-    const emptyMovie = {
-        budget: undefined,
-        genres: undefined,
-        id: new Date().getTime(),
-        overview: undefined,
-        posterPath: undefined,
-        releaseDate: undefined,
-        revenue: undefined,
-        runtime: undefined,
-        tagline: undefined,
-        title: undefined,
-        voteAverage: undefined,
-        voteCount: undefined
-    };
     const [movieForm, setMovieForm] = useState<IMoviesItem>(movie ? movie : emptyMovie);
     const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

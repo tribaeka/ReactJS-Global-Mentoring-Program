@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import {connect} from 'react-redux';
@@ -12,7 +12,7 @@ import {compose} from "redux";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
-    openPopup(name: string, title: string, movie?: IMoviesItem): void;
+    openPopup: typeof openPopup;
 }
 
 const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
@@ -27,10 +27,10 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
         openPopup(MOVIE_POPUPS_MAP.DELETE, 'DELETE MOVIE', movie);
         setIsDropdownToggled(false);
     };
-    const toggleOnDropdown = () => setIsDropdownToggled(true);
-    const toggleOffDropdown = () => setIsDropdownToggled(false);
-    const openMovieDetails = () => updateMovieDetails(movie);
-    const imageLoadErrorHandler = () => setImageSource(defaultMovieImage);
+    const toggleOnDropdown = useCallback(() => setIsDropdownToggled(true), []);
+    const toggleOffDropdown = useCallback(() => setIsDropdownToggled(false), []);
+    const openMovieDetails = useCallback(() => updateMovieDetails(movie), []);
+    const imageLoadErrorHandler = useCallback(() => setImageSource(defaultMovieImage), []);
 
     return (
       <>

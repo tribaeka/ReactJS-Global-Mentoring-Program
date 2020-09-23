@@ -41,9 +41,11 @@ const mapStateToProps = (state: RootState): ISortSwitcherProps => {
     return {
         activeSortByOption: state.movies.sortBy
     }
-}
+};
+
+const mapDispatchToProps = { updateSortBy };
 
 export default compose(
-    connect(mapStateToProps, { updateSortBy }),
+    connect(mapStateToProps, mapDispatchToProps),
     React.memo
 )(SortSwitcher);

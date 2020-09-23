@@ -16,11 +16,11 @@ function* getMoviesListWorker(): SagaIterator {
 }
 
 async function fetchMovies(moviesListState: MoviesListState) {
-    const response = await fetch(`http://localhost:4000/movies`
-        +`?search=${moviesListState.search}`
-        +`&limit=${moviesListState.limit}`
-        +`&sortBy=${moviesListState.sortBy}`
-        +`${moviesListState.filter ? `&filter=${moviesListState.filter}`: ''}`);
+    const response = await fetch(`${process.env.API_URL}`
+        +`?${process.env.API_SEARCH_ATTR_NAME}=${moviesListState.search}`
+        +`&${process.env.API_LIMIT_ATTR_NAME}=${moviesListState.limit}`
+        +`&${process.env.API_SORT_BY_ATTR_NAME}=${moviesListState.sortBy}`
+        +`${moviesListState.filter ? `&${process.env.API_FILTER_ATTR_NAME}=${moviesListState.filter}`: ''}`);
 
     return await response.json();
 }

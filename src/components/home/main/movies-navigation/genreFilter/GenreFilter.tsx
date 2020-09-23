@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import './genreFilter.scss';
 import {FilterOptions} from "./FilterOptions";
 import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
@@ -14,17 +14,22 @@ interface IGenreFilterProps {
 
 const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFilter }) => {
     const restoredActiveOption = activeFilterOption === '' ? 'ALL' : activeFilterOption.toUpperCase();
+    const genreClickHandler = useCallback((option: string) => updateFilter(option.toLowerCase()), []);
+    const genres = useMemo(() => {
+        return Object.keys(FilterOptions).map(option =>
+            <li key={option}
+                onClick={() => genreClickHandler(option)}
+                className={restoredActiveOption === option
+                    ? 'active-genre-list-item'
+                    : 'genre-list-item'}>
+                {option}
+            </li>
+        )
+    }, []);
+    useEffect(() => console.log('component render'.toUpperCase()));
     return (
         <ul className="genre-list">
-            {Object.keys(FilterOptions).map(option =>
-                <li key={option}
-                    onClick={() => updateFilter(option.toLowerCase())}
-                    className={restoredActiveOption === option
-                        ? 'active-genre-list-item'
-                        : 'genre-list-item'}>
-                    {option}
-                </li>
-            )}
+            {genres}
         </ul>
     )
 };

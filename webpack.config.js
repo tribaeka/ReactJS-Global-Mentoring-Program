@@ -4,6 +4,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -28,6 +31,13 @@ const optimization = () => {
 
 }
 
+const env = dotenv.config().parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+}, {});
+
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
@@ -48,6 +58,7 @@ module.exports = {
     },
     optimization: optimization(),
     plugins: [
+        new webpack.DefinePlugin(envKeys),
         new HTMLWebpackPlugin({
             template: './index.html',
             favicon: './assets/favicon.ico',
