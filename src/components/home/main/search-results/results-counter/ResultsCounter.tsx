@@ -14,4 +14,4 @@ const ResultsCounter: React.FC<ResultsCounterProps> = ({ moviesFound }) => {
     )
 }
 
-export default ResultsCounter;
+export default React.memo(ResultsCounter);

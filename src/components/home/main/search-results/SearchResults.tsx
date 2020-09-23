@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import ResultsCounter from './results-counter/ResultsCounter';
 import MoviesList from './movies-list/MoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
-import './searchResults.scss';
 import {connect} from "react-redux";
 import {getMoviesList} from "../../../../store/moviesList/actions";
 import {RootState} from "../../../../store";
@@ -28,7 +27,8 @@ const SearchResults: React.FC<ISearchResultsProps> = ({
     useEffect(() => {
         getMoviesList()
     }, [sortBy, filter, search]);
-    console.log(movies);
+    // useEffect(() => console.log('component render'.toUpperCase())); // has one extra render?
+
     return (
       <div className="search-results-container">
           <ResultsCounter moviesFound={totalAmount}/>
