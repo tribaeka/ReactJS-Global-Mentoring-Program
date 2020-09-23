@@ -13,7 +13,7 @@ interface ISearchResultsProps {
     filter: string;
     search: string;
     totalAmount: number;
-    getMoviesList?(): void;
+    getMoviesList?: typeof getMoviesList;
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = ({

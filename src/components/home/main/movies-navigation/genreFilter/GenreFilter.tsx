@@ -1,7 +1,6 @@
 import React, {useCallback, useEffect, useMemo} from 'react';
 import './genreFilter.scss';
 import {FilterOptions} from "./FilterOptions";
-import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
 import {connect} from "react-redux";
 import {RootState} from "../../../../../store";
 import {updateFilter} from "../../../../../store/moviesList/actions";
@@ -9,7 +8,7 @@ import {compose} from "redux";
 
 interface IGenreFilterProps {
     activeFilterOption: string;
-    updateFilter?(filter: string): MoviesListActionTypes;
+    updateFilter?: typeof updateFilter;
 }
 
 const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFilter }) => {

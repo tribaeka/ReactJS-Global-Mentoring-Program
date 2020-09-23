@@ -2,13 +2,12 @@ import React, {useCallback, useState} from 'react';
 import './searchInput.scss';
 import {connect} from "react-redux";
 import {RootState} from "../../../../store";
-import {MoviesListActionTypes} from "../../../../store/moviesList/types";
 import {updateSearch} from "../../../../store/moviesList/actions";
 import {compose} from "redux";
 
 interface ISearchInputProps {
     search: string;
-    updateSearch?(search: string): MoviesListActionTypes;
+    updateSearch?: typeof updateSearch;
 }
 
 const SearchInput: React.FC<ISearchInputProps> = ({ search, updateSearch  }) => {

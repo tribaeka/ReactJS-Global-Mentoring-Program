@@ -7,12 +7,11 @@ import BackToSearchButton from "./backToSearchButton/BackToSearchButton";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {openPopup} from "../../../../store/moviePopups/actions";
-import {IMoviesItem} from "../../main/search-results/movies-list/IMoviesItem";
 import {MOVIE_POPUPS_MAP} from "../../../../store/moviePopups/types";
 
 interface IActionBarProps {
     action: BarActions,
-    openPopup(name: string, title: string, movie?: IMoviesItem): void;
+    openPopup: typeof openPopup;
 }
 
 const ActionBar: React.FC<IActionBarProps> = ({ action, openPopup }) => {
