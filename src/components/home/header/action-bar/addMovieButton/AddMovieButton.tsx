@@ -9,6 +9,6 @@ const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openPopupHandler }) =>
     <button onClick={openPopupHandler}
             className="add-movie-btn">
         + ADD MOVIE
-    </button>
+    </button>;
 
 export default React.memo(AddMovieButton);

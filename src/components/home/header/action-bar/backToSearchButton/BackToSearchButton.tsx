@@ -14,6 +14,6 @@ const BackToSearchButton: React.FC = () => {
              onClick={closeMovieDetails}
              alt=""/>
     );
-}
+};
 
 export default React.memo(BackToSearchButton);

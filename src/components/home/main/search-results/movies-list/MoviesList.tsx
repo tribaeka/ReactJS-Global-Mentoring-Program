@@ -18,6 +18,6 @@ const MoviesList: React.FC<IMoviesListProps> = ({ movies }) => {
           }
       </ul>
     );
-}
+};
 
 export default MoviesList;

@@ -27,6 +27,6 @@ const errorPage = (WrapperComponent: React.ReactNode): React.ComponentClass => {
             return this.props.children;
         }
     }
-}
+};
 
 export default errorPage;

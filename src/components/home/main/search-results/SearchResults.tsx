@@ -45,9 +45,11 @@ const mapStateToProps = (state: RootState): ISearchResultsProps => {
         search: state.movies.search,
         totalAmount: state.movies.totalAmount
     }
-}
+};
+
+const mapDispatchToProps = { getMoviesList };
 
 export default compose(
-    connect(mapStateToProps, {getMoviesList}),
+    connect(mapStateToProps, mapDispatchToProps),
     React.memo
 )(SearchResults);

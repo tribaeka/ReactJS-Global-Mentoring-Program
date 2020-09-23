@@ -38,9 +38,11 @@ const mapStateToProps = (state: RootState): IGenreFilterProps => {
     return {
         activeFilterOption: state.movies.filter
     }
-}
+};
+
+const mapDispatchToProps = { updateFilter };
 
 export default compose(
-    connect(mapStateToProps, {updateFilter}),
+    connect(mapStateToProps, mapDispatchToProps),
     React.memo
 )(GenreFilter);

@@ -18,9 +18,11 @@ const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup
             <button className="delete-confirm-btn">CONFIRM</button>
         </div>
     );
-}
+};
+
+const mapDispatchToProps = { closePopup };
 
 export default compose(
-    connect(null, {closePopup}),
+    connect(null, mapDispatchToProps),
     React.memo
 )(DeleteMoviePopup);

@@ -62,9 +62,11 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
           </span>
       </>
     );
-}
+};
+
+const mapDispatchToProps = { openPopup };
 
 export default compose(
-    connect(null, {openPopup}),
+    connect(null, mapDispatchToProps),
     React.memo
 )(MoviesListItem);

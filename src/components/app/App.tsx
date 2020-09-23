@@ -13,6 +13,6 @@ const App: React.FC = () => {
             </OppsErrorPage>
         </Provider>
     );
-}
+};
 
 export default App;

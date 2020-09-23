@@ -33,15 +33,17 @@ const SearchInput: React.FC<ISearchInputProps> = ({ search, updateSearch  }) => 
             </form>
         </div>
     )
-}
+};
 
 const mapStateToProps = (state: RootState): ISearchInputProps => {
     return {
         search: state.movies.search
     }
-}
+};
+
+const mapDispatchToProps = { updateSearch }
 
 export default compose(
-    connect(mapStateToProps, {updateSearch}),
+    connect(mapStateToProps, mapDispatchToProps),
     React.memo
 )(SearchInput);

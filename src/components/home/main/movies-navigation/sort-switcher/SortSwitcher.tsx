@@ -35,7 +35,7 @@ const SortSwitcher: React.FC<ISortSwitcherProps> = ({ activeSortByOption, update
           </div>
       </div>
     );
-}
+};
 
 const mapStateToProps = (state: RootState): ISortSwitcherProps => {
     return {

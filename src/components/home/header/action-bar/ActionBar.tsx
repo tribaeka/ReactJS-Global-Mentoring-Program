@@ -36,9 +36,11 @@ const ActionBar: React.FC<IActionBarProps> = ({ action, openPopup }) => {
             {actionButton}
         </div>
     );
-}
+};
+
+const mapDispatchToProps = { openPopup };
 
 export default compose(
-    connect(null, {openPopup}),
+    connect(null, mapDispatchToProps),
     React.memo
 )(ActionBar);

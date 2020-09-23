@@ -17,9 +17,11 @@ const EditMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }
             <MovieForm movie={movie} method={'PUT'}/>
         </div>
     );
-}
+};
+
+const mapDispatchToProps = { closePopup };
 
 export default compose(
-    connect(null, {closePopup}),
+    connect(null, mapDispatchToProps),
     React.memo
 )(EditMoviePopup);
