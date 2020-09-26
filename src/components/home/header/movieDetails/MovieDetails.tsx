@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from "react";
 import './movieDetails.scss';
-import Utils from "@components/utils";
+import Utils from "../../../Utils";
 import defaultMovieImage from '@assets/default-movie.png'
 
 interface MovieDetailsProps {
@@ -34,7 +34,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = (
                     <span className="movie-title">{title}</span>
                     <span className="movie-rating">{voteAverage}</span>
                 </p>
-                <span className="movie-sub-title">{Utils.genresToString(genres)}</span>
+                <span className="movie-sub-title">{genres}</span>
                 <p>
                     <span className="movie-year">{Utils.getReleaseYear(releaseDate)}</span>
                     <span className="movie-runtime">{runtime} min</span>

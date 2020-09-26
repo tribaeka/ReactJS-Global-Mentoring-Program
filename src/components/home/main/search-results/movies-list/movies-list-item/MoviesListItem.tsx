@@ -4,7 +4,7 @@ import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import { openPopup} from "@store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
-import Utils from "@components/utils";
+import Utils from "../../../../../Utils";
 import defaultMovieImage from '@assets/default-movie.png'
 import {updateMovieDetails} from "@store/movieDetails/actions";
 
@@ -56,7 +56,7 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup, updat
               </div>
           </div>
           <span className="movies-sub-description">
-              {Utils.genresToString(movie.genres)}
+              {movie.genres}
           </span>
       </>
     );

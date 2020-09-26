@@ -14,7 +14,7 @@ const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title, closePopup }) => {
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
             <h2>{title}</h2>
-            <MovieForm method={'POST'}/>
+            <MovieForm afterSubmitHandler={closePopup} method={'POST'}/>
         </div>
     );
 };

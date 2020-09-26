@@ -1,4 +1,4 @@
-import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesServerItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
 
 export const GET_MOVIES_LIST = 'GET_MOVIES_LIST';
 export const REQUEST_GET_MOVIES_LIST = 'REQUEST_GET_MOVIES_LIST';
@@ -8,7 +8,7 @@ export const UPDATE_SEARCH_QUERY = 'UPDATE_SEARCH_QUERY';
 
 
 export interface IGetMoviesListPayload {
-    data: IMoviesItem[];
+    data: IMoviesServerItem[];
     limit: number;
     offset: number;
     totalAmount: number;
