@@ -42,22 +42,12 @@ export const moviesListReducer =
                 totalAmount: action.payload.totalAmount
             }
         }
-        case UPDATE_SORT_BY_QUERY: {
-            return {
-                ...state,
-                sortBy: action.payload.sortBy
-            }
-        }
-        case UPDATE_FILTER_QUERY: {
-            return {
-                ...state,
-                filter: action.payload.filter
-            }
-        }
+        case UPDATE_SORT_BY_QUERY:
+        case UPDATE_FILTER_QUERY:
         case UPDATE_SEARCH_QUERY: {
             return {
                 ...state,
-                search: action.payload.search
+                ...action.payload
             }
         }
         default:
