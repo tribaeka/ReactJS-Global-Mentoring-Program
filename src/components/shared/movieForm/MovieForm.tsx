@@ -8,7 +8,7 @@ interface IMovieFormProps {
     method: string
 }
 
-const emptyMovie = {
+const emptyMovie: IMoviesItem = {
     budget: undefined,
     genres: undefined,
     id: new Date().getTime(),

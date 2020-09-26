@@ -20,7 +20,7 @@ const ActionBar: React.FC<IActionBarProps> = ({ action, openPopup }) => {
     const actionButton = useMemo(() => {
         switch (action) {
             case BarActions.ADD_MOVIE:
-                return <AddMovieButton openPopupHandler={openAddMoviePopup}/>;
+                return <AddMovieButton openAddMoviePopupHandler={openAddMoviePopup}/>;
             case BarActions.BACK_TO_SEARCH:
                 return <BackToSearchButton/>;
             default:
