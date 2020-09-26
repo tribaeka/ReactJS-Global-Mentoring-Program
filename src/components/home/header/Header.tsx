@@ -19,8 +19,15 @@ interface IHeaderProps {
 const Header: React.FC<IHeaderProps> = ({ movie }) => {
     const activeAction = useMemo(() =>
         movie ? BarActions.BACK_TO_SEARCH : BarActions.ADD_MOVIE, [movie]);
-    const headerContent = useMemo(() =>
-        movie ? <MovieDetails movie={movie}/> : <SearchInput/>, [movie]);
+    const headerContent = useMemo(() => {
+        return movie
+            ? <MovieDetails title={movie.title}
+                            subTitle={movie.subTitle}
+                            year={movie.year}
+                            runtime={movie.runtime}
+                            overview={movie.overview}/>
+            : <SearchInput/>
+        }, [movie]);
     const backgroundStyle = useMemo(() =>
         movie ? SHADOWED_BACKGROUND_STYLE_NAME : DEFAULT_BACKGROUND_STYLE_NAME, [movie]);
 
