@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {RootState} from "../../../../store";
 import {updateSearch} from "../../../../store/moviesList/actions";
 import {compose} from "redux";
+import {getSearch} from "../../../../selectors";
 
 interface ISearchInputProps {
     search: string;
@@ -36,7 +37,7 @@ const SearchInput: React.FC<ISearchInputProps> = ({ search, updateSearch  }) => 
 
 const mapStateToProps = (state: RootState): ISearchInputProps => {
     return {
-        search: state.movies.search
+        search: getSearch(state)
     }
 };
 

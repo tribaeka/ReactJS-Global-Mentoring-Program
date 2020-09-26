@@ -1,10 +1,11 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import './genreFilter.scss';
 import {FilterOptions} from "./FilterOptions";
 import {connect} from "react-redux";
 import {RootState} from "../../../../../store";
 import {updateFilter} from "../../../../../store/moviesList/actions";
 import {compose} from "redux";
+import {getFilter} from "../../../../../selectors";
 
 interface IGenreFilterProps {
     activeFilterOption: string;
@@ -25,7 +26,7 @@ const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFi
             </li>
         )
     }, []);
-    useEffect(() => console.log('component render'.toUpperCase()));
+
     return (
         <ul className="genre-list">
             {genres}
@@ -35,7 +36,7 @@ const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFi
 
 const mapStateToProps = (state: RootState): IGenreFilterProps => {
     return {
-        activeFilterOption: state.movies.filter
+        activeFilterOption: getFilter(state)
     }
 };
 

@@ -10,7 +10,7 @@ import {
 import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
 import {FilterOptions} from "../../components/home/main/movies-navigation/genreFilter/FilterOptions";
 
-export interface MoviesListState {
+export interface IMoviesListState {
     movies: IMoviesItem[];
     limit: number;
     offset: number;
@@ -20,7 +20,7 @@ export interface MoviesListState {
     search: string;
 }
 
-const initialState: MoviesListState = {
+const initialState: IMoviesListState = {
     movies: [],
     limit: 12,
     offset: 0,
@@ -31,7 +31,7 @@ const initialState: MoviesListState = {
 }
 
 export const moviesListReducer =
-    (state: MoviesListState = initialState, action: MoviesListActionTypes): MoviesListState => {
+    (state: IMoviesListState = initialState, action: MoviesListActionTypes): IMoviesListState => {
     switch (action.type) {
         case GET_MOVIES_LIST: {
             return {

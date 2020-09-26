@@ -8,6 +8,7 @@ import {MOVIE_POPUPS_MAP} from "../../store/moviePopups/types";
 import AddMoviePopup from "./moviePopup/addMoviePopup/AddMoviePopup";
 import EditMoviePopup from "./moviePopup/editMoviePopup/EditMoviePopup";
 import DeleteMoviePopup from "./moviePopup/deleteMoviePopup/DeleteMoviePopup";
+import {getPopupMovie, getPopupName, getPopupTitle, isPopupOpened} from "../../selectors";
 
 interface PopupProps {
     isPopupOpened: IMoviePopupsState["isPopupOpened"],
@@ -38,9 +39,9 @@ const Popups: React.FC<PopupProps> = (
     }, [isPopupOpened]);
     const wrappedPage = useMemo(() => {
         if (isPopupOpened) {
-            return <><div className="popup-background-blurred">{children}</div>{activePopup}</>;
+            return <><div className="popup-background-blurred wrapper">{children}</div>{activePopup}</>;
         }
-        return children;
+        return <div className="wrapper">{children}</div>;
     }, [isPopupOpened]);
 
     return (
@@ -52,10 +53,10 @@ const Popups: React.FC<PopupProps> = (
 
 const mapStateToProps = (state: RootState): PopupProps => {
     return {
-        isPopupOpened: state.popups.isPopupOpened,
-        popupName: state.popups.popupName,
-        popupTitle: state.popups.popupTitle,
-        popupData: state.popups.movie
+        isPopupOpened: isPopupOpened(state),
+        popupName: getPopupName(state),
+        popupTitle: getPopupTitle(state),
+        popupData: getPopupMovie(state)
     };
 };
 

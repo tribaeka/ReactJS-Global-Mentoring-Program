@@ -6,6 +6,7 @@ import {RootState} from "../../../../../store";
 import {updateSortBy} from "../../../../../store/moviesList/actions";
 import {MoviesListActionTypes} from "../../../../../store/moviesList/types";
 import {compose} from "redux";
+import {getSortBy} from "../../../../../selectors";
 
 interface ISortSwitcherProps {
     activeSortByOption: string;
@@ -39,7 +40,7 @@ const SortSwitcher: React.FC<ISortSwitcherProps> = ({ activeSortByOption, update
 
 const mapStateToProps = (state: RootState): ISortSwitcherProps => {
     return {
-        activeSortByOption: state.movies.sortBy
+        activeSortByOption: getSortBy(state)
     }
 };
 

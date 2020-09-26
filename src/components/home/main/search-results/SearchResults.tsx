@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {getMoviesList} from "../../../../store/moviesList/actions";
 import {RootState} from "../../../../store";
 import {compose} from "redux";
+import {getFilter, getMovies, getSearch, getSortBy, getTotalAmount} from "../../../../selectors";
 
 interface ISearchResultsProps {
     movies: IMoviesItem[];
@@ -16,18 +17,18 @@ interface ISearchResultsProps {
     getMoviesList?: typeof getMoviesList;
 }
 
-const SearchResults: React.FC<ISearchResultsProps> = ({
-                                                          movies,
-                                                          sortBy,
-                                                          filter,
-                                                          search,
-                                                          totalAmount,
-                                                          getMoviesList
-}) => {
+const SearchResults: React.FC<ISearchResultsProps> = (
+    {
+        movies,
+        sortBy,
+        filter,
+        search,
+        totalAmount,
+        getMoviesList}) => {
+
     useEffect(() => {
         getMoviesList()
     }, [sortBy, filter, search]);
-    // useEffect(() => console.log('component render'.toUpperCase())); // has one extra render?
 
     return (
       <div className="search-results-container">
@@ -39,11 +40,11 @@ const SearchResults: React.FC<ISearchResultsProps> = ({
 
 const mapStateToProps = (state: RootState): ISearchResultsProps => {
     return {
-        movies: state.movies.movies,
-        sortBy: state.movies.sortBy,
-        filter: state.movies.filter,
-        search: state.movies.search,
-        totalAmount: state.movies.totalAmount
+        movies: getMovies(state),
+        sortBy: getSortBy(state),
+        filter: getFilter(state),
+        search: getSearch(state),
+        totalAmount: getTotalAmount(state)
     }
 };
 
