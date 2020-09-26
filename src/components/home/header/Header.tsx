@@ -22,10 +22,12 @@ const Header: React.FC<IHeaderProps> = ({ movie }) => {
     const headerContent = useMemo(() => {
         return movie
             ? <MovieDetails title={movie.title}
-                            subTitle={movie.subTitle}
-                            year={movie.year}
+                            posterPath={movie.posterPath}
+                            releaseDate={movie.releaseDate}
                             runtime={movie.runtime}
-                            overview={movie.overview}/>
+                            overview={movie.overview}
+                            genres={movie.genres}
+                            voteAverage={movie.voteAverage}/>
             : <SearchInput/>
         }, [movie]);
     const backgroundStyle = useMemo(() =>

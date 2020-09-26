@@ -1,28 +1,45 @@
-import React from "react";
+import React, {useCallback, useState} from "react";
 import './movieDetails.scss';
-import {IMoviesItem} from "../../main/search-results/movies-list/IMoviesItem";
 import Utils from "@components/utils";
-
+import defaultMovieImage from '@assets/default-movie.png'
 
 interface MovieDetailsProps {
-    movie: IMoviesItem;
+    title: string;
+    posterPath: string;
+    releaseDate: string;
+    runtime: number;
+    overview: string;
+    genres: string[];
+    voteAverage: number;
 }
 
-const MovieDetails: React.FC<MovieDetailsProps> = ({ movie }) => {
+const MovieDetails: React.FC<MovieDetailsProps> = (
+    {
+        title,
+        posterPath,
+        releaseDate,
+        runtime,
+        overview,
+        genres,
+        voteAverage
+    }) => {
+    const [imageSource, setImageSource] = useState(posterPath ? posterPath : defaultMovieImage);
+    const imageLoadErrorHandler = useCallback(() => setImageSource(defaultMovieImage), []);
+
     return (
         <div className="movie-detail-container">
-            <img className="movies-image" src={movie.posterPath} alt=""/>
+            <img className="movies-image" src={imageSource} onError={imageLoadErrorHandler} alt=""/>
             <div className="movie-detail-description">
                 <p>
-                    <span className="movie-title">{movie.title}</span>
-                    <span className="movie-rating">{movie.voteAverage}</span>
+                    <span className="movie-title">{title}</span>
+                    <span className="movie-rating">{voteAverage}</span>
                 </p>
-                <span className="movie-sub-title">{Utils.genresToString(movie.genres)}</span>
+                <span className="movie-sub-title">{Utils.genresToString(genres)}</span>
                 <p>
-                    <span className="movie-year">{Utils.getReleaseYear(movie.releaseDate)}</span>
-                    <span className="movie-runtime">{movie.runtime} min</span>
+                    <span className="movie-year">{Utils.getReleaseYear(releaseDate)}</span>
+                    <span className="movie-runtime">{runtime} min</span>
                 </p>
-                <p className="movie-overview">{movie.overview}</p>
+                <p className="movie-overview">{overview}</p>
             </div>
         </div>
     );
