@@ -2,11 +2,11 @@ import React from "react";
 import './addMovieButton.scss';
 
 interface AddMovieButtonProps {
-    openAddMoviePopupHandler(): void;
+    actionHandler(): void;
 }
 
-const AddMovieButton: React.FC<AddMovieButtonProps> = ({ openAddMoviePopupHandler }) =>
-    <button onClick={openAddMoviePopupHandler}
+const AddMovieButton: React.FC<AddMovieButtonProps> = ({ actionHandler }) =>
+    <button onClick={actionHandler}
             className="add-movie-btn">
         + ADD MOVIE
     </button>;

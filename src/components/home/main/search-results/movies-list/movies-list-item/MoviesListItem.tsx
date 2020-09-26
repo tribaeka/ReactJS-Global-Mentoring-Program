@@ -1,24 +1,22 @@
 import React, {useCallback, useState} from 'react';
 import { IMoviesItem } from '@components/home/main/search-results/movies-list/IMoviesItem';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
-import {connect} from 'react-redux';
 import { openPopup} from "@store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
-import {useMovieDetails} from "../../../../../contexts";
 import Utils from "@components/utils";
 import defaultMovieImage from '@assets/default-movie.png'
-import {compose} from "redux";
+import {updateMovieDetails} from "@store/movieDetails/actions";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
     openPopup: typeof openPopup;
+    updateMovieDetails: typeof updateMovieDetails
 }
 
-const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
+const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup, updateMovieDetails }) => {
     const [imageSource, setImageSource] = useState(movie.posterPath ? movie.posterPath : defaultMovieImage);
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
-    const updateMovieDetails = useMovieDetails().setMovie;
     const openEditMoviePopup = () => {
         openPopup(MOVIE_POPUPS_MAP.EDIT, 'EDIT MOVIE', movie);
         setIsDropdownToggled(false);
@@ -64,9 +62,4 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => 
     );
 };
 
-const mapDispatchToProps = { openPopup };
-
-export default compose(
-    connect(null, mapDispatchToProps),
-    React.memo
-)(MoviesListItem);
+export default React.memo(MoviesListItem);

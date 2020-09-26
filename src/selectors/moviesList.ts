@@ -3,7 +3,7 @@ import {IMoviesListState} from "../store/moviesList/reducer";
 import {createSelector} from "reselect";
 import {IMoviesItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
 
-export const baseMoviesState = (state: RootState): IMoviesListState => state.movies;
+export const baseMoviesState = (state: RootState): IMoviesListState => state.moviesList;
 export const getMovies = createSelector<any, any, IMoviesItem[]>(
     [baseMoviesState],
     (state: IMoviesListState) => state.movies
@@ -23,4 +23,8 @@ export const getSearch = createSelector<any, any, string>(
 export const getTotalAmount = createSelector<any, any, number>(
     [baseMoviesState],
     (state: IMoviesListState) => state.totalAmount
+);
+export const getLimit = createSelector<any, any, number>(
+    [baseMoviesState],
+    (state: IMoviesListState) => state.limit
 );
