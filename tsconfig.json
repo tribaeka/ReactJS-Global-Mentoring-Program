@@ -11,7 +11,8 @@
     "paths": {
       "@store/*": ["store/*"],
       "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@selectors/*": ["selectors/*"]
     }
   },
   "files": [

@@ -5,3 +5,13 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 5px 30px rgba(0,0,0,.30);
 }
+
+.popup-background-blurred {
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.wrapper {
+  height: inherit;
+}

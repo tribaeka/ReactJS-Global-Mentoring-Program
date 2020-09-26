@@ -12,6 +12,6 @@ const ResultsCounter: React.FC<ResultsCounterProps> = ({ moviesFound }) => {
             <span className="results-counter-description">movies found</span>
         </p>
     )
-}
+};
 
-export default ResultsCounter;
+export default React.memo(ResultsCounter);

@@ -7,7 +7,7 @@ export const MOVIE_POPUPS_MAP = {
     ADD: 'addMoviePopup',
     EDIT: 'editMoviePopup',
     DELETE: 'deleteMoviePopup'
-}
+};
 
 export interface IMoviePopupsPayload {
     name: string;

@@ -1,16 +1,48 @@
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import './genreFilter.scss';
+import {FilterOptions} from "./FilterOptions";
+import {connect} from "react-redux";
+import {RootState} from "../../../../../store";
+import {updateFilter} from "../../../../../store/moviesList/actions";
+import {compose} from "redux";
+import {getFilter} from "../../../../../selectors";
 
-const GenreFilter: React.FC = () => {
+interface IGenreFilterProps {
+    activeFilterOption: string;
+    updateFilter?: typeof updateFilter;
+}
+
+const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFilter }) => {
+    const restoredActiveOption = activeFilterOption === '' ? 'ALL' : activeFilterOption.toUpperCase();
+    const genreClickHandler = useCallback((option: string) => updateFilter(option.toLowerCase()), []);
+    const genres = useMemo(() => {
+        return Object.keys(FilterOptions).map(option =>
+            <li key={option}
+                onClick={() => genreClickHandler(option)}
+                className={restoredActiveOption === option
+                    ? 'active-genre-list-item'
+                    : 'genre-list-item'}>
+                {option}
+            </li>
+        )
+    }, []);
+
     return (
         <ul className="genre-list">
-            <li className="genre-list-item">ALL</li>
-            <li className="genre-list-item">DOCUMENTARY</li>
-            <li className="genre-list-item">COMEDY</li>
-            <li className="genre-list-item">HORROR</li>
-            <li className="genre-list-item">CRIME</li>
+            {genres}
         </ul>
     )
 };
 
-export default GenreFilter;
+const mapStateToProps = (state: RootState): IGenreFilterProps => {
+    return {
+        activeFilterOption: getFilter(state)
+    }
+};
+
+const mapDispatchToProps = { updateFilter };
+
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    React.memo
+)(GenreFilter);

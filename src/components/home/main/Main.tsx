@@ -10,6 +10,6 @@ const Main: React.FC = () => {
         <SearchResults/>
       </div>
     );
-}
+};
 
 export default Main;

@@ -1,20 +1,21 @@
-import React from "react";
+import React, {useCallback} from "react";
 import './backToSearchButton.scss';
-import {useMovieDetails} from "../../../../contexts";
 import searchIcon from '@assets/search.png';
+import {closeMovieDetails} from "../../../../../store/movieDetails/actions";
 
-const BackToSearchButton: React.FC = () => {
-    const updateMovieDetails = useMovieDetails().setMovie;
+interface IBackToSearchProps {
+    actionHandler: typeof closeMovieDetails
+}
 
-    function closeMovieDetails() {
-        updateMovieDetails(undefined);
-    }
+const BackToSearchButton: React.FC<IBackToSearchProps> = ({ actionHandler }) => {
+    const closeMovieDetails = useCallback(() => actionHandler(), []);
+
     return (
         <img src={searchIcon}
              className="search-icon"
              onClick={closeMovieDetails}
              alt=""/>
     );
-}
+};
 
-export default BackToSearchButton;
+export default React.memo(BackToSearchButton);
