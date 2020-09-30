@@ -2,11 +2,16 @@ import React from 'react';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import {connect} from 'react-redux';
 import MovieForm from '@components/shared/movieForm/MovieForm';
-import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
-import { closePopup } from "@store/moviePopups/actions";
+import {closePopup, createMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
 
-const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title, closePopup }) => {
+interface IAddMoviePopupProps {
+    title: string;
+    createMovie: typeof createMovie;
+    closePopup: typeof closePopup;
+}
+
+const AddMoviePopup: React.FC<IAddMoviePopupProps> = ({ title, createMovie, closePopup }) => {
 
     return (
         <div className="popup movie-popup">
@@ -14,12 +19,12 @@ const AddMoviePopup: React.FC<IMoviePopupProps> = ({ title, closePopup }) => {
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
             <h2>{title}</h2>
-            <MovieForm afterSubmitHandler={closePopup} method={'POST'}/>
+            <MovieForm afterSubmitHandler={closePopup} submitHandlerAction={createMovie}/>
         </div>
     );
 };
 
-const mapDispatchToProps = { closePopup };
+const mapDispatchToProps = { createMovie, closePopup };
 
 export default compose(
     connect(null, mapDispatchToProps),

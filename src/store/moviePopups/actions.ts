@@ -1,5 +1,11 @@
-import { CLOSE_MOVIE_POPUP, MoviePopupsActionTypes, OPEN_MOVIE_POPUP } from "./types";
-import { IMoviesItem } from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {
+    CLOSE_MOVIE_POPUP,
+    MoviePopupsActionTypes,
+    OPEN_MOVIE_POPUP,
+    REQUEST_CREATE_MOVIE,
+    REQUEST_UPDATE_MOVIE
+} from "./types";
+import {IMoviesItem, IMoviesServerItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
 
 export function openPopup(name: string, title: string, movie?: IMoviesItem): MoviePopupsActionTypes {
     return {
@@ -10,4 +16,24 @@ export function openPopup(name: string, title: string, movie?: IMoviesItem): Mov
 
 export function closePopup(): MoviePopupsActionTypes {
     return { type: CLOSE_MOVIE_POPUP }
+}
+
+export function createMovie(movie: IMoviesServerItem): MoviePopupsActionTypes {
+    return {
+        type: REQUEST_CREATE_MOVIE,
+        payload: {
+            method: 'POST',
+            movie: movie
+        }
+    }
+}
+
+export function updateMovie(movie: IMoviesServerItem): MoviePopupsActionTypes {
+    return {
+        type: REQUEST_UPDATE_MOVIE,
+        payload: {
+            method: 'PUT',
+            movie: movie
+        }
+    }
 }

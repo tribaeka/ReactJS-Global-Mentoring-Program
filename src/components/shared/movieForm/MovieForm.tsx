@@ -4,11 +4,11 @@ import { IMoviesItem } from "@components/home/main/search-results/movies-list/IM
 import {Field, Formik} from "formik";
 import * as Yup from 'yup';
 import Utils from "../../Utils";
-import {closePopup} from "../../../store/moviePopups/actions";
+import {closePopup, createMovie, updateMovie} from "../../../store/moviePopups/actions";
 
 interface IMovieFormProps {
     movie?: IMoviesItem;
-    method: string;
+    submitHandlerAction: typeof createMovie | typeof updateMovie;
     afterSubmitHandler: typeof closePopup;
 }
 
@@ -37,6 +37,7 @@ const MovieFormSchema = Yup.object().shape({
         .min(2, generateToShortErrorMessage(2))
         .max(50, generateToLongErrorMessage(50))
         .required(REQUIRED_ERROR_MESSAGE),
+    releaseDate: Yup.string(),
     posterPath: Yup.string()
         .url('Invalid URL')
         .required(REQUIRED_ERROR_MESSAGE),
@@ -53,7 +54,7 @@ const MovieFormSchema = Yup.object().shape({
 const MovieForm: React.FC<IMovieFormProps> = (
     {
         movie,
-        method,
+        submitHandlerAction,
         afterSubmitHandler
     }) => {
     return (
@@ -62,15 +63,7 @@ const MovieForm: React.FC<IMovieFormProps> = (
         validationSchema={MovieFormSchema}
         onSubmit={(values: IMoviesItem, { setSubmitting }) => {
             setTimeout(() => {
-                console.log(Utils.parseMoviesItem(values));
-                const requestOptions = {
-                    method: method,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(Utils.parseMoviesItem(values))
-                };
-                fetch(process.env.API_URL, requestOptions)
-                    .then(response => response.json())
-                    .then(data => console.log(data));
+                submitHandlerAction(Utils.parseMoviesItem(values))
                 setSubmitting(false);
                 afterSubmitHandler();
             }, 400);
@@ -80,8 +73,7 @@ const MovieForm: React.FC<IMovieFormProps> = (
                   errors,
                   touched,
                   handleSubmit,
-                  handleReset,
-                  isSubmitting,
+                  handleReset
               }) => (
                     <form className="add-movie-form" onSubmit={handleSubmit} onReset={handleReset}>
                         <div className="form-control">
@@ -93,8 +85,8 @@ const MovieForm: React.FC<IMovieFormProps> = (
                                    name="title"
                                    type="text"
                                    placeholder="Enter title"/>
-                            {errors.title && touched.title ?
-                                (<span className="error-message">{errors.title}</span>)
+                            {errors.title && touched.title
+                                ? (<span className="error-message">{errors.title}</span>)
                                 : null}
                         </div>
                         <div className="form-control">
@@ -106,8 +98,8 @@ const MovieForm: React.FC<IMovieFormProps> = (
                                    name="releaseDate"
                                    type="date"
                                    placeholder="Select date"/>
-                            {errors.releaseDate && touched.releaseDate ?
-                                (<span className="error-message">{errors.releaseDate}</span>)
+                            {errors.releaseDate && touched.releaseDate
+                                ? (<span className="error-message">{errors.releaseDate}</span>)
                                 : null}
                         </div>
                         <div className="form-control">
@@ -119,8 +111,8 @@ const MovieForm: React.FC<IMovieFormProps> = (
                                    name="posterPath"
                                    type="text"
                                    placeholder="Movie URL here"/>
-                            {errors.posterPath && touched.posterPath ?
-                                (<span className="error-message">{errors.posterPath}</span>)
+                            {errors.posterPath && touched.posterPath
+                                ? (<span className="error-message">{errors.posterPath}</span>)
                                 : null}
                         </div>
                         <div className="form-control">
@@ -132,8 +124,8 @@ const MovieForm: React.FC<IMovieFormProps> = (
                                    name="genres"
                                    type="text"
                                    placeholder="Select Genre"/>
-                            {errors.genres && touched.genres ?
-                                (<span className="error-message">{errors.genres}</span>)
+                            {errors.genres && touched.genres
+                                ? (<span className="error-message">{errors.genres}</span>)
                                 : null}
                         </div>
                         <div className="form-control">
