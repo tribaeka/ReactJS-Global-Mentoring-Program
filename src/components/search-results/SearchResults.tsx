@@ -6,13 +6,13 @@ import {connect} from "react-redux";
 import {getMoviesList} from "@store/moviesList/actions";
 import {RootState} from "@store/index";
 import {compose} from "redux";
-import {getFilter, getMovies, getSearch, getSortBy, getTotalAmount} from "../../selectors";
+import {getFilter, getMovies, getSortBy, getTotalAmount} from "../../selectors";
+import {useParams} from "react-router";
 
 interface ISearchResultsProps {
     movies: IMoviesItem[];
     sortBy: string;
     filter: string;
-    search: string;
     totalAmount: number;
     getMoviesList?: typeof getMoviesList;
 }
@@ -22,13 +22,13 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         movies,
         sortBy,
         filter,
-        search,
         totalAmount,
         getMoviesList}) => {
-
+    console.log(movies);
+    const { search } = useParams();
     useEffect(() => {
-        getMoviesList()
-    }, [sortBy, filter, search]);
+        getMoviesList(search)
+    }, [sortBy, filter]);
 
     return (
       <div className="search-results-container">
@@ -43,7 +43,6 @@ const mapStateToProps = (state: RootState): ISearchResultsProps => {
         movies: getMovies(state),
         sortBy: getSortBy(state),
         filter: getFilter(state),
-        search: getSearch(state),
         totalAmount: getTotalAmount(state)
     }
 };

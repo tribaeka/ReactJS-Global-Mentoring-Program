@@ -26,13 +26,18 @@ export interface IUpdateSearchQueryPayload {
     search: string;
 }
 
+export interface IRequestGetMovieListPayload {
+    search: string;
+}
+
 interface IGetMoviesListAction {
     type: typeof GET_MOVIES_LIST;
     payload: IGetMoviesListPayload;
 }
 
-interface IRequestGetMoviesListAction {
+export interface IRequestGetMoviesListAction {
     type: typeof REQUEST_GET_MOVIES_LIST;
+    payload: IRequestGetMovieListPayload;
 }
 
 interface IUpdateSortByQueryAction {

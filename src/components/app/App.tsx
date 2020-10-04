@@ -1,12 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from "@store/index";
-import HomePage from "@components/pages/homePage/HomePage";
+import HomePage from "../pages/home/home";
 import './App.scss';
-import OppsErrorPage from "../errors/oppsErrorPage/OppsErrorPage";
+import OppsErrorPage from "../errors/opps-error-page/OppsErrorPage";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import PageNotFoundErrorPage from "@components/errors/404ErrorPage/PageNotFoundErrorPage";
-import InitialPage from "@components/pages/initialPage/initialPage";
+import PageNotFoundErrorPage from "@components/errors/404-error-page/PageNotFoundErrorPage";
+import InitialPage from "../pages/initial/initial";
 
 const App: React.FC = () => {
     return (

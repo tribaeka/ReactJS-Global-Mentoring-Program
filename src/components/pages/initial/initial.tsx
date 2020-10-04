@@ -1,19 +1,19 @@
 import React from "react";
-import './initialPage.scss';
+import './initial.scss';
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 import Popups from "@components/popups/Popups";
 import MoviesNavigation from "../../movies-navigation/MoviesNavigation";
-import SearchResults from "../../search-results/SearchResults";
+import EmptyList from "../../empty-list/emptyList";
 
-const InitialPage: React.FC = () => {
+const Initial: React.FC = () => {
     return (
         <Popups>
-            <div className="home-page">
+            <div className="initial-page">
                 <Header/>
                 <div className="main-container">
                     <MoviesNavigation/>
-                    <SearchResults/>
+                    <EmptyList/>
                 </div>
                 <Footer/>
             </div>
@@ -21,4 +21,4 @@ const InitialPage: React.FC = () => {
     );
 };
 
-export default React.memo(InitialPage);
+export default React.memo(Initial);

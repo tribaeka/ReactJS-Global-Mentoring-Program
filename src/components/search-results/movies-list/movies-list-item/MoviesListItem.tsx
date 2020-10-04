@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import { IMoviesItem } from '@components/search-results/movies-list/IMoviesItem';
-import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
+import CloseBtn, { CloseBtnSizes } from '@components/shared/close-btn/CloseBtn';
 import { openPopup} from "@store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';

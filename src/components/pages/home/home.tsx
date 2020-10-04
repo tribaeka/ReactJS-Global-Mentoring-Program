@@ -1,13 +1,12 @@
 import React from 'react';
-import './homePage.scss';
+import './home.scss';
 import Popups from "@components/popups/Popups";
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 import MoviesNavigation from "@components/movies-navigation/MoviesNavigation";
 import SearchResults from "@components/search-results/SearchResults";
 
-const HomePage: React.FC = () => {
-
+const Home: React.FC = () => {
     return (
         <Popups>
             <div className="home-page">
@@ -22,4 +21,4 @@ const HomePage: React.FC = () => {
     );
 };
 
-export default React.memo(HomePage);
+export default React.memo(Home)

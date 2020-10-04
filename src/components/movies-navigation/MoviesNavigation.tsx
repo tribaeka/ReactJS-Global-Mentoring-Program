@@ -1,5 +1,5 @@
 import React from 'react';
-import GenreFilter from './genreFilter/GenreFilter';
+import GenreFilter from './genre-filter/GenreFilter';
 import SortSwitcher from './sort-switcher/SortSwitcher';
 import './moviesNavigation.scss';
 

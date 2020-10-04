@@ -16,10 +16,6 @@ export const getFilter = createSelector<any, any, string>(
     [baseMoviesState],
     (state: IMoviesListState) => state.filter
 );
-export const getSearch = createSelector<any, any, string>(
-    [baseMoviesState],
-    (state: IMoviesListState) => state.search
-);
 export const getTotalAmount = createSelector<any, any, number>(
     [baseMoviesState],
     (state: IMoviesListState) => state.totalAmount

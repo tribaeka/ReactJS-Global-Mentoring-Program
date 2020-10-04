@@ -1,7 +1,7 @@
 import React from 'react';
-import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
+import CloseBtn, { CloseBtnSizes } from '@components/shared/close-btn/CloseBtn';
 import {connect} from 'react-redux';
-import MovieForm from '@components/shared/movieForm/MovieForm';
+import MovieForm from '@components/shared/movie-form/MovieForm';
 import {closePopup, createMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
 

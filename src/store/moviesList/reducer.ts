@@ -7,7 +7,7 @@ import {
     UPDATE_SORT_BY_QUERY
 } from "./types";
 import {SortOptions} from "@components/movies-navigation/sort-switcher/SortOptions";
-import {FilterOptions} from "@components/movies-navigation/genreFilter/FilterOptions";
+import {FilterOptions} from "@components/movies-navigation/genre-filter/FilterOptions";
 import Utils from "../../components/Utils";
 
 export interface IMoviesListState {

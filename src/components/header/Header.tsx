@@ -3,7 +3,7 @@ import ActionBar from './action-bar/ActionBar';
 import SearchInput from './search-input/SearchInput';
 import './header.scss';
 import {BarActions} from "./action-bar/BarActions";
-import MovieDetails from "./movieDetails/MovieDetails";
+import MovieDetails from "./movie-details/MovieDetails";
 import {DEFAULT_BACKGROUND_STYLE_NAME, SHADOWED_BACKGROUND_STYLE_NAME} from "./constants";
 import {RootState} from "@store/index";
 import {compose} from "redux";

@@ -6,9 +6,12 @@ import {
     UPDATE_SORT_BY_QUERY
 } from "./types";
 
-export function getMoviesList(): MoviesListActionTypes {
+export function getMoviesList(search: string): MoviesListActionTypes {
     return {
-        type: REQUEST_GET_MOVIES_LIST
+        type: REQUEST_GET_MOVIES_LIST,
+        payload: {
+            search: search
+        }
     }
 }
 
