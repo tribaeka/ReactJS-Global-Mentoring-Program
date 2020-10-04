@@ -5,7 +5,7 @@ import {
     REQUEST_CREATE_MOVIE,
     REQUEST_UPDATE_MOVIE
 } from "./types";
-import {IMoviesItem, IMoviesServerItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export function openPopup(name: string, title: string, movie?: IMoviesItem): MoviePopupsActionTypes {
     return {

@@ -1,0 +1,14 @@
+@import "../../../../scss/globalVars";
+
+.search-icon {
+  width: 2em;
+  height: 2em;
+  padding: 0.5em;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: $action-bar-action-invoker-background-hover;
+  }
+}

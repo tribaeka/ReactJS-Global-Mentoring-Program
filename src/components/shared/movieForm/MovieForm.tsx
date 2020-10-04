@@ -1,10 +1,10 @@
 import React from 'react';
 import './movieForm.scss';
-import { IMoviesItem } from "@components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 import {Field, Formik} from "formik";
 import * as Yup from 'yup';
-import Utils from "../../Utils";
-import {closePopup, createMovie, updateMovie} from "../../../store/moviePopups/actions";
+import Utils from "@components/Utils";
+import {closePopup, createMovie, updateMovie} from "@store/moviePopups/actions";
 
 interface IMovieFormProps {
     movie?: IMoviesItem;

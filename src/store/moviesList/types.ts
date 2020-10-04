@@ -1,4 +1,4 @@
-import {IMoviesServerItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const GET_MOVIES_LIST = 'GET_MOVIES_LIST';
 export const REQUEST_GET_MOVIES_LIST = 'REQUEST_GET_MOVIES_LIST';

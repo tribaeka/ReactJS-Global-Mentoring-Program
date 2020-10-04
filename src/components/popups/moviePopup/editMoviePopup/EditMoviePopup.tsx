@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import MovieForm from '@components/shared/movieForm/MovieForm';
 import {closePopup, updateMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
-import {IMoviesItem} from "../../../home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export interface IEditMoviePopupProps {
     title: string;

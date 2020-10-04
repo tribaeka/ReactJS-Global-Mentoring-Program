@@ -1,6 +1,6 @@
 import React from "react";
 import Brand from "../../shared/brand/Brand";
-import Footer from "../../home/footer/Footer";
+import Footer from "@components/footer/Footer";
 
 const OppsMessage: React.FC = () =>
     <div className="error-page">

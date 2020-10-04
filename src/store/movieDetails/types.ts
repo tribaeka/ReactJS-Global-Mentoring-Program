@@ -1,4 +1,4 @@
-import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const SET_MOVIE = 'SET_MOVIE';
 export const CLEAR_MOVIE = 'CLEAR_MOVIE';

@@ -1,5 +1,5 @@
 import {CLEAR_MOVIE, MovieDetailsActionTypes, SET_MOVIE} from "./types";
-import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export function updateMovieDetails(movie: IMoviesItem): MovieDetailsActionTypes {
     return {

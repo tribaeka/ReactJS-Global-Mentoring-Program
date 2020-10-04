@@ -1,7 +1,7 @@
-import {RootState} from "../store";
-import {IMoviesListState} from "../store/moviesList/reducer";
+import {RootState} from "@store/index";
+import {IMoviesListState} from "@store/moviesList/reducer";
 import {createSelector} from "reselect";
-import {IMoviesItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const baseMoviesState = (state: RootState): IMoviesListState => state.moviesList;
 export const getMovies = createSelector<any, any, IMoviesItem[]>(

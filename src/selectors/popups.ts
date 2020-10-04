@@ -1,7 +1,7 @@
-import {RootState} from "../store";
-import {IMoviePopupsState} from "../store/moviePopups/reducer";
+import {RootState} from "@store/index";
+import {IMoviePopupsState} from "@store/moviePopups/reducer";
 import {createSelector} from "reselect";
-import {IMoviesItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const basePopupsState = (state: RootState): IMoviePopupsState => state.popups;
 export const isPopupOpened = createSelector<any, any, boolean>(

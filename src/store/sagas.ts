@@ -4,7 +4,7 @@ import {RootState} from "./index";
 import {SagaIterator} from "@redux-saga/types";
 import {getFilter, getLimit, getSearch, getSortBy} from "../selectors";
 import {IRequestCreateMovieAction, REQUEST_CREATE_MOVIE, REQUEST_UPDATE_MOVIE} from "./moviePopups/types";
-import {IMoviesServerItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export default function* rootSaga() {
     yield takeEvery(REQUEST_GET_MOVIES_LIST, getMoviesListWorker);

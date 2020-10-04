@@ -1,9 +1,7 @@
 import React from "react";
-import Brand from "../../shared/brand/Brand";
-import Footer from "../../home/footer/Footer";
+import Brand from "@components/shared/brand/Brand";
+import Footer from "@components/footer/Footer";
 import notFoundImage from '@assets/pageNotFound.gif';
-import rightImage from '@assets/notFoundErrorRight.png';
-import sorryImage from '@assets/search.png';
 import {Link} from "react-router-dom";
 
 const PageNotFoundErrorPage: React.FC = () =>

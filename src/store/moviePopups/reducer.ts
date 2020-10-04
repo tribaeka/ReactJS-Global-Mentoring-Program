@@ -1,4 +1,4 @@
-import {IMoviesItem} from '../../components/home/main/search-results/movies-list/IMoviesItem';
+import {IMoviesItem} from '@components/search-results/movies-list/IMoviesItem';
 import {CLOSE_MOVIE_POPUP, MoviePopupsActionTypes, OPEN_MOVIE_POPUP} from "./types";
 
 export interface IMoviePopupsState {

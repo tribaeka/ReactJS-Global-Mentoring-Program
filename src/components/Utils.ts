@@ -1,4 +1,4 @@
-import {IMoviesItem, IMoviesServerItem} from "./home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 import {camelCase, mapKeys, snakeCase} from 'lodash';
 
 export default class Utils {

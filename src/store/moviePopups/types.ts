@@ -1,4 +1,4 @@
-import {IMoviesItem, IMoviesServerItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const OPEN_MOVIE_POPUP = 'OPEN_MOVIE_POPUP';
 export const CLOSE_MOVIE_POPUP = 'CLOSE_MOVIE_POPUP';
