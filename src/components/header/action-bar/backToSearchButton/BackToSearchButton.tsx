@@ -1,20 +1,21 @@
-import React, {useCallback} from "react";
+import React from "react";
 import './backToSearchButton.scss';
 import searchIcon from '@assets/search.png';
-import {closeMovieDetails} from "@store/movieDetails/actions";
+import {useHistory} from "react-router";
+import {Link} from "react-router-dom";
 
-interface IBackToSearchProps {
-    actionHandler: typeof closeMovieDetails
+interface BackToSearchButtonProps {
+    lastSearch: string
 }
 
-const BackToSearchButton: React.FC<IBackToSearchProps> = ({ actionHandler }) => {
-    const closeMovieDetails = useCallback(() => actionHandler(), []);
-
+const BackToSearchButton: React.FC<BackToSearchButtonProps> = ({ lastSearch }) => {
     return (
-        <img src={searchIcon}
-             className="search-icon"
-             onClick={closeMovieDetails}
-             alt=""/>
+        <Link to={`/search/${lastSearch}`}>
+            <img src={searchIcon}
+                 className="search-icon"
+                 onClick={useHistory().goBack}
+                 alt=""/>
+        </Link>
     );
 };
 

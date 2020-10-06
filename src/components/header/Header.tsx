@@ -5,18 +5,18 @@ import './header.scss';
 import {BarActions} from "./action-bar/BarActions";
 import MovieDetails from "./movie-details/MovieDetails";
 import {DEFAULT_BACKGROUND_STYLE_NAME, SHADOWED_BACKGROUND_STYLE_NAME} from "./constants";
-import {RootState} from "@store/index";
-import {compose} from "redux";
-import {connect} from "react-redux";
-import {updateMovieDetails} from "@store/movieDetails/actions";
+import {openPopup} from "@store/moviePopups/actions";
 import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
-import {getMovie} from "../../selectors";
+import {updateSearch} from "../../store/moviesList/actions";
 
-interface IHeaderProps {
-    movie: IMoviesItem;
+export interface IHeaderProps {
+    search?: string;
+    movie?: IMoviesItem;
+    openPopup?: typeof openPopup;
+    updateSearch?: typeof updateSearch;
 }
 
-const Header: React.FC<IHeaderProps> = ({ movie }) => {
+const Header: React.FC<IHeaderProps> = ({ search, movie, openPopup }) => {
     const activeAction = useMemo(() =>
         movie ? BarActions.BACK_TO_SEARCH : BarActions.ADD_MOVIE, [movie]);
     const headerContent = useMemo(() => {
@@ -28,7 +28,7 @@ const Header: React.FC<IHeaderProps> = ({ movie }) => {
                             overview={movie.overview}
                             genres={movie.genres}
                             voteAverage={movie.voteAverage}/>
-            : <SearchInput/>
+            : <SearchInput updateSearch={updateSearch}/>
         }, [movie]);
     const backgroundStyle = useMemo(() =>
         movie ? SHADOWED_BACKGROUND_STYLE_NAME : DEFAULT_BACKGROUND_STYLE_NAME, [movie]);
@@ -39,22 +39,13 @@ const Header: React.FC<IHeaderProps> = ({ movie }) => {
         <div className="page-header-wrapper">
             <div className={backgroundStyle}/>
             <div className="page-header">
-                <ActionBar action={activeAction}/>
+                <ActionBar search={search}
+                           action={activeAction}
+                           openPopup={openPopup}/>
                 {headerContent}
             </div>
         </div>
     );
 };
 
-const mapStateToProps = (state: RootState): IHeaderProps => {
-    return {
-        movie: getMovie(state)
-    }
-};
-
-const mapDispatchToProps = { updateMovieDetails };
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    React.memo
-)(Header);
+export default React.memo(Header);

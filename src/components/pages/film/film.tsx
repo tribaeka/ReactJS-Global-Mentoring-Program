@@ -1,41 +1,36 @@
-import React from 'react';
-import './home.scss';
+import React, {useMemo} from 'react';
+import './film.scss';
 import Popups from "@components/popups/Popups";
-import Header, {IHeaderProps} from "@components/header/Header";
+import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
-import MoviesNavigation, {IMovieNavigationProps} from "@components/movies-navigation/MoviesNavigation";
-import SearchResults, {ISearchResultsProps} from "@components/search-results/SearchResults";
-import {getMoviesList, updateFilter, updateSearch, updateSortBy} from "../../../store/moviesList/actions";
+import MoviesNavigation from "@components/movies-navigation/MoviesNavigation";
+import SearchResults from "@components/search-results/SearchResults";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {openPopup} from "@store/moviePopups/actions";
+import {IHomeProps} from "../home/home";
+import {useParams} from "react-router";
+import Utils from "../../Utils";
 import {defaultPageMapDispatchToProps, defaultPageMapStateToProps} from "../constants";
 
-export interface IHomeProps {
-    headerProps: IHeaderProps;
-    moviesNavigationProps: IMovieNavigationProps;
-    searchResultsProps: ISearchResultsProps;
-    getMoviesList?: typeof getMoviesList;
-    openPopup?: typeof openPopup;
-    updateFilter?: typeof updateFilter;
-    updateSortBy?: typeof updateSortBy;
-    updateSearch?: typeof updateSearch;
-}
-
-const Home: React.FC<IHomeProps> = (
+const Film: React.FC<IHomeProps> = (
     {
+        headerProps,
         moviesNavigationProps,
         searchResultsProps,
         getMoviesList,
         openPopup,
         updateFilter,
-        updateSortBy,
-        updateSearch
+        updateSortBy
     }) => {
+    const { filmId } = useParams();
+    const activeFilm = useMemo(() =>
+        Utils.getMovieById(searchResultsProps.movies, filmId), [searchResultsProps.movies, filmId]);
     return (
         <Popups>
             <div className="home-page">
-                <Header openPopup={openPopup} updateSearch={updateSearch}/>
+                <Header search={headerProps.search}
+                        movie={activeFilm}
+                        openPopup={openPopup}/>
                 <div className="main-container">
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
                                       activeSortByOption={moviesNavigationProps.activeSortByOption}
@@ -54,8 +49,7 @@ const Home: React.FC<IHomeProps> = (
     );
 };
 
-
 export default compose(
     connect(defaultPageMapStateToProps, defaultPageMapDispatchToProps),
     React.memo
-)(Home);
+)(Film);

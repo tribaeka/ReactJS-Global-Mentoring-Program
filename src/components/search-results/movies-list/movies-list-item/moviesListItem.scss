@@ -85,6 +85,8 @@
   .movie-description-title {
     font-size: 1.3em;
     cursor: pointer;
+    text-decoration: none;
+    color: #fff;
 
     &:hover {
       color: $light-coral-color;

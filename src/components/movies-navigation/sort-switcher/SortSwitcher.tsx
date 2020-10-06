@@ -1,16 +1,11 @@
 import React, {useMemo} from 'react';
 import './sortSwitcher.scss';
 import {getDisplayValue, SortOptions} from "./SortOptions";
-import {connect} from "react-redux";
-import {RootState} from "@store/index";
-import {updateSortBy} from "@store/moviesList/actions";
-import {MoviesListActionTypes} from "@store/moviesList/types";
-import {compose} from "redux";
-import {getSortBy} from "../../../selectors";
+import {updateSortBy} from "../../../store/moviesList/actions";
 
 interface ISortSwitcherProps {
     activeSortByOption: string;
-    updateSortBy?(sortBy: string): MoviesListActionTypes;
+    updateSortBy: typeof updateSortBy;
 }
 
 const SortSwitcher: React.FC<ISortSwitcherProps> = ({ activeSortByOption, updateSortBy }) => {
@@ -38,15 +33,4 @@ const SortSwitcher: React.FC<ISortSwitcherProps> = ({ activeSortByOption, update
     );
 };
 
-const mapStateToProps = (state: RootState): ISortSwitcherProps => {
-    return {
-        activeSortByOption: getSortBy(state)
-    }
-};
-
-const mapDispatchToProps = { updateSortBy };
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    React.memo
-)(SortSwitcher);
+export default React.memo(SortSwitcher);

@@ -28,4 +28,8 @@ export default class Utils {
             genres: Utils.genresToArray(movie.genres)
         }
     }
+
+    static getMovieById(movies: IMoviesItem[], id: string): IMoviesItem {
+        return movies.find(item => item.id.toString() === id);
+    }
 }

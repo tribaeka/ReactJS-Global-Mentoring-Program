@@ -37,16 +37,15 @@ const Popups: React.FC<PopupProps> = (
                 return;
         }
     }, [isPopupOpened]);
-    const wrappedPage = useMemo(() => {
-        if (isPopupOpened) {
-            return <><div className="popup-background-blurred wrapper">{children}</div>{activePopup}</>;
-        }
-        return <div className="wrapper">{children}</div>;
-    }, [isPopupOpened]);
 
     return (
         <>
-            {wrappedPage}
+            {
+                isPopupOpened
+                    ? <><div className="popup-background-blurred wrapper">{children}</div>{activePopup}</>
+                    : <div className="wrapper">{children}</div>
+
+            }
         </>
     );
 };

@@ -1,18 +1,15 @@
 import React, {useCallback, useMemo} from 'react';
 import './genreFilter.scss';
 import {FilterOptions} from "./FilterOptions";
-import {connect} from "react-redux";
-import {RootState} from "@store/index";
 import {updateFilter} from "@store/moviesList/actions";
-import {compose} from "redux";
-import {getFilter} from "../../../selectors";
 
 interface IGenreFilterProps {
     activeFilterOption: string;
-    updateFilter?: typeof updateFilter;
+    updateFilter: typeof updateFilter;
 }
 
 const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFilter }) => {
+    console.log(activeFilterOption);
     const restoredActiveOption = activeFilterOption === '' ? 'ALL' : activeFilterOption.toUpperCase();
     const genreClickHandler = useCallback((option: string) => updateFilter(option.toLowerCase()), []);
     const genres = useMemo(() => {
@@ -34,15 +31,4 @@ const GenreFilter: React.FC<IGenreFilterProps> = ({ activeFilterOption, updateFi
     )
 };
 
-const mapStateToProps = (state: RootState): IGenreFilterProps => {
-    return {
-        activeFilterOption: getFilter(state)
-    }
-};
-
-const mapDispatchToProps = { updateFilter };
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    React.memo
-)(GenreFilter);
+export default React.memo(GenreFilter);

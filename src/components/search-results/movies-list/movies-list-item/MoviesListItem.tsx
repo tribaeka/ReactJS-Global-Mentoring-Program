@@ -6,15 +6,14 @@ import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
 import './moviesListItem.scss';
 import Utils from "@components/Utils";
 import defaultMovieImage from '@assets/default-movie.png'
-import {updateMovieDetails} from "@store/movieDetails/actions";
+import {Link} from "react-router-dom";
 
 interface MoviesListItemProps {
     movie: IMoviesItem;
     openPopup: typeof openPopup;
-    updateMovieDetails: typeof updateMovieDetails
 }
 
-const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup, updateMovieDetails }) => {
+const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup }) => {
     const [imageSource, setImageSource] = useState(movie.posterPath ? movie.posterPath : defaultMovieImage);
     const [isDropdownToggled, setIsDropdownToggled] = useState(false);
     const openEditMoviePopup = () => {
@@ -27,7 +26,6 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup, updat
     };
     const toggleOnDropdown = useCallback(() => setIsDropdownToggled(true), []);
     const toggleOffDropdown = useCallback(() => setIsDropdownToggled(false), []);
-    const openMovieDetails = useCallback(() => updateMovieDetails(movie), []);
     const imageLoadErrorHandler = useCallback(() => setImageSource(defaultMovieImage), []);
 
     return (
@@ -48,9 +46,9 @@ const MoviesListItem: React.FC<MoviesListItemProps> = ({ movie, openPopup, updat
                    src={imageSource} onError={imageLoadErrorHandler} alt=""/>
           </div>
           <div className="movie-description">
-              <span className="movie-description-title" onClick={openMovieDetails}>
+              <Link to={`/film/${movie.id}`} className="movie-description-title">
                   {movie.title}
-              </span>
+              </Link>
               <div className="movie-description-year">
                   {Utils.getReleaseYear(movie.releaseDate)}
               </div>

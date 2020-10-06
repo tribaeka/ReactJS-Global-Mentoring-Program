@@ -24,3 +24,7 @@ export const getLimit = createSelector<any, any, number>(
     [baseMoviesState],
     (state: IMoviesListState) => state.limit
 );
+export const getSearch = createSelector<any, any, string>(
+    [baseMoviesState],
+    (state: IMoviesListState) => state.search
+);

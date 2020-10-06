@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import './movieDetails.scss';
 import defaultMovieImage from '@assets/default-movie.png'
 import Utils from "@components/Utils";
@@ -9,7 +9,7 @@ interface MovieDetailsProps {
     releaseDate: string;
     runtime: number;
     overview: string;
-    genres: string[];
+    genres: string;
     voteAverage: number;
 }
 
@@ -23,8 +23,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = (
         genres,
         voteAverage
     }) => {
-    const [imageSource, setImageSource] = useState(posterPath ? posterPath : defaultMovieImage);
+    const getValidPosterPath = () => posterPath ? posterPath : defaultMovieImage;
+    const [imageSource, setImageSource] = useState(getValidPosterPath());
     const imageLoadErrorHandler = useCallback(() => setImageSource(defaultMovieImage), []);
+    useEffect(() => setImageSource(getValidPosterPath()), [posterPath]);
 
     return (
         <div className="movie-detail-container">
@@ -45,4 +47,4 @@ const MovieDetails: React.FC<MovieDetailsProps> = (
     );
 };
 
-export default MovieDetails;
+export default React.memo(MovieDetails);

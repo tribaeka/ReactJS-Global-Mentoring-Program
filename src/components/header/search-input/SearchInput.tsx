@@ -3,11 +3,16 @@ import './searchInput.scss';
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 
-const SearchInput: React.FC = () => {
+interface ISearchInputProps {
+    updateSearch: typeof updateSearch;
+}
+
+const SearchInput: React.FC<ISearchInputProps> = ({ updateSearch }) => {
     const { search } = useParams();
     const [ searchQuery, setSearchQuery ] = useState<string | undefined>(search)
     const searchChangeHandler = useCallback((event: React.SyntheticEvent<HTMLInputElement>) =>
         setSearchQuery(event.currentTarget.value), []);
+    const searchUpdateHandler = useCallback(() => updateSearch(searchQuery), []);
 
     return (
         <div className="search-input-container">
@@ -19,6 +24,7 @@ const SearchInput: React.FC = () => {
                        type="text"
                        placeholder="What do you want to watch?"/>
                 <Link to={`/search/${searchQuery}`}
+                      onClick={searchUpdateHandler}
                       className="search-submit-btn">
                     SEARCH
                 </Link>

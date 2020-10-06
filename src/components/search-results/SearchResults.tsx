@@ -2,19 +2,17 @@ import React, {useEffect} from 'react';
 import ResultsCounter from './results-counter/ResultsCounter';
 import MoviesList from './movies-list/MoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
-import {connect} from "react-redux";
+import {openPopup} from "@store/moviePopups/actions";
 import {getMoviesList} from "@store/moviesList/actions";
-import {RootState} from "@store/index";
-import {compose} from "redux";
-import {getFilter, getMovies, getSortBy, getTotalAmount} from "../../selectors";
 import {useParams} from "react-router";
 
-interface ISearchResultsProps {
+export interface ISearchResultsProps {
     movies: IMoviesItem[];
     sortBy: string;
     filter: string;
     totalAmount: number;
     getMoviesList?: typeof getMoviesList;
+    openPopup?: typeof openPopup;
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
@@ -23,8 +21,9 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         sortBy,
         filter,
         totalAmount,
-        getMoviesList}) => {
-    console.log(movies);
+        getMoviesList,
+        openPopup
+    }) => {
     const { search } = useParams();
     useEffect(() => {
         getMoviesList(search)
@@ -33,23 +32,9 @@ const SearchResults: React.FC<ISearchResultsProps> = (
     return (
       <div className="search-results-container">
           <ResultsCounter moviesFound={totalAmount}/>
-          <MoviesList movies={movies}/>
+          <MoviesList movies={movies} openPopup={openPopup}/>
       </div>
     );
 };
 
-const mapStateToProps = (state: RootState): ISearchResultsProps => {
-    return {
-        movies: getMovies(state),
-        sortBy: getSortBy(state),
-        filter: getFilter(state),
-        totalAmount: getTotalAmount(state)
-    }
-};
-
-const mapDispatchToProps = { getMoviesList };
-
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    React.memo
-)(SearchResults);
+export default React.memo(SearchResults);
