@@ -3,7 +3,7 @@ import ResultsCounter from './results-counter/ResultsCounter';
 import MoviesList from './movies-list/MoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
 import {openPopup} from "@store/moviePopups/actions";
-import {getMoviesList} from "@store/moviesList/actions";
+import { getMoviesList, updateSearch } from "@store/moviesList/actions";
 import {useParams} from "react-router";
 
 export interface ISearchResultsProps {
@@ -13,6 +13,7 @@ export interface ISearchResultsProps {
     totalAmount: number;
     getMoviesList?: typeof getMoviesList;
     openPopup?: typeof openPopup;
+    updateSearch?: typeof updateSearch;
 }
 
 const SearchResults: React.FC<ISearchResultsProps> = (
@@ -22,10 +23,12 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         filter,
         totalAmount,
         getMoviesList,
-        openPopup
+        openPopup,
+        updateSearch
     }) => {
     const { search } = useParams();
     useEffect(() => {
+        updateSearch(search);
         getMoviesList(search)
     }, [sortBy, filter]);
 

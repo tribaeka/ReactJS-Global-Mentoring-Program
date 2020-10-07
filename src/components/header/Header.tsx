@@ -13,7 +13,6 @@ export interface IHeaderProps {
     search?: string;
     movie?: IMoviesItem;
     openPopup?: typeof openPopup;
-    updateSearch?: typeof updateSearch;
 }
 
 const Header: React.FC<IHeaderProps> = ({ search, movie, openPopup }) => {

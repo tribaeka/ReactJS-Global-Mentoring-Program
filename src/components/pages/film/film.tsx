@@ -1,5 +1,4 @@
 import React, {useMemo} from 'react';
-import './film.scss';
 import Popups from "@components/popups/Popups";
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
@@ -20,14 +19,15 @@ const Film: React.FC<IHomeProps> = (
         getMoviesList,
         openPopup,
         updateFilter,
-        updateSortBy
+        updateSortBy,
+        updateSearch
     }) => {
     const { filmId } = useParams();
     const activeFilm = useMemo(() =>
         Utils.getMovieById(searchResultsProps.movies, filmId), [searchResultsProps.movies, filmId]);
     return (
         <Popups>
-            <div className="home-page">
+            <div className="base-page">
                 <Header search={headerProps.search}
                         movie={activeFilm}
                         openPopup={openPopup}/>
@@ -41,7 +41,8 @@ const Film: React.FC<IHomeProps> = (
                                    sortBy={searchResultsProps.sortBy}
                                    totalAmount={searchResultsProps.totalAmount}
                                    getMoviesList={getMoviesList}
-                                   openPopup={openPopup}/>
+                                   openPopup={openPopup}
+                                   updateSearch={updateSearch}/>
                 </div>
                 <Footer/>
             </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import './initial.scss';
 import Header from "@components/header/Header";
 import Footer from "@components/footer/Footer";
 import Popups from "@components/popups/Popups";
@@ -28,7 +27,7 @@ const Initial: React.FC<IInitialPageProps> = (
     }) => {
     return (
         <Popups>
-            <div className="initial-page">
+            <div className="base-page">
                 <Header openPopup={openPopup}/>
                 <div className="main-container">
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}

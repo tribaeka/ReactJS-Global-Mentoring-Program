@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useMemo} from "react";
 import './backToSearchButton.scss';
 import searchIcon from '@assets/search.png';
-import {useHistory} from "react-router";
 import {Link} from "react-router-dom";
 
 interface BackToSearchButtonProps {
@@ -9,11 +8,15 @@ interface BackToSearchButtonProps {
 }
 
 const BackToSearchButton: React.FC<BackToSearchButtonProps> = ({ lastSearch }) => {
+    const backHref = useMemo(() =>
+        lastSearch === '' || lastSearch === undefined
+            ? '/'
+            : `/search/${lastSearch}`,
+        [lastSearch]);
     return (
-        <Link to={`/search/${lastSearch}`}>
+        <Link to={backHref}>
             <img src={searchIcon}
                  className="search-icon"
-                 onClick={useHistory().goBack}
                  alt=""/>
         </Link>
     );

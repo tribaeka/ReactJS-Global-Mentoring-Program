@@ -1,5 +1,4 @@
 import React from 'react';
-import './home.scss';
 import Popups from "@components/popups/Popups";
 import Header, {IHeaderProps} from "@components/header/Header";
 import Footer from "@components/footer/Footer";
@@ -34,8 +33,8 @@ const Home: React.FC<IHomeProps> = (
     }) => {
     return (
         <Popups>
-            <div className="home-page">
-                <Header openPopup={openPopup} updateSearch={updateSearch}/>
+            <div className="base-page">
+                <Header openPopup={openPopup}/>
                 <div className="main-container">
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
                                       activeSortByOption={moviesNavigationProps.activeSortByOption}
@@ -46,7 +45,8 @@ const Home: React.FC<IHomeProps> = (
                                    sortBy={searchResultsProps.sortBy}
                                    totalAmount={searchResultsProps.totalAmount}
                                    getMoviesList={getMoviesList}
-                                   openPopup={openPopup}/>
+                                   openPopup={openPopup}
+                                   updateSearch={updateSearch}/>
                 </div>
                 <Footer/>
             </div>
