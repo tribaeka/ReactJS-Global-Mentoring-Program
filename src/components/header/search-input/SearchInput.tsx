@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import './searchInput.scss';
 import {useParams} from "react-router";
 import {Link} from "react-router-dom";
+import { updateSearch } from "../../../store/moviesList/actions";
 
 interface ISearchInputProps {
     updateSearch: typeof updateSearch;

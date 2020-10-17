@@ -11,7 +11,9 @@ export default class Utils {
     }
 
     static genresToArray(genres: string): string[] {
-        return genres === '' ? [] : genres.split(',').map(genre => genre.trim());
+        return !genres || genres === ''
+            ? []
+            : genres.split(',').map(genre => genre.trim());
     }
 
     static parseMoviesServerItem(movie: IMoviesServerItem): IMoviesItem {

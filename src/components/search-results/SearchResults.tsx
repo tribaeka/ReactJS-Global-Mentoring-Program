@@ -31,7 +31,7 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         updateSearch(search);
         getMoviesList(search)
     }, [sortBy, filter]);
-
+    console.log(movies);
     return (
       <div className="search-results-container">
           <ResultsCounter moviesFound={totalAmount}/>
