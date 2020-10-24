@@ -18,7 +18,7 @@ export const createMovie = (movie: IMoviesServerItem): MoviePopupsActionTypes =>
     type: REQUEST_CREATE_MOVIE,
     payload: {
         method: 'POST',
-        movie,
+        movie: movie,
     }
 });
 
