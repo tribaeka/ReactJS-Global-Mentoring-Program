@@ -7,33 +7,25 @@ import {
 } from "./types";
 import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
-export function openPopup(name: string, title: string, movie?: IMoviesItem): MoviePopupsActionTypes {
-    return {
-        type: OPEN_MOVIE_POPUP,
-        payload: { name: name, title: title, movie: movie }
-    }
-}
+export const openPopup = (name: string, title: string, movie?: IMoviesItem): MoviePopupsActionTypes => ({
+    type: OPEN_MOVIE_POPUP,
+    payload: { name: name, title: title, movie: movie }
+});
 
-export function closePopup(): MoviePopupsActionTypes {
-    return { type: CLOSE_MOVIE_POPUP }
-}
+export const closePopup = (): MoviePopupsActionTypes => ({ type: CLOSE_MOVIE_POPUP });
 
-export function createMovie(movie: IMoviesServerItem): MoviePopupsActionTypes {
-    return {
-        type: REQUEST_CREATE_MOVIE,
-        payload: {
-            method: 'POST',
-            movie: movie
-        }
+export const createMovie = (movie: IMoviesServerItem): MoviePopupsActionTypes => ({
+    type: REQUEST_CREATE_MOVIE,
+    payload: {
+        method: 'POST',
+        movie,
     }
-}
+});
 
-export function updateMovie(movie: IMoviesServerItem): MoviePopupsActionTypes {
-    return {
-        type: REQUEST_UPDATE_MOVIE,
-        payload: {
-            method: 'PUT',
-            movie: movie
-        }
+export const updateMovie = (movie: IMoviesServerItem): MoviePopupsActionTypes => ({
+    type: REQUEST_UPDATE_MOVIE,
+    payload: {
+        method: 'PUT',
+        movie: movie
     }
-}
+});
