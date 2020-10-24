@@ -62,11 +62,9 @@ const MovieForm: React.FC<IMovieFormProps> = (
         initialValues={movie ? {...movie} : {...emptyMovie}}
         validationSchema={MovieFormSchema}
         onSubmit={(values: IMoviesItem, { setSubmitting }) => {
-            setTimeout(() => {
-                submitHandlerAction(Utils.parseMoviesItem(values))
-                setSubmitting(false);
-                afterSubmitHandler();
-            }, 400);
+            submitHandlerAction(Utils.parseMoviesItem(values))
+            setSubmitting(false);
+            afterSubmitHandler();
         }}
         >
             {({
