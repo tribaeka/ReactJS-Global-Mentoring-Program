@@ -6,38 +6,30 @@ import {
     UPDATE_SORT_BY_QUERY
 } from "./types";
 
-export function getMoviesList(search: string): MoviesListActionTypes {
-    return {
-        type: REQUEST_GET_MOVIES_LIST,
-        payload: {
-            search: search
-        }
+export const getMoviesList = (search: string): MoviesListActionTypes => ({
+    type: REQUEST_GET_MOVIES_LIST,
+    payload: {
+        search: search
     }
-}
+});
 
-export function updateSortBy(sortBy: string): MoviesListActionTypes {
-    return {
-        type: UPDATE_SORT_BY_QUERY,
-        payload: {
-            sortBy: sortBy
-        }
+export const updateSortBy = (sortBy: string): MoviesListActionTypes => ({
+    type: UPDATE_SORT_BY_QUERY,
+    payload: {
+        sortBy: sortBy
     }
-}
+});
 
-export function updateFilter(filter: string): MoviesListActionTypes {
-    return {
-        type: UPDATE_FILTER_QUERY,
-        payload: {
-            filter: filter === 'all' ? '' : filter
-        }
+export const updateFilter = (filter: string): MoviesListActionTypes => ({
+    type: UPDATE_FILTER_QUERY,
+    payload: {
+        filter: filter === 'all' ? '' : filter
     }
-}
+});
 
-export function updateSearch(search: string): MoviesListActionTypes {
-    return {
-        type: UPDATE_SEARCH_QUERY,
-        payload: {
-            search: search
-        }
+export const updateSearch = (search: string): MoviesListActionTypes => ({
+    type: UPDATE_SEARCH_QUERY,
+    payload: {
+        search: search
     }
-}
+});
