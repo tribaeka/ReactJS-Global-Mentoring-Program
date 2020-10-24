@@ -5,6 +5,7 @@ import {Field, Formik} from "formik";
 import * as Yup from 'yup';
 import Utils from "../../Utils";
 import {closePopup, createMovie, updateMovie} from "../../../store/moviePopups/actions";
+import MovieFormTextField from "./movieFormField/MovieFormField";
 
 interface IMovieFormProps {
     movie?: IMoviesItem;
@@ -59,13 +60,13 @@ const MovieForm: React.FC<IMovieFormProps> = (
     }) => {
     return (
         <Formik
-        initialValues={movie ? {...movie} : {...emptyMovie}}
-        validationSchema={MovieFormSchema}
-        onSubmit={(values: IMoviesItem, { setSubmitting }) => {
-            submitHandlerAction(Utils.parseMoviesItem(values))
-            setSubmitting(false);
-            afterSubmitHandler();
-        }}
+            initialValues={movie ? {...movie} : {...emptyMovie}}
+            validationSchema={MovieFormSchema}
+            onSubmit={(values: IMoviesItem, { setSubmitting }) => {
+                submitHandlerAction(Utils.parseMoviesItem(values))
+                setSubmitting(false);
+                afterSubmitHandler();
+            }}
         >
             {({
                   errors,
@@ -73,86 +74,41 @@ const MovieForm: React.FC<IMovieFormProps> = (
                   handleSubmit,
                   handleReset
               }) => (
-                    <form className="add-movie-form" onSubmit={handleSubmit} onReset={handleReset}>
-                        <div className="form-control">
-                            <label className="form-label">
-                                TITLE
-                            </label>
-                            <Field as="input"
-                                   className="form-input"
-                                   name="title"
-                                   type="text"
-                                   placeholder="Enter title"/>
-                            {errors.title && touched.title
-                                ? (<span className="error-message">{errors.title}</span>)
-                                : null}
-                        </div>
-                        <div className="form-control">
-                            <label className="form-label">
-                                RELEASE DATE
-                            </label>
-                            <Field as="input"
-                                   className="form-input"
-                                   name="releaseDate"
-                                   type="date"
-                                   placeholder="Select date"/>
-                            {errors.releaseDate && touched.releaseDate
-                                ? (<span className="error-message">{errors.releaseDate}</span>)
-                                : null}
-                        </div>
-                        <div className="form-control">
-                            <label className="form-label">
-                                MOVIE POSTER URL
-                            </label>
-                            <Field as="input"
-                                   className="form-input"
-                                   name="posterPath"
-                                   type="text"
-                                   placeholder="Movie URL here"/>
-                            {errors.posterPath && touched.posterPath
-                                ? (<span className="error-message">{errors.posterPath}</span>)
-                                : null}
-                        </div>
-                        <div className="form-control">
-                            <label className="form-label">
-                                GENRE
-                            </label>
-                            <Field as="input"
-                                   className="form-input"
-                                   name="genres"
-                                   type="text"
-                                   placeholder="Select Genre"/>
-                            {errors.genres && touched.genres
-                                ? (<span className="error-message">{errors.genres}</span>)
-                                : null}
-                        </div>
-                        <div className="form-control">
-                            <label className="form-label">
-                                OVERVIEW
-                            </label>
-                            <Field as="textarea"
-                                   className="form-input"
-                                   name="overview"
-                                   type="text"
-                                   rows="4"
-                                   placeholder="Overview here"/>
-                            {errors.overview && touched.overview
-                                ?(<span className="error-message">{errors.overview}</span>)
-                                : null}
-                        </div>
-                        <div className="form-control">
-                            <label className="form-label">
-                                RUNTIME
-                            </label>
-                            <Field as="input"
-                                   className="form-input"
-                                   name="runtime"
-                                   type="text"
-                                   placeholder="Runtime here"/>
-                            {errors.runtime && touched.runtime
-                                ? (<span className="error-message">{errors.runtime}</span>)
-                                : null}
-                        </div>
+                    <form className="add-movie-form"
+                          onSubmit={handleSubmit}
+                          onReset={handleReset}>
+                        <MovieFormTextField labelTitle={'TITLE'}
+                                            fieldName={'title'}
+                                            placeholder={'Enter title'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'RELEASE DATE'}
+                                            fieldName={'releaseDate'}
+                                            placeholder={'Select date'}
+                                            errors={errors}
+                                            touched={touched}
+                                            type={'date'}/>
+                        <MovieFormTextField labelTitle={'MOVIE POSTER URL'}
+                                            fieldName={'posterPath'}
+                                            placeholder={'Movie URL here'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'GENRE'}
+                                            fieldName={'genres'}
+                                            placeholder={'Enter genres (like genre1, genre2,...)'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'OVERVIEW'}
+                                            fieldName={'overview'}
+                                            placeholder={'Overview here'}
+                                            errors={errors}
+                                            touched={touched}
+                                            type={'textarea'}/>
+                        <MovieFormTextField labelTitle={'RUNTIME'}
+                                            fieldName={'runtime'}
+                                            placeholder={'Runtime here'}
+                                            errors={errors}
+                                            touched={touched}/>
                         <div className="form-btn-control">
                             <button className="form-btn" type="reset">
                                 RESET
