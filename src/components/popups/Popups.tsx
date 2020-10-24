@@ -11,10 +11,10 @@ import DeleteMoviePopup from "./moviePopup/deleteMoviePopup/DeleteMoviePopup";
 import {getPopupMovie, getPopupName, getPopupTitle, isPopupOpened} from "../../selectors";
 
 interface PopupProps {
-    isPopupOpened: IMoviePopupsState["isPopupOpened"],
-    popupName: IMoviePopupsState["popupName"],
-    popupTitle: IMoviePopupsState["popupTitle"],
-    popupData: IMoviePopupsState["movie"]
+    isPopupOpened: IMoviePopupsState["isPopupOpened"];
+    popupName: IMoviePopupsState["popupName"];
+    popupTitle: IMoviePopupsState["popupTitle"];
+    popupData: IMoviePopupsState["movie"];
 }
 
 const Popups: React.FC<PopupProps> = (

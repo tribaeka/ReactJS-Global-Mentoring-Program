@@ -1,4 +1,3 @@
-import {camelCase, mapKeys} from 'lodash';
 import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
 import {
     GET_MOVIES_LIST,
@@ -9,6 +8,7 @@ import {
 } from "./types";
 import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
 import {FilterOptions} from "../../components/home/main/movies-navigation/genreFilter/FilterOptions";
+import Utils from "../../components/Utils";
 
 export interface IMoviesListState {
     movies: IMoviesItem[];
@@ -22,7 +22,7 @@ export interface IMoviesListState {
 
 const initialState: IMoviesListState = {
     movies: [],
-    limit: 12,
+    limit: 15,
     offset: 0,
     totalAmount: 0,
     filter: FilterOptions.ALL,
@@ -36,7 +36,7 @@ export const moviesListReducer =
         case GET_MOVIES_LIST: {
             return {
                 ...state,
-                movies: action.payload.data.map(item => mapKeys(item, (value, key) => camelCase(key))),
+                movies: action.payload.data.map(Utils.parseMoviesServerItem),
                 limit: action.payload.limit,
                 offset: action.payload.offset,
                 totalAmount: action.payload.totalAmount

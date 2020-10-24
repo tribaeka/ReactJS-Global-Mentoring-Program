@@ -7,6 +7,10 @@
   .form-control {
     margin: 1em 0;
 
+    .error-message {
+      color: red;
+    }
+
     .form-label {
       font-size: $regular-text;
       color: $light-coral-color;

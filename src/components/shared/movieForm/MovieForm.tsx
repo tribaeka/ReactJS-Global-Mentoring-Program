@@ -1,129 +1,125 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './movieForm.scss';
 import { IMoviesItem } from "@components/home/main/search-results/movies-list/IMoviesItem";
-import Utils from "../../utils";
+import {Field, Formik} from "formik";
+import * as Yup from 'yup';
+import Utils from "../../Utils";
+import {closePopup, createMovie, updateMovie} from "../../../store/moviePopups/actions";
+import MovieFormTextField from "./movieFormField/MovieFormField";
 
 interface IMovieFormProps {
-    movie?: IMoviesItem,
-    method: string
+    movie?: IMoviesItem;
+    submitHandlerAction: typeof createMovie | typeof updateMovie;
+    afterSubmitHandler: typeof closePopup;
 }
 
-const emptyMovie: IMoviesItem = {
+const emptyMovie = {
     budget: undefined,
-    genres: undefined,
-    id: new Date().getTime(),
-    overview: undefined,
-    posterPath: undefined,
-    releaseDate: undefined,
+    genres: '',
+    id: undefined,
+    overview: '',
+    posterPath: '',
+    releaseDate: '',
     revenue: undefined,
-    runtime: undefined,
+    runtime: '',
     tagline: undefined,
-    title: undefined,
+    title: '',
     voteAverage: undefined,
     voteCount: undefined
 };
+const REQUIRED_ERROR_MESSAGE = 'This field is required';
+const generateToShortErrorMessage = (minSize: number): string =>
+    `This field should contains at least ${minSize} characters`;
+const generateToLongErrorMessage = (maxSize: number): string =>
+    `This field should contains up to ${maxSize} characters`;
 
-const MovieForm: React.FC<IMovieFormProps> = ({ movie, method }) => {
-    const [movieForm, setMovieForm] = useState<IMoviesItem>(movie ? movie : emptyMovie);
-    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log(movieForm);
-    };
-    const inputChangeHandler = (event: React.SyntheticEvent<HTMLInputElement>) => {
-        const { name, value } = event.currentTarget;
-        setMovieForm({
-            ...movieForm,
-            [name]: value
-        })
-    };
-    const genresChangeHandler = (event: React.SyntheticEvent<HTMLInputElement>) => {
-        const transformedGenres = event.currentTarget.value
-            .split(',')
-            .map(genre => genre.trim())
-            .filter(genre => genre !== '');
-        setMovieForm({
-            ...movieForm,
-            genres: transformedGenres
-        })
-    };
-    const resetHandler = () => setMovieForm(movie ? movie : emptyMovie);
+const MovieFormSchema = Yup.object().shape({
+    title: Yup.string()
+        .min(2, generateToShortErrorMessage(2))
+        .max(50, generateToLongErrorMessage(50))
+        .required(REQUIRED_ERROR_MESSAGE),
+    releaseDate: Yup.string(),
+    posterPath: Yup.string()
+        .url('Invalid URL')
+        .required(REQUIRED_ERROR_MESSAGE),
+    genres: Yup.string()
+        .min(3, generateToShortErrorMessage(3))
+        .max(100, generateToLongErrorMessage(100))
+        .required(REQUIRED_ERROR_MESSAGE),
+    overview: Yup.string()
+        .required(REQUIRED_ERROR_MESSAGE),
+    runtime: Yup.number()
+        .required(REQUIRED_ERROR_MESSAGE)
+});
 
+const MovieForm: React.FC<IMovieFormProps> = (
+    {
+        movie,
+        submitHandlerAction,
+        afterSubmitHandler
+    }) => {
     return (
-        <form className="add-movie-form" onSubmit={submitHandler}>
-            <div className="form-control">
-                <label className="form-label">
-                    TITLE
-                </label>
-                <input className="form-input"
-                       value={movieForm.title}
-                       onChange={inputChangeHandler}
-                       name="title"
-                       type="text"
-                       placeholder="Enter title"/>
-            </div>
-            <div className="form-control">
-                <label className="form-label">
-                    RELEASE DATE
-                </label>
-                <input className="form-input"
-                       value={movieForm.releaseDate}
-                       onChange={inputChangeHandler}
-                       name="releaseDate"
-                       type="date"
-                       placeholder="Select date"/>
-            </div>
-            <div className="form-control">
-                <label className="form-label">
-                    MOVIE URL
-                </label>
-                <input className="form-input"
-                       value={movieForm.posterPath}
-                       onChange={inputChangeHandler}
-                       name="posterPath"
-                       type="text"
-                       placeholder="Movie URL here"/>
-            </div>
-            <div className="form-control">
-                <label className="form-label">
-                    GENRE
-                </label>
-                <input className="form-input"
-                       value={Utils.genresToString(movieForm.genres)}
-                       onChange={genresChangeHandler}
-                       type="text"
-                       placeholder="Select Genre"/>
-            </div>
-            <div className="form-control">
-                <label className="form-label">
-                    OVERVIEW
-                </label>
-                <input className="form-input"
-                       value={movieForm.overview}
-                       onChange={inputChangeHandler}
-                       name="overview"
-                       type="text"
-                       placeholder="Overview here"/>
-            </div>
-            <div className="form-control">
-                <label className="form-label">
-                    RUNTIME
-                </label>
-                <input className="form-input"
-                       value={movieForm.runtime}
-                       onChange={inputChangeHandler}
-                       name="runtime"
-                       type="text"
-                       placeholder="Runtime here"/>
-            </div>
-            <div className="form-btn-control">
-                <button className="form-btn" onClick={resetHandler} type="reset">
-                    RESET
-                </button>
-                <button className="form-btn" type="submit">
-                    SUBMIT
-                </button>
-            </div>
-        </form>
+        <Formik
+            initialValues={movie ? {...movie} : {...emptyMovie}}
+            validationSchema={MovieFormSchema}
+            onSubmit={(values: IMoviesItem, { setSubmitting }) => {
+                submitHandlerAction(Utils.parseMoviesItem(values))
+                setSubmitting(false);
+                afterSubmitHandler();
+            }}
+        >
+            {({
+                  errors,
+                  touched,
+                  handleSubmit,
+                  handleReset
+              }) => (
+                    <form className="add-movie-form"
+                          onSubmit={handleSubmit}
+                          onReset={handleReset}>
+                        <MovieFormTextField labelTitle={'TITLE'}
+                                            fieldName={'title'}
+                                            placeholder={'Enter title'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'RELEASE DATE'}
+                                            fieldName={'releaseDate'}
+                                            placeholder={'Select date'}
+                                            errors={errors}
+                                            touched={touched}
+                                            type={'date'}/>
+                        <MovieFormTextField labelTitle={'MOVIE POSTER URL'}
+                                            fieldName={'posterPath'}
+                                            placeholder={'Movie URL here'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'GENRE'}
+                                            fieldName={'genres'}
+                                            placeholder={'Enter genres (like genre1, genre2,...)'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <MovieFormTextField labelTitle={'OVERVIEW'}
+                                            fieldName={'overview'}
+                                            placeholder={'Overview here'}
+                                            errors={errors}
+                                            touched={touched}
+                                            type={'textarea'}/>
+                        <MovieFormTextField labelTitle={'RUNTIME'}
+                                            fieldName={'runtime'}
+                                            placeholder={'Runtime here'}
+                                            errors={errors}
+                                            touched={touched}/>
+                        <div className="form-btn-control">
+                            <button className="form-btn" type="reset">
+                                RESET
+                            </button>
+                            <button className="form-btn" type="submit">
+                                SUBMIT
+                            </button>
+                        </div>
+                    </form>
+                )}
+        </Formik>
     );
 }
 

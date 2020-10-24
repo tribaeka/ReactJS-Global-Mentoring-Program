@@ -2,11 +2,24 @@ import React from 'react';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/closeBtn/CloseBtn';
 import {connect} from 'react-redux';
 import MovieForm from '@components/shared/movieForm/MovieForm';
-import { IMoviePopupProps } from '@components/popups/moviePopup/IMoviePopupProps';
-import { closePopup } from "@store/moviePopups/actions";
+import {closePopup, updateMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
+import {IMoviesItem} from "../../../home/main/search-results/movies-list/IMoviesItem";
 
-const EditMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }) => {
+export interface IEditMoviePopupProps {
+    title: string;
+    movie: IMoviesItem;
+    updateMovie: typeof updateMovie;
+    closePopup?: typeof closePopup;
+}
+
+const EditMoviePopup: React.FC<IEditMoviePopupProps> = (
+    {
+        title,
+        movie,
+        updateMovie,
+        closePopup
+    }) => {
 
     return (
         <div className="popup movie-popup">
@@ -14,12 +27,12 @@ const EditMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }
                 <CloseBtn clickHandler={closePopup} size={CloseBtnSizes.BIG}/>
             </div>
             <h2>{title}</h2>
-            <MovieForm movie={movie} method={'PUT'}/>
+            <MovieForm afterSubmitHandler={closePopup} movie={movie} submitHandlerAction={updateMovie}/>
         </div>
     );
 };
 
-const mapDispatchToProps = { closePopup };
+const mapDispatchToProps = { updateMovie, closePopup };
 
 export default compose(
     connect(null, mapDispatchToProps),
