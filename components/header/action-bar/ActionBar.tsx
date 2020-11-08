@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo} from 'react';
 import Brand from '@components/shared/brand/Brand';
-import styles from './actionBar.module.scss';
+import styles from './ActionBar.module.scss';
 import { BarActions } from "./BarActions";
 import AddMovieButton from "./addMovieButton/AddMovieButton";
 import BackToSearchButton from "./backToSearchButton/BackToSearchButton";

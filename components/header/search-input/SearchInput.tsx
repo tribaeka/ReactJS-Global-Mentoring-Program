@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import styles from  './searchInput.module.scss';
+import styles from './SearchInput.module.scss';
 import { updateSearch } from "@store/moviesList/actions";
 import Link from "next/link";
 

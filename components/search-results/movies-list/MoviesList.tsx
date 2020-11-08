@@ -1,7 +1,7 @@
 import React from 'react';
 import MoviesListItem from './movies-list-item/MoviesListItem';
 import { IMoviesItem } from './IMoviesItem';
-import styles from './moviesList.module.scss';
+import styles from './MoviesList.module.scss';
 import {openPopup} from "@store/moviePopups/actions";
 
 interface IMoviesListProps {

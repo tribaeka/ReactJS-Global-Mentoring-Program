@@ -10,6 +10,7 @@ import MoviesNavigation, { IMovieNavigationProps } from "@components/movies-navi
 import EmptyList from "@components/empty-list/emptyList";
 import { RootState } from "@store/index";
 import { getFilter, getSortBy } from "@selectors/moviesList";
+import styles from './Pages.module.scss';
 
 interface IInitialPageProps {
     moviesNavigationProps: IMovieNavigationProps;
@@ -25,11 +26,13 @@ const IndexPage: React.FC<IInitialPageProps> = (
         updateSortBy,
         updateFilter
     }) => {
+    console.log(styles);
+    console.log(styles.basePage);
     return (
         <Popups>
-            <div className="base-page">
+            <div className={styles.basePage}>
                 <Header openPopup={openPopup}/>
-                <div className="main-container">
+                <div className={styles.mainContainer}>
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
                                       activeSortByOption={moviesNavigationProps.activeSortByOption}
                                       updateFilter={updateFilter}

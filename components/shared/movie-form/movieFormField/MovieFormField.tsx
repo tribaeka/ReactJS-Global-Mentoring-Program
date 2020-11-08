@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Field } from 'formik';
-import styles from './../movieForm.module.scss';
+import styles from '../MovieForm.module.scss';
 
 export interface MovieFormFieldProps {
     labelTitle: string;

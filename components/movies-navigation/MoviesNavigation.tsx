@@ -1,7 +1,7 @@
 import React from 'react';
 import GenreFilter from './genre-filter/GenreFilter';
 import SortSwitcher from './sort-switcher/SortSwitcher';
-import styles from './moviesNavigation.module.scss';
+import styles from './MoviesNavigation.module.scss';
 import {updateFilter, updateSortBy} from "@store/moviesList/actions";
 
 export interface IMovieNavigationProps {

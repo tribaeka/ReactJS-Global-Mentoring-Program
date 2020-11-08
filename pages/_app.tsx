@@ -6,6 +6,7 @@ import '../scss/colors.global.scss';
 import '../scss/vars.global.scss';
 import '../scss/mixins.global.scss';
 import '../scss/styles.global.scss';
+import Popups from "@components/popups/Popups";
 
 const App: React.FC<AppProps> = (
     {

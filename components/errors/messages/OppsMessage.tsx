@@ -1,7 +1,7 @@
 import React from "react";
 import Brand from "../../shared/brand/Brand";
 import Footer from "@components/footer/Footer";
-import styles from './../errorPage.module.scss';
+import styles from '../ErrorPage.module.scss';
 
 
 const OppsMessage: React.FC = () =>

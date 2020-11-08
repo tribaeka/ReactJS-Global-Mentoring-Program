@@ -5,7 +5,7 @@ import MovieForm from '@components/shared/movie-form/MovieForm';
 import {closePopup, updateMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
 import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
-import styles from './../moviePopup.module.scss';
+import styles from '../MoviePopup.module.scss';
 
 export interface IEditMoviePopupProps {
     title: string;

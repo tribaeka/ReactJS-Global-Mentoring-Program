@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './emptyList.module.scss';
+import styles from './EmptyList.module.scss';
 
 const EmptyList: React.FC = () => {
     return (

@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo} from 'react';
-import styles from './genreFilter.module.scss';
+import styles from './GenreFilter.module.scss';
 import {FilterOptions} from "./FilterOptions";
 import {updateFilter} from "@store/moviesList/actions";
 

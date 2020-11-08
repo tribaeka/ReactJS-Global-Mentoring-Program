@@ -10,6 +10,7 @@ import {connect} from "react-redux";
 import {openPopup} from "@store/moviePopups/actions";
 import { defaultPageMapDispatchToProps, defaultPageMapStateToProps } from "../constants";
 import { NextRouter, useRouter } from "next/router";
+import styles from '../Pages.module.scss';
 
 export interface IPageProps {
     headerProps: IHeaderProps;
@@ -41,10 +42,10 @@ const SearchPage: React.FC<IPageProps> = (
     const router: ISearchPageRouter = useRouter();
     return (
         <Popups>
-            <div className="base-page">
+            <div className={styles.basePage}>
                 <Header openPopup={openPopup}
                         searchQuery={router.query.searchQuery}/>
-                <div className="main-container">
+                <div className={styles.mainContainer}>
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
                                       activeSortByOption={moviesNavigationProps.activeSortByOption}
                                       updateFilter={updateFilter}

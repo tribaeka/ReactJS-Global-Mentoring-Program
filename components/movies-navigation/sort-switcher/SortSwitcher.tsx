@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import styles from './sortSwitcher.module.scss';
+import styles from './SortSwitcher.module.scss';
 import {getDisplayValue, SortOptions} from "./SortOptions";
 import {updateSortBy} from "@store/moviesList/actions";
 

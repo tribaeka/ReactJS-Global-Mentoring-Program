@@ -1,3 +1,6 @@
+@import "../scss/vars.global";
+@import "../scss/colors.global";
+
 .base-page {
   display: grid;
   grid-template-rows: 60vh auto 60px;

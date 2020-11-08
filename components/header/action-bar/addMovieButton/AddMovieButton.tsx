@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './addMovieButton.module.scss';
+import styles from './AddMovieButton.module.scss';
 
 interface AddMovieButtonProps {
     actionHandler(): void;

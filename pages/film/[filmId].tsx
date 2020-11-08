@@ -10,6 +10,7 @@ import Utils from "@components/Utils";
 import { defaultPageMapDispatchToProps, defaultPageMapStateToProps } from "../constants";
 import { IPageProps } from "../search/[searchQuery]";
 import { NextRouter, useRouter } from "next/router";
+import styles from '../Pages.module.scss';
 
 interface IFilmPageRouter extends NextRouter {
     query: {
@@ -35,11 +36,11 @@ const FilmPage: React.FC<IPageProps> = (
     );
     return (
         <Popups>
-            <div className="base-page">
+            <div className={styles.basePage}>
                 <Header storedSearch={headerProps.storedSearch}
                         movie={activeFilm}
                         openPopup={openPopup}/>
-                <div className="main-container">
+                <div className={styles.mainContainer}>
                     <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
                                       activeSortByOption={moviesNavigationProps.activeSortByOption}
                                       updateFilter={updateFilter}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './movieForm.module.scss';
+import styles from './MovieForm.module.scss';
 import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 import {Formik} from "formik";
 import * as Yup from 'yup';

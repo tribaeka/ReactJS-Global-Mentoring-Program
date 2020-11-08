@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react';
-import styles from './closeBtn.module.scss';
+import styles from './CloseBtn.module.scss';
 
 interface CloseBtnProps {
    clickHandler(event: MouseEvent<HTMLDivElement>): void;

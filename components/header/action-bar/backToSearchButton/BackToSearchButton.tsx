@@ -1,5 +1,5 @@
 import React, {useMemo} from "react";
-import styles from './backToSearchButton.module.scss';
+import styles from './BackToSearchButton.module.scss';
 import searchIcon from '@assets/search.png';
 import Link from "next/link";
 

@@ -3,7 +3,7 @@ import { IMoviesItem } from '@components/search-results/movies-list/IMoviesItem'
 import CloseBtn, { CloseBtnSizes } from '@components/shared/close-btn/CloseBtn';
 import { openPopup} from "@store/moviePopups/actions";
 import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
-import styles from './moviesListItem.module.scss';
+import styles from './MoviesListItem.module.scss';
 import Utils from "@components/Utils";
 import defaultMovieImage from '@assets/default-movie.png'
 import Link from "next/link";

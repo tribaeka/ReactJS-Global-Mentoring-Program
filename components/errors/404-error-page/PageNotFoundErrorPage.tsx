@@ -2,7 +2,7 @@ import React from "react";
 import Brand from "@components/shared/brand/Brand";
 import Footer from "@components/footer/Footer";
 import notFoundImage from '@assets/pageNotFound.gif';
-import styles from './../errorPage.module.scss';
+import styles from '../ErrorPage.module.scss';
 import Link from "next/link";
 
 const PageNotFoundErrorPage: React.FC = () =>

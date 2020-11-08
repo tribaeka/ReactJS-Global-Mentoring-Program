@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import MovieForm from '@components/shared/movie-form/MovieForm';
 import {closePopup, createMovie} from "@store/moviePopups/actions";
 import {compose} from "redux";
-import styles from './../moviePopup.module.scss';
+import styles from '../MoviePopup.module.scss';
 
 interface IAddMoviePopupProps {
     title: string;

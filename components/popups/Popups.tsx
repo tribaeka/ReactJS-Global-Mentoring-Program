@@ -1,5 +1,5 @@
 import React, {useMemo} from "react";
-import styles from './popups.module.scss';
+import styles from './Popups.module.scss';
 import {RootState} from "../../store";
 import {compose} from "redux";
 import {connect} from "react-redux";

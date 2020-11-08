@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './resultsCounter.module.scss';
+import styles from './ResultsCounter.module.scss';
 
 interface ResultsCounterProps {
     moviesFound: number;

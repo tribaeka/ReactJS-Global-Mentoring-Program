@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from "react";
-import styles from './movieDetails.module.scss';
+import styles from './MovieDetails.module.scss';
 import defaultMovieImage from '@assets/default-movie.png'
 import Utils from "@components/Utils";
 
