@@ -1,21 +1,50 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "preserve",
     "esModuleInterop": true,
     "paths": {
-      "@store/*": ["store/*"],
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@selectors/*": ["selectors/*"]
-    }
+      "@store/*": [
+        "store/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@selectors/*": [
+        "selectors/*"
+      ]
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "files": [
     "./node_modules/@types"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

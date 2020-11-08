@@ -13,7 +13,8 @@ module.exports = {
   },
   rules:  {
     'react/prop-types': 0,
-    'no-var-requires': 0
+    'no-var-requires': 0,
+    '@typescript-eslint/no-var-requires': 0
   },
   settings:  {
     react:  {

@@ -1,0 +1,19 @@
+@import "../../../scss/colors.global";
+
+.genre-list {
+
+  .genre-list-item {
+    display: inline-block;
+    margin: 0.2em 1em 0.2em 0;
+    cursor: pointer;
+
+    &:hover {
+      color: $light-coral-color;
+    }
+  }
+
+  .active-genre-list-item {
+    @extend .genre-list-item;
+    color: $light-coral-color;
+  }
+}

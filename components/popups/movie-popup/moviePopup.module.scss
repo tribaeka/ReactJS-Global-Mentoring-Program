@@ -1,0 +1,45 @@
+@import "../../../scss/colors.global";
+@import "../../../scss/vars.global";
+@import "../../../scss/mixins.global";
+
+.movie-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 30px rgba(0,0,0,.30);
+  width: 600px;
+  padding: 0 3em 2em 3em;
+  background: $dark;
+  color: #fff;
+
+  .movie-popup-close-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.delete-movie-popup {
+  .confirm-message {
+    font-size: $big-text;
+  }
+
+  .delete-confirm-btn {
+    @include btn-skeleton(
+                    $big-btn-padding,
+                    $light-coral-color,
+                    $dark,
+                    1px solid $light-coral-color
+    );
+    float: right;
+
+    &:hover {
+      @include btn-skeleton(
+                      $big-btn-padding,
+                      #fff,
+                      $light-coral-color,
+                      1px solid $light-coral-color
+      );
+    }
+  }
+}
