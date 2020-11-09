@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/close-btn/CloseBtn';
 import { IMoviePopupProps } from '@components/popups/movie-popup/IMoviePopupProps';
 import { closePopup } from "@store/moviePopups/actions";
 import styles from '../MoviePopup.module.scss';
-import {compose} from "redux";
+import { compose } from "redux";
 
 const DeleteMoviePopup: React.FC<IMoviePopupProps> = ({ title, movie, closePopup }) => {
 

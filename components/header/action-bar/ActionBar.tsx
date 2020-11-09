@@ -1,11 +1,11 @@
-import React, {useCallback, useMemo} from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Brand from '@components/shared/brand/Brand';
 import styles from './ActionBar.module.scss';
 import { BarActions } from "./BarActions";
 import AddMovieButton from "./addMovieButton/AddMovieButton";
 import BackToSearchButton from "./backToSearchButton/BackToSearchButton";
-import {openPopup} from "@store/moviePopups/actions";
-import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
+import { openPopup } from "@store/moviePopups/actions";
+import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 
 interface IActionBarProps {
     search: string;

@@ -1,6 +1,6 @@
 @import "../../../scss/vars.global";
 
-.movies-list {
+.moviesList {
   display: grid;
   grid-template-columns:  repeat(auto-fill, minmax(320px, 1fr));
   grid-column-gap: 2em;
@@ -8,7 +8,7 @@
   justify-items: center;
   align-items: center;
 
-  .movies-list-item {
+  .moviesListItem {
     width: $movies-list-item-width;
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import CloseBtn, { CloseBtnSizes } from '@components/shared/close-btn/CloseBtn';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import MovieForm from '@components/shared/movie-form/MovieForm';
-import {closePopup, updateMovie} from "@store/moviePopups/actions";
-import {compose} from "redux";
-import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
+import { closePopup, updateMovie } from "@store/moviePopups/actions";
+import { compose } from "redux";
+import { IMoviesItem } from "@components/search-results/movies-list/IMoviesItem";
 import styles from '../MoviePopup.module.scss';
 
 export interface IEditMoviePopupProps {

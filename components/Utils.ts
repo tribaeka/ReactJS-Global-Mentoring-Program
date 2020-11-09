@@ -1,5 +1,5 @@
-import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
-import {camelCase, mapKeys, snakeCase} from 'lodash';
+import { IMoviesItem, IMoviesServerItem } from "@components/search-results/movies-list/IMoviesItem";
+import { camelCase, mapKeys, snakeCase } from 'lodash';
 
 export default class Utils {
     static getReleaseYear(releaseDate: string): number | string {

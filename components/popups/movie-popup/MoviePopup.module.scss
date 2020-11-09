@@ -2,7 +2,7 @@
 @import "../../../scss/vars.global";
 @import "../../../scss/mixins.global";
 
-.movie-popup {
+.moviePopup {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -13,18 +13,18 @@
   background: $dark;
   color: #fff;
 
-  .movie-popup-close-btn {
+  .moviePopupCloseBtn {
     display: flex;
     justify-content: flex-end;
   }
 }
 
-.delete-movie-popup {
-  .confirm-message {
+.deleteMoviePopup {
+  .confirmMessage {
     font-size: $big-text;
   }
 
-  .delete-confirm-btn {
+  .deleteConfirmBtn {
     @include btn-skeleton(
                     $big-btn-padding,
                     $light-coral-color,

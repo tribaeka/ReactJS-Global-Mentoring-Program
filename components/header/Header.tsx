@@ -1,13 +1,12 @@
-import React, {useEffect, useMemo} from 'react';
+import React, { useEffect, useMemo } from 'react';
 import ActionBar from './action-bar/ActionBar';
 import SearchInput from './search-input/SearchInput';
 import styles from './Header.module.scss';
-import {BarActions} from "./action-bar/BarActions";
+import { BarActions } from "./action-bar/BarActions";
 import MovieDetails from "./movie-details/MovieDetails";
-import {DEFAULT_BACKGROUND_STYLE_NAME, SHADOWED_BACKGROUND_STYLE_NAME} from "./constants";
-import {openPopup} from "@store/moviePopups/actions";
-import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
-import {updateSearch} from "@store/moviesList/actions";
+import { openPopup } from "@store/moviePopups/actions";
+import { IMoviesItem } from "@components/search-results/movies-list/IMoviesItem";
+import { updateSearch } from "@store/moviesList/actions";
 
 export interface IHeaderProps {
     searchQuery?: string;
@@ -37,10 +36,10 @@ const Header: React.FC<IHeaderProps> = (
             : <SearchInput updateSearch={updateSearch} searchQuery={searchQuery}/>
         }, [movie]);
     const backgroundStyle = useMemo(() =>
-        movie ? SHADOWED_BACKGROUND_STYLE_NAME : DEFAULT_BACKGROUND_STYLE_NAME, [movie]);
+        movie ? styles.pageHeaderBackgroundShadowed : styles.pageHeaderBackground, [movie]);
 
     useEffect(() => window.scrollTo(0, 0), [movie]);
-    console.log(styles);
+
     return (
         <div className={styles.pageHeaderWrapper}>
             <div className={backgroundStyle}/>

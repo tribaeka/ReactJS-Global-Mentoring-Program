@@ -23,7 +23,7 @@ export interface IPageProps {
     updateSearch?: typeof updateSearch;
 }
 
-interface ISearchPageRouter extends NextRouter {
+export interface ISearchPageRouter extends NextRouter {
     query: {
         searchQuery?: string;
     }

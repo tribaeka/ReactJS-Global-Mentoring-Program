@@ -1,19 +1,19 @@
 @import "../../../../scss/colors.global";
 @import "../../../../scss/vars.global";
 
-.image-container {
+.imageContainer {
   position: relative;
 
-  .movies-image {
+  .moviesImage {
     width: $movies-list-item-width;
     height: auto;
   }
 
-  .hidden-mask {
+  .hiddenMask {
     display: none;
   }
 
-  .dot-btn {
+  .dotBtn {
     position: absolute;
     background: transparent;
     width: 45px;
@@ -40,11 +40,11 @@
     }
   }
 
-  .dot-btn-dropdown {
+  .dotBtnDropdown {
     display: none;
   }
 
-  .dot-btn-dropdown {
+  .dotBtnDropdown {
     display: block;
     position: absolute;
     background-color: $dark;
@@ -53,10 +53,10 @@
     z-index: 999;
     margin: 0.5em 1em 0 0;
 
-    .dot-btn-dropdown-list {
+    .dotBtnDropdownList {
       padding-bottom: 0.5em;
 
-      .dot-btn-dropdown-list-item {
+      .dotBtnDropdownListItem {
         padding: 0.5em 2em;
 
         &:hover {
@@ -66,7 +66,7 @@
 
       }
 
-      .dot-btn-dropdown-list-close-item {
+      .dotBtnDropdownListCloseItem {
         display: flex;
         justify-content: flex-end;
         padding: 0 0.5em;
@@ -76,13 +76,13 @@
 }
 
 
-.movie-description {
+.movieDescription {
   margin-top: 1em;
   display: flex;
   justify-content: space-between;
   color: #9f9f9f;
 
-  .movie-description-title {
+  .movieDescriptionTitle {
     font-size: 1.3em;
     cursor: pointer;
     text-decoration: none;
@@ -93,7 +93,7 @@
     }
   }
 
-  .movie-description-year {
+  .movieDescriptionYear {
     border: 1px solid $gray;
     padding: 0.5em;
     border-radius: 4px;
@@ -101,7 +101,7 @@
   }
 }
 
-.movies-sub-description {
+.moviesSubDescription {
   color: $white-gray;
   font-size: 0.9em;
 }

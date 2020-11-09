@@ -1,8 +1,8 @@
 @import "../../../scss/colors.global";
 
-.genre-list {
+.genreList {
 
-  .genre-list-item {
+  .genreListItem {
     display: inline-block;
     margin: 0.2em 1em 0.2em 0;
     cursor: pointer;
@@ -12,8 +12,8 @@
     }
   }
 
-  .active-genre-list-item {
-    @extend .genre-list-item;
+  .activeGenreListItem {
+    @extend .genreListItem;
     color: $light-coral-color;
   }
 }

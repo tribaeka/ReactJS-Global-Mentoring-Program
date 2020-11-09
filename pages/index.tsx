@@ -26,8 +26,6 @@ const IndexPage: React.FC<IInitialPageProps> = (
         updateSortBy,
         updateFilter
     }) => {
-    console.log(styles);
-    console.log(styles.basePage);
     return (
         <Popups>
             <div className={styles.basePage}>

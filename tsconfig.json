@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": false,
     "module": "commonjs",
@@ -13,7 +12,7 @@
         "store/*"
       ],
       "@assets/*": [
-        "assets/*"
+        "public/*"
       ],
       "@components/*": [
         "components/*"

@@ -1,6 +1,5 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import styles from './BackToSearchButton.module.scss';
-import searchIcon from '@assets/search.png';
 import Link from "next/link";
 
 interface BackToSearchButtonProps {
@@ -8,6 +7,7 @@ interface BackToSearchButtonProps {
 }
 
 const BackToSearchButton: React.FC<BackToSearchButtonProps> = ({ lastSearch }) => {
+    const searchIcon = '/images/search.png';
     const backHref = useMemo(() =>
         lastSearch === '' || lastSearch === undefined
             ? '/'

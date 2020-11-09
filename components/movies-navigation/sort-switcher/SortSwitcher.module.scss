@@ -3,15 +3,15 @@
 
 $dropdown-border: 1px solid $dark-gray;
 
-.sort-switcher {
+.sortSwitcher {
   justify-self: flex-end;
   padding: 0.2em 0;
 
-  .sort-switcher-description {
+  .sortSwitcherDescription {
     color: #7B7B7B;
   }
 
-  .sort-switcher-dropdown {
+  .sortSwitcherDropdown {
     position: relative;
     display: inline-block;
 
@@ -29,23 +29,23 @@ $dropdown-border: 1px solid $dark-gray;
       @include arrow-toggler($light-coral-color, 0.2em, false);
     }
 
-    .sort-switcher-active-option {
+    .sortSwitcherActiveOption {
       padding: 0.5em 2em;
       cursor: pointer;
     }
 
-    .sort-switcher-active-option {
+    .sortSwitcherActiveOption {
       display: inline-block;
       width: 7em;
     }
 
-    .sort-switcher-dropdown-content {
+    .sortSwitcherDropdownContent {
       display: none;
       position: absolute;
       background-color: $dark;
       min-width: 8em;
 
-      .sort-switcher-option {
+      .sortSwitcherOption {
         font-size: 0.8em;
         cursor: pointer;
         margin-left: 2em;
@@ -58,7 +58,7 @@ $dropdown-border: 1px solid $dark-gray;
     }
   }
 
-  .sort-switcher-dropdown:hover .sort-switcher-dropdown-content {
+  .sortSwitcherDropdown:hover .sortSwitcherDropdownContent {
     display: block;
   }
 }

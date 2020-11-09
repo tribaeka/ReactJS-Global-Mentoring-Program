@@ -1,7 +1,7 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 import styles from './SortSwitcher.module.scss';
-import {getDisplayValue, SortOptions} from "./SortOptions";
-import {updateSortBy} from "@store/moviesList/actions";
+import { getDisplayValue, SortOptions } from "./SortOptions";
+import { updateSortBy } from "@store/moviesList/actions";
 
 interface ISortSwitcherProps {
     activeSortByOption: string;

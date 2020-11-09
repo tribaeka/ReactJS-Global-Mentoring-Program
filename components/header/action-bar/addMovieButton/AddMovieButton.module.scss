@@ -2,7 +2,7 @@
 @import "../../../../scss/vars.global";
 @import "../../../../scss/mixins.global";
 
-.add-movie-btn {
+.addMovieBtn {
   @include btn-skeleton(
                   $big-btn-padding,
                   $light-coral-color,

@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ResultsCounter from './results-counter/ResultsCounter';
 import MoviesList from './movies-list/MoviesList';
 import { IMoviesItem } from './movies-list/IMoviesItem';
-import {openPopup} from "@store/moviePopups/actions";
+import { openPopup } from "@store/moviePopups/actions";
 import { getMoviesList, updateSearch } from "@store/moviesList/actions";
-import {useParams} from "react-router";
+import { useRouter } from "next/router";
+import { ISearchPageRouter } from "../../pages/search/[searchQuery]";
 
 export interface ISearchResultsProps {
     movies: IMoviesItem[];
@@ -26,12 +27,11 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         openPopup,
         updateSearch
     }) => {
-    const { search } = useParams();
+    const router: ISearchPageRouter = useRouter();
     useEffect(() => {
-        updateSearch(search);
-        getMoviesList(search)
+        updateSearch(router.query.searchQuery);
+        getMoviesList(router.query.searchQuery)
     }, [sortBy, filter]);
-    console.log(movies);
     // todo think about replace div on <>
     return (
       <div>

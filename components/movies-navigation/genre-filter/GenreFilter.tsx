@@ -1,7 +1,7 @@
-import React, {useCallback, useMemo} from 'react';
+import React, { useCallback, useMemo } from 'react';
 import styles from './GenreFilter.module.scss';
-import {FilterOptions} from "./FilterOptions";
-import {updateFilter} from "@store/moviesList/actions";
+import { FilterOptions } from "./FilterOptions";
+import { updateFilter } from "@store/moviesList/actions";
 
 interface IGenreFilterProps {
     activeFilterOption: string;

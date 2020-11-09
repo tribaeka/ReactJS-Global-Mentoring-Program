@@ -2,7 +2,7 @@ import React from 'react';
 import GenreFilter from './genre-filter/GenreFilter';
 import SortSwitcher from './sort-switcher/SortSwitcher';
 import styles from './MoviesNavigation.module.scss';
-import {updateFilter, updateSortBy} from "@store/moviesList/actions";
+import { updateFilter, updateSortBy } from "@store/moviesList/actions";
 
 export interface IMovieNavigationProps {
     activeFilterOption: string;
@@ -19,7 +19,6 @@ const MoviesNavigation: React.FC<IMovieNavigationProps> = (
         updateSortBy
     }
 ) => {
-    console.log(activeFilterOption);
     return (
         <div className={styles.moviesNavigationContainer}>
             <GenreFilter activeFilterOption={activeFilterOption} updateFilter={updateFilter}/>

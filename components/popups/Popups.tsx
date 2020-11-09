@@ -1,14 +1,14 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import styles from './Popups.module.scss';
-import {RootState} from "../../store";
-import {compose} from "redux";
-import {connect} from "react-redux";
-import {IMoviePopupsState} from "@store/moviePopups/reducer";
-import {MOVIE_POPUPS_MAP} from "@store/moviePopups/types";
+import { RootState } from "../../store";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { IMoviePopupsState } from "@store/moviePopups/reducer";
+import { MOVIE_POPUPS_MAP } from "@store/moviePopups/types";
 import AddMoviePopup from "./movie-popup/add-movie-popup/AddMoviePopup";
 import EditMoviePopup from "./movie-popup/edit-movie-popup/EditMoviePopup";
 import DeleteMoviePopup from "./movie-popup/delete-movie-popup/DeleteMoviePopup";
-import {getPopupMovie, getPopupName, getPopupTitle, isPopupOpened} from "../../selectors";
+import { getPopupMovie, getPopupName, getPopupTitle, isPopupOpened } from "../../selectors";
 
 interface PopupProps {
     isPopupOpened: IMoviePopupsState["isPopupOpened"];

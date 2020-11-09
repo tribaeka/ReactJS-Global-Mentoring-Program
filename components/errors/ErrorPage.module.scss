@@ -1,16 +1,16 @@
-@import "../../../scss/colors";
+@import "../../scss/colors.global";
 
-.error-page {
+.errorPage {
   background: $dark;
   height: inherit;
   display: grid;
   grid-template-rows: 1fr 18fr 1fr;
 
-  .brand-wrapper {
+  .brandWrapper {
     padding: 0 2em;
   }
 
-  .error-message {
+  .errorMessage {
     align-self: center;
     justify-self: center;
     font-size: 4em;
@@ -20,24 +20,24 @@
     padding: 1em 2em;
   }
 
-  .error-container {
+  .errorContainer {
     display: grid;
     justify-content: center;
     align-items: center;
     margin: 1em 0;
 
-    .error-sub-message {
+    .errorSubMessage {
       font-size: 3em;
     }
 
-    .back-to-home-link {
+    .backToHomeLink {
       color: $light-coral-color;
       border: 1px solid $light-coral-color;
       border-radius: 4px;
       padding: 1em;
       text-decoration: none;
     }
-    .error-sub-message, .back-to-home-link {
+    .errorSubMessage, .backToHomeLink {
       text-align: center;
     }
   }

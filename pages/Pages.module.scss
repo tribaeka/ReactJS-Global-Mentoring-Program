@@ -1,11 +1,11 @@
 @import "../scss/vars.global";
 @import "../scss/colors.global";
 
-.base-page {
+.basePage {
   display: grid;
   grid-template-rows: 60vh auto 60px;
 
-  .main-container {
+  .mainContainer {
     background: $dark;
     margin-top: 1em;
     padding: 1em $inner-horizontal-padding-margin 2em $inner-horizontal-padding-margin;

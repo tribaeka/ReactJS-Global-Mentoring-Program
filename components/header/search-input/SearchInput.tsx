@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import styles from './SearchInput.module.scss';
 import { updateSearch } from "@store/moviesList/actions";
 import Link from "next/link";
@@ -18,7 +18,7 @@ const SearchInput: React.FC<ISearchInputProps> = ({ searchQuery, updateSearch })
         <div className={styles.searchInputContainer}>
             <span className={styles.searchHeading}>FIND YOUR MOVIE</span>
             <div className={styles.searchForm}>
-                <input className={styles.searchForm}
+                <input className={styles.searchInput}
                        value={searchInputQuery}
                        onChange={searchChangeHandler}
                        type="text"

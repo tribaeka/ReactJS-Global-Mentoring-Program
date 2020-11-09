@@ -1,6 +1,5 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from './MovieDetails.module.scss';
-import defaultMovieImage from '@assets/default-movie.png'
 import Utils from "@components/Utils";
 
 interface MovieDetailsProps {
@@ -23,6 +22,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = (
         genres,
         voteAverage
     }) => {
+    const defaultMovieImage = '/images/default-movie.png';
     const getValidPosterPath = () => posterPath ? posterPath : defaultMovieImage;
     const [imageSource, setImageSource] = useState(getValidPosterPath());
     const imageLoadErrorHandler = useCallback(() => setImageSource(defaultMovieImage), []);

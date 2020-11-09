@@ -14,6 +14,7 @@ export default function* rootSaga() {
 
 
 function* getMoviesListWorker(action: IRequestGetMoviesListAction): SagaIterator {
+    console.log(process.env);
     const state: RootState = yield select();
     const outputPayload = yield call(fetchMovies, state, action.payload.search);
     yield put({type: GET_MOVIES_LIST, payload: outputPayload})
