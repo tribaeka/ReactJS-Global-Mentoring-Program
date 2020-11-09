@@ -11,6 +11,7 @@ import EmptyList from "@components/empty-list/emptyList";
 import { RootState } from "@store/index";
 import { getFilter, getSortBy } from "@selectors/moviesList";
 import styles from './Pages.module.scss';
+import PageLayout from "@components/pageLayout/PageLayout";
 
 interface IInitialPageProps {
     moviesNavigationProps: IMovieNavigationProps;
@@ -27,19 +28,21 @@ const IndexPage: React.FC<IInitialPageProps> = (
         updateFilter
     }) => {
     return (
-        <Popups>
-            <div className={styles.basePage}>
-                <Header openPopup={openPopup}/>
-                <div className={styles.mainContainer}>
-                    <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
-                                      activeSortByOption={moviesNavigationProps.activeSortByOption}
-                                      updateFilter={updateFilter}
-                                      updateSortBy={updateSortBy}/>
-                    <EmptyList/>
+        <PageLayout title={'Home'}>
+            <Popups>
+                <div className={styles.basePage}>
+                    <Header openPopup={openPopup}/>
+                    <div className={styles.mainContainer}>
+                        <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
+                                          activeSortByOption={moviesNavigationProps.activeSortByOption}
+                                          updateFilter={updateFilter}
+                                          updateSortBy={updateSortBy}/>
+                        <EmptyList/>
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </div>
-        </Popups>
+            </Popups>
+        </PageLayout>
     );
 };
 const mapStateToProps = (state: RootState): IInitialPageProps => {

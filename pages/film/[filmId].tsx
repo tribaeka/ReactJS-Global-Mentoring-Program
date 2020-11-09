@@ -11,6 +11,7 @@ import { defaultPageMapDispatchToProps, defaultPageMapStateToProps } from "../co
 import { IPageProps } from "../search/[searchQuery]";
 import { NextRouter, useRouter } from "next/router";
 import styles from '../Pages.module.scss';
+import PageLayout from "@components/pageLayout/PageLayout";
 
 interface IFilmPageRouter extends NextRouter {
     query: {
@@ -35,27 +36,29 @@ const FilmPage: React.FC<IPageProps> = (
         [searchResultsProps.movies, router.query.filmId]
     );
     return (
-        <Popups>
-            <div className={styles.basePage}>
-                <Header storedSearch={headerProps.storedSearch}
-                        movie={activeFilm}
-                        openPopup={openPopup}/>
-                <div className={styles.mainContainer}>
-                    <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
-                                      activeSortByOption={moviesNavigationProps.activeSortByOption}
-                                      updateFilter={updateFilter}
-                                      updateSortBy={updateSortBy}/>
-                    <SearchResults movies={[...searchResultsProps.movies]}
-                                   filter={searchResultsProps.filter}
-                                   sortBy={searchResultsProps.sortBy}
-                                   totalAmount={searchResultsProps.totalAmount}
-                                   getMoviesList={getMoviesList}
-                                   openPopup={openPopup}
-                                   updateSearch={updateSearch}/>
+        <PageLayout title={'Film page'}>
+            <Popups>
+                <div className={styles.basePage}>
+                    <Header storedSearch={headerProps.storedSearch}
+                            movie={activeFilm}
+                            openPopup={openPopup}/>
+                    <div className={styles.mainContainer}>
+                        <MoviesNavigation activeFilterOption={moviesNavigationProps.activeFilterOption}
+                                          activeSortByOption={moviesNavigationProps.activeSortByOption}
+                                          updateFilter={updateFilter}
+                                          updateSortBy={updateSortBy}/>
+                        <SearchResults movies={[...searchResultsProps.movies]}
+                                       filter={searchResultsProps.filter}
+                                       sortBy={searchResultsProps.sortBy}
+                                       totalAmount={searchResultsProps.totalAmount}
+                                       getMoviesList={getMoviesList}
+                                       openPopup={openPopup}
+                                       updateSearch={updateSearch}/>
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </div>
-        </Popups>
+            </Popups>
+        </PageLayout>
     );
 };
 

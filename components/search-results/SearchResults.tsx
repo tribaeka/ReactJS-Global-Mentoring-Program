@@ -32,12 +32,11 @@ const SearchResults: React.FC<ISearchResultsProps> = (
         updateSearch(router.query.searchQuery);
         getMoviesList(router.query.searchQuery)
     }, [sortBy, filter]);
-    // todo think about replace div on <>
     return (
-      <div>
+      <>
           <ResultsCounter moviesFound={totalAmount}/>
           <MoviesList movies={movies} openPopup={openPopup}/>
-      </div>
+      </>
     );
 };
 
