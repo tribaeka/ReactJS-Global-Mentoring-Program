@@ -1,13 +1,10 @@
 module.exports = {
-    "roots": [
-        "<rootDir>/src"
-    ],
     "moduleNameMapper": {
         "\\.(css|scss)$": "identity-obj-proxy",
-        "@store/(.*)": "<rootDir>/src/store/$1",
-        "@assets/(.*)": "<rootDir>/src/assets/$1",
-        "@components/(.*)": "<rootDir>/src/components/$1",
-        "@selectors/(.*)": "<rootDir>/src/selectors/$1"
+        "@store/(.*)": "<rootDir>/store/$1",
+        "@assets/(.*)": "<rootDir>/assets/$1",
+        "@components/(.*)": "<rootDir>/components/$1",
+        "@selectors/(.*)": "<rootDir>/selectors/$1"
     },
     "globals": {
       "ts-jest": {
@@ -30,5 +27,5 @@ module.exports = {
         "scss"
     ],
     "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFilesAfterEnv": ["<rootDir>/src/setupEnzyme.ts"],
+    "setupFilesAfterEnv": ["<rootDir>/setupEnzyme.ts"],
 }

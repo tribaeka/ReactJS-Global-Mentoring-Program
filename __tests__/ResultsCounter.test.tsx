@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ResultsCounter from "../components/search-results/results-counter/ResultsCounter";
+import ResultsCounter from "@components/search-results/results-counter/ResultsCounter";
 
 test('ResultCounter renders with properly value', () => {
     const inputValue = 42;
