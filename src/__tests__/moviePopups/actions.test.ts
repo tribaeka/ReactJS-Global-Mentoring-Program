@@ -7,20 +7,26 @@ import {
 } from "../../store/moviePopups/types";
 import { MOVIES_ITEM_MOCK, MOVIES_SERVICE_ITEM_MOCK } from "../../entities/moviesItem";
 
-test('should create action to open popup', () => {
+test('should create action to open add movie popup', () => {
     const addMoviePopupName = 'ADD MOVIE';
-    const editMoviePopupName = 'EDIT MOVIE';
     const expectedAddMoviePopupAction = {
         type: OPEN_MOVIE_POPUP,
         payload: { name: MOVIE_POPUPS_MAP.ADD, title: addMoviePopupName }
     };
+
+    expect(openPopup(MOVIE_POPUPS_MAP.ADD, addMoviePopupName)).toEqual(expectedAddMoviePopupAction);
+});
+
+test('should create action to open edit movie popup', () => {
+    const editMoviePopupName = 'EDIT MOVIE';
     const expectedEditMoviePopupAction = {
         type: OPEN_MOVIE_POPUP,
         payload: { name: MOVIE_POPUPS_MAP.EDIT, title: editMoviePopupName, movie: MOVIES_ITEM_MOCK }
     };
-    expect(openPopup(MOVIE_POPUPS_MAP.ADD, addMoviePopupName)).toEqual(expectedAddMoviePopupAction);
+
     expect(openPopup(MOVIE_POPUPS_MAP.EDIT, editMoviePopupName, MOVIES_ITEM_MOCK)).toEqual(expectedEditMoviePopupAction);
 });
+
 
 test('should create action to close popup', () =>
     expect(closePopup()).toEqual({ type: CLOSE_MOVIE_POPUP }));

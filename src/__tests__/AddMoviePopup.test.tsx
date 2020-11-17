@@ -31,7 +31,4 @@ describe('it should test Add movie modal dialog', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('should movie form component', () => {
-        expect(component.find('MovieForm')).toBeDefined();
-    });
 });
