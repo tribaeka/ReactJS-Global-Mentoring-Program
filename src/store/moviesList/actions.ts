@@ -6,8 +6,11 @@ import {
     UPDATE_SORT_BY_QUERY
 } from "./types";
 
-export const getMoviesList = (): MoviesListActionTypes => ({
-    type: REQUEST_GET_MOVIES_LIST
+export const getMoviesList = (search: string): MoviesListActionTypes => ({
+    type: REQUEST_GET_MOVIES_LIST,
+    payload: {
+        search: search
+    }
 });
 
 export const updateSortBy = (sortBy: string): MoviesListActionTypes => ({

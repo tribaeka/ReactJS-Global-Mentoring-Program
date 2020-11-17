@@ -107,7 +107,8 @@ module.exports = {
         contentBase: path.resolve(__dirname, './index.html'),
         hot: isDev,
         port: 3000,
-        publicPath: '/'
+        publicPath: '/',
+        historyApiFallback: true
     },
     devtool: isDev ? 'source-map' : ''
 }

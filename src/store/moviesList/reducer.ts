@@ -1,4 +1,4 @@
-import {IMoviesItem} from "../../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 import {
     GET_MOVIES_LIST,
     MoviesListActionTypes,
@@ -6,8 +6,8 @@ import {
     UPDATE_SEARCH_QUERY,
     UPDATE_SORT_BY_QUERY
 } from "./types";
-import {SortOptions} from "../../components/home/main/movies-navigation/sort-switcher/SortOptions";
-import {FilterOptions} from "../../components/home/main/movies-navigation/genreFilter/FilterOptions";
+import {SortOptions} from "@components/movies-navigation/sort-switcher/SortOptions";
+import {FilterOptions} from "@components/movies-navigation/genre-filter/FilterOptions";
 import Utils from "../../components/Utils";
 
 export interface IMoviesListState {

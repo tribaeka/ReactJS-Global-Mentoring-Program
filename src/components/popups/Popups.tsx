@@ -5,9 +5,9 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {IMoviePopupsState} from "../../store/moviePopups/reducer";
 import {MOVIE_POPUPS_MAP} from "../../store/moviePopups/types";
-import AddMoviePopup from "./moviePopup/addMoviePopup/AddMoviePopup";
-import EditMoviePopup from "./moviePopup/editMoviePopup/EditMoviePopup";
-import DeleteMoviePopup from "./moviePopup/deleteMoviePopup/DeleteMoviePopup";
+import AddMoviePopup from "./movie-popup/add-movie-popup/AddMoviePopup";
+import EditMoviePopup from "./movie-popup/edit-movie-popup/EditMoviePopup";
+import DeleteMoviePopup from "./movie-popup/delete-movie-popup/DeleteMoviePopup";
 import {getPopupMovie, getPopupName, getPopupTitle, isPopupOpened} from "../../selectors";
 
 interface PopupProps {
@@ -37,16 +37,15 @@ const Popups: React.FC<PopupProps> = (
                 return;
         }
     }, [isPopupOpened]);
-    const wrappedPage = useMemo(() => {
-        if (isPopupOpened) {
-            return <><div className="popup-background-blurred wrapper">{children}</div>{activePopup}</>;
-        }
-        return <div className="wrapper">{children}</div>;
-    }, [isPopupOpened]);
 
     return (
         <>
-            {wrappedPage}
+            {
+                isPopupOpened
+                    ? <><div className="popup-background-blurred wrapper">{children}</div>{activePopup}</>
+                    : <div className="wrapper">{children}</div>
+
+            }
         </>
     );
 };

@@ -1,10 +1,10 @@
 import {takeEvery, put, call, select} from 'redux-saga/effects'
-import {GET_MOVIES_LIST, REQUEST_GET_MOVIES_LIST} from "./moviesList/types";
+import {GET_MOVIES_LIST, IRequestGetMoviesListAction, REQUEST_GET_MOVIES_LIST} from "./moviesList/types";
 import {RootState} from "./index";
 import {SagaIterator} from "@redux-saga/types";
-import {getFilter, getLimit, getSearch, getSortBy} from "../selectors";
+import {getFilter, getLimit, getSortBy} from "../selectors";
 import {IRequestCreateMovieAction, REQUEST_CREATE_MOVIE, REQUEST_UPDATE_MOVIE} from "./moviePopups/types";
-import {IMoviesServerItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export default function* rootSaga() {
     yield takeEvery(REQUEST_GET_MOVIES_LIST, getMoviesListWorker);
@@ -13,9 +13,9 @@ export default function* rootSaga() {
 }
 
 
-function* getMoviesListWorker(): SagaIterator {
+function* getMoviesListWorker(action: IRequestGetMoviesListAction): SagaIterator {
     const state: RootState = yield select();
-    const outputPayload = yield call(fetchMovies, state);
+    const outputPayload = yield call(fetchMovies, state, action.payload.search);
     yield put({type: GET_MOVIES_LIST, payload: outputPayload})
 }
 
@@ -23,10 +23,10 @@ function* singleMovieWorker(action: IRequestCreateMovieAction): SagaIterator {
     sendMovieRequest(action.payload.method, action.payload.movie);
 }
 
-async function fetchMovies(state: RootState) {
+async function fetchMovies(state: RootState, search: string) {
     const filter = getFilter(state);
     const response = await fetch(`${process.env.API_URL}`
-        +`?${process.env.API_SEARCH_ATTR_NAME}=${getSearch(state)}`
+        +`?${process.env.API_SEARCH_ATTR_NAME}=${search}`
         +`&${process.env.API_LIMIT_ATTR_NAME}=${getLimit(state)}`
         +`&${process.env.API_SORT_BY_ATTR_NAME}=${getSortBy(state)}`
         +`&${process.env.API_SORT_ORDER_ATTR_NAME}=${process.env.API_SORT_ORDER_DEFAULT_VALUE}`

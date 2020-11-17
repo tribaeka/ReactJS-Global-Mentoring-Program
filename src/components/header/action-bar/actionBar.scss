@@ -1,0 +1,11 @@
+@import "../../../scss/colors";
+@import "../../../scss/globalVars";
+@import "../../../scss/mixinsAndFunctions";
+
+.action-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+

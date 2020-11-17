@@ -1,7 +1,7 @@
-import {RootState} from "../store";
-import {IMoviesListState} from "../store/moviesList/reducer";
+import {RootState} from "@store/index";
+import {IMoviesListState} from "@store/moviesList/reducer";
 import {createSelector} from "reselect";
-import {IMoviesItem} from "../components/home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem} from "@components/search-results/movies-list/IMoviesItem";
 
 export const baseMoviesState = (state: RootState): IMoviesListState => state.moviesList;
 export const getMovies = createSelector<any, any, IMoviesItem[]>(
@@ -16,10 +16,6 @@ export const getFilter = createSelector<any, any, string>(
     [baseMoviesState],
     (state: IMoviesListState) => state.filter
 );
-export const getSearch = createSelector<any, any, string>(
-    [baseMoviesState],
-    (state: IMoviesListState) => state.search
-);
 export const getTotalAmount = createSelector<any, any, number>(
     [baseMoviesState],
     (state: IMoviesListState) => state.totalAmount
@@ -27,4 +23,8 @@ export const getTotalAmount = createSelector<any, any, number>(
 export const getLimit = createSelector<any, any, number>(
     [baseMoviesState],
     (state: IMoviesListState) => state.limit
+);
+export const getSearch = createSelector<any, any, string>(
+    [baseMoviesState],
+    (state: IMoviesListState) => state.search
 );

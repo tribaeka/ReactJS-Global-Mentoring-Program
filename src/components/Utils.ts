@@ -1,4 +1,4 @@
-import {IMoviesItem, IMoviesServerItem} from "./home/main/search-results/movies-list/IMoviesItem";
+import {IMoviesItem, IMoviesServerItem} from "@components/search-results/movies-list/IMoviesItem";
 import {camelCase, mapKeys, snakeCase} from 'lodash';
 
 export default class Utils {
@@ -27,5 +27,9 @@ export default class Utils {
             runtime: Number(movie.runtime),
             genres: Utils.genresToArray(movie.genres)
         }
+    }
+
+    static getMovieById(movies: IMoviesItem[], id: string): IMoviesItem {
+        return movies.find(item => item.id.toString() === id);
     }
 }
